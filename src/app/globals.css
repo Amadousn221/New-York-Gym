@@ -25,6 +25,7 @@
   --color-gray-dark: rgb(75, 75, 76);
   --color-gray-medium: rgb(112, 112, 112);
   --color-border-light: rgb(229, 231, 235);
+  --color-accent-purple: rgb(86, 20, 150);
 
   /* shadcn token overrides mapped to PF palette */
   --color-background: rgb(255, 255, 255);
@@ -120,6 +121,54 @@
 }
 @utility clip-path-bottom-right-75 {
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+}
+
+/* Hero clip-path: right side at 50%, left side at 75% — diagonal cut at bottom */
+@utility clip-path-hero-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 75%);
+}
+
+/* Purple background with left yellow glare + grainy texture (gym-memberships hero) */
+@utility bg-purpleYellowLeftGlare {
+  background:
+    url("/images/grainy-background.png"),
+    radial-gradient(37.5% 153.39% at 101.25% 68.05%, rgba(163, 172, 255, 0.5) 0%, rgba(119, 37, 172, 0) 100%),
+    radial-gradient(60% 70% at 0% 100%, rgba(215, 173, 86, 0.5) 0%, rgba(130, 24, 165, 0) 80%),
+    linear-gradient(160deg, rgb(86, 20, 150) 0%, rgb(52, 0, 89) 100%);
+  background-color: rgb(86, 20, 150);
+}
+
+/* Violet + sand glares for spa banner */
+@utility bg-purpleVioletLefSandRightGlare {
+  background:
+    url("/images/grainy-background.png"),
+    radial-gradient(50% 100% at 0% 50%, rgba(215, 173, 86, 0.4) 0%, rgba(130, 24, 165, 0) 80%),
+    radial-gradient(50% 100% at 100% 50%, rgba(163, 172, 255, 0.4) 0%, rgba(86, 20, 150, 0) 80%),
+    linear-gradient(160deg, rgb(86, 20, 150) 0%, rgb(52, 0, 89) 100%);
+  background-color: rgb(86, 20, 150);
+}
+
+/* Light purple background (comparison section) */
+@utility bg-surface-lightPurple {
+  background-color: rgb(231, 223, 247);
+}
+
+/* Light purple with white glare (Planet Fitness Today section) */
+@utility bg-lightPurpleWhiteGlare {
+  background:
+    url("/images/grainy-background.png"),
+    radial-gradient(101.01% 61.86% at -1.68% 2.82%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%),
+    radial-gradient(95.46% 50.87% at 95.59% 101.92%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%),
+    radial-gradient(59.84% 106.36% at 106.37% -28.25%, rgba(94, 41, 205, 0.6) 0%, rgba(255, 255, 255, 0) 100%);
+  background-color: rgb(231, 223, 247);
+}
+
+/* Classic section header banner */
+@utility bg-grainyPfClassic {
+  background:
+    url("/images/grainy-background.png"),
+    linear-gradient(160deg, rgb(86, 20, 150) 0%, rgb(52, 0, 89) 100%);
+  background-color: rgb(86, 20, 150);
 }
 
 /* Hide scrollbar */
