@@ -3,20 +3,53 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const navLinks = [
+type DropdownItem = { label: string; href: string };
+type NavItem =
+  | { label: string; href: string; external?: boolean; dropdown?: never }
+  | { label: string; dropdown: DropdownItem[]; href?: never; external?: never };
+
+const navItems: NavItem[] = [
   { label: "Memberships", href: "/gym-memberships" },
-  { label: "Why PF", href: "/about-planet-fitness/why-planet-fitness" },
+  {
+    label: "Why PF",
+    dropdown: [
+      { label: "Why Planet Fitness", href: "/about-planet-fitness/why-planet-fitness" },
+      { label: "About Planet Fitness", href: "/about-planet-fitness" },
+      { label: "PF Purpose", href: "/pf-purpose" },
+    ],
+  },
+  {
+    label: "Work Out With Us",
+    dropdown: [
+      { label: "Our Clubs", href: "/our-clubs" },
+      { label: "PF App", href: "/mobileapp" },
+      { label: "Blog", href: "/blog" },
+    ],
+  },
+  { label: "PF Store", href: "https://shop.planetfitness.com/", external: true },
+];
+
+/* All links flattened for mobile flyout */
+const mobileLinks = [
+  { label: "Memberships", href: "/gym-memberships" },
+  { label: "Why Planet Fitness", href: "/about-planet-fitness/why-planet-fitness" },
   { label: "About Planet Fitness", href: "/about-planet-fitness" },
+  { label: "PF Purpose", href: "/pf-purpose" },
+  { label: "Our Clubs", href: "/our-clubs" },
+  { label: "PF App", href: "/mobileapp" },
+  { label: "Blog", href: "/blog" },
   { label: "PF Store", href: "https://shop.planetfitness.com/", external: true },
 ];
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white h-16 header-lg:h-20 flex items-center px-6 header-lg:px-8">
+      <header className="sticky top-0 z-50 bg-white h-16 header-lg:h-20 flex items-center px-6 header-lg:px-8 border-b border-border">
         <div className="flex w-full items-center justify-between">
+
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <div className="header-lg:mt-[-2rem]">
@@ -29,35 +62,75 @@ export function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden header-lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="flex items-center gap-1 h-14 px-4 text-base text-common-black hover:bg-surface-gray hover:text-primary-main"
-                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              >
-                {link.label}
-                {link.external && (
-                  <img src="/images/icons/ExternalLink.svg" alt="" className="w-4 h-4" />
-                )}
-              </Link>
-            ))}
+          <nav className="hidden header-lg:flex items-center gap-0">
+            {navItems.map((item) => {
+              if (item.dropdown) {
+                const isOpen = openDropdown === item.label;
+                return (
+                  <div
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() => setOpenDropdown(item.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <button
+                      className={`flex items-center gap-1.5 h-14 px-4 text-base font-medium transition-colors ${
+                        isOpen
+                          ? "text-primary-main bg-surface-gray"
+                          : "text-common-black hover:bg-surface-gray hover:text-primary-main"
+                      }`}
+                    >
+                      {item.label}
+                      <ChevronIcon open={isOpen} />
+                    </button>
+
+                    {isOpen && (
+                      <div className="absolute top-full left-0 min-w-[220px] bg-white border border-border shadow-md z-50" style={{ borderRadius: "0 0 8px 8px" }}>
+                        {item.dropdown.map((sub) => (
+                          <Link
+                            key={sub.href}
+                            href={sub.href}
+                            className="block px-6 py-4 text-base text-common-black hover:text-primary-main transition-colors border-b border-border last:border-0"
+                            onClick={() => setOpenDropdown(null)}
+                          >
+                            {sub.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="flex items-center gap-1 h-14 px-4 text-base font-medium text-common-black hover:bg-surface-gray hover:text-primary-main transition-colors"
+                  {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                >
+                  {item.label}
+                  {item.external && (
+                    <img src="/images/icons/ExternalLink.svg" alt="" className="w-4 h-4" />
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Right actions */}
-          <div className="flex items-center gap-2">
-            {/* Region selector - desktop only */}
-            <button className="hidden header-lg:flex items-center gap-1 px-4 h-14 text-base text-common-black hover:bg-surface-gray">
+          <div className="flex items-center gap-1">
+            {/* Region selector */}
+            <button className="hidden header-lg:flex items-center gap-1.5 px-4 h-14 text-base text-common-black hover:bg-surface-gray transition-colors">
               <img src="/images/flags/us.svg" alt="US" className="w-5 h-5" />
-              <span>US (English)</span>
-              <img src="/images/icons/Chevron.svg" alt="" className="w-4 h-4 rotate-90" />
+              <span>English</span>
+              <ChevronIcon open={false} />
             </button>
 
-            {/* My Account - desktop only */}
+            {/* My Account */}
             <Link
               href="/login"
-              className="hidden header-lg:flex items-center gap-2 px-4 h-14 text-lg text-common-black hover:bg-surface-gray hover:text-primary-main"
+              className="hidden header-lg:flex items-center gap-2 px-4 h-14 text-base text-common-black hover:bg-surface-gray hover:text-primary-main transition-colors"
             >
               <img src="/images/icons/SignIn.svg" alt="" className="w-6 h-6" />
               <span>My Account</span>
@@ -66,14 +139,14 @@ export function Header() {
             {/* Join Now */}
             <Link
               href="/gyms"
-              className="bg-primary-main text-white rounded-full px-6 h-12 header-lg:h-14 flex items-center font-bold text-lg"
+              className="bg-primary-main text-white rounded-full px-6 h-12 header-lg:h-14 flex items-center font-bold text-lg ml-2"
             >
               Join Now
             </Link>
 
-            {/* Hamburger - mobile only */}
+            {/* Hamburger */}
             <button
-              className="header-lg:hidden ml-2 flex items-center justify-center"
+              className="header-lg:hidden ml-2 flex items-center justify-center p-2"
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
             >
@@ -85,8 +158,8 @@ export function Header() {
 
       {/* Mobile flyout */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[60] bg-white flex flex-col">
-          <div className="flex items-center justify-between px-6 h-16 border-b border-border">
+        <div className="fixed inset-0 z-[60] bg-white flex flex-col overflow-y-auto">
+          <div className="flex items-center justify-between px-6 h-16 border-b border-border flex-shrink-0">
             <Link href="/" onClick={() => setMenuOpen(false)}>
               <img src="/images/icons/Logo-Primary.svg" alt="Planet Fitness" className="h-12 w-10" />
             </Link>
@@ -94,13 +167,15 @@ export function Header() {
               <img src="/images/icons/CloseFlyoutMenu.svg" alt="" className="w-8 h-8" />
             </button>
           </div>
-          <nav className="flex flex-col px-6 py-4">
-            {navLinks.map((link) => (
+
+          <nav className="flex flex-col px-6 py-2">
+            {mobileLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className="text-lg text-common-black py-4 border-b border-border flex items-center gap-2"
                 onClick={() => setMenuOpen(false)}
+                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               >
                 {link.label}
                 {link.external && (
@@ -117,7 +192,8 @@ export function Header() {
               My Account
             </Link>
           </nav>
-          <div className="px-6 mt-4">
+
+          <div className="px-6 mt-4 pb-8">
             <Link
               href="/gyms"
               className="bg-primary-main text-white rounded-full px-8 py-4 font-bold text-lg w-full flex items-center justify-center"
@@ -129,5 +205,19 @@ export function Header() {
         </div>
       )}
     </>
+  );
+}
+
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+    >
+      <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
