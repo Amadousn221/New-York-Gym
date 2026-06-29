@@ -1,20 +1,31 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const barlow = Barlow({
   subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-barlow",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
+  weight: ["800"],
+  variable: "--font-barlow-condensed",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Website Clone",
-  description: "Pixel-perfect website clone",
+  title: "Planet Fitness | A Gym and Fitness Club for Everyone",
+  description:
+    "Planet Fitness clubs offer tons of equipment, free training, a clean and welcoming gym, and affordable memberships starting at $15 a month. Learn more!",
+  icons: {
+    icon: [
+      { url: "/seo/favicon-16.png", sizes: "16x16" },
+      { url: "/seo/favicon-32.png", sizes: "32x32" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -25,9 +36,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${barlow.variable} ${barlowCondensed.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="h-full bg-white">{children}</body>
     </html>
   );
 }
