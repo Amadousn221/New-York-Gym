@@ -19,7 +19,7 @@ interface PromoCarouselProps {
   autoPlayInterval?: number;
 }
 
-const SLIDE_VW = 78;
+const SLIDE_VW = 80;
 const DRAG_THRESHOLD = 50;
 
 export function PromoCarousel({ slides, initialIndex = 0, autoPlayInterval = 5000 }: PromoCarouselProps) {
@@ -99,7 +99,7 @@ export function PromoCarousel({ slides, initialIndex = 0, autoPlayInterval = 500
             {/* Square image — LEFT */}
             <div
               className="flex-shrink-0 aspect-square rounded-3xl shadow-[0_0_0_5px_rgb(86,20,150)]"
-              style={{ width: "44%" }}
+              style={{ width: "48%" }}
             >
               <div className="w-full h-full rounded-3xl overflow-hidden">
                 <img

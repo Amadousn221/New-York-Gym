@@ -11,35 +11,30 @@ export function Header() {
   const [langOpen, setLangOpen] = useState(false);
 
   const navItems = [
-    { label: t.nav.memberships, href: "/gym-memberships" },
+    { label: "Adhésions", href: "/gym-memberships" },
+    { label: "Clubs", href: "/our-clubs" },
+    { label: "Cours collectifs", href: "/cours-collectifs" },
     {
-      label: t.nav.whyPF,
+      label: "Entraînement",
       dropdown: [
-        { label: t.nav.whyPlanetFitness, href: "/about-planet-fitness/why-planet-fitness" },
-        { label: t.nav.aboutPlanetFitness, href: "/about-planet-fitness" },
-        { label: t.nav.pfPurpose, href: "/pf-purpose" },
+        { label: "Programmes d'entraînement", href: "/training-programs" },
+        { label: "À la demande", href: "/training-programs/a-la-demande" },
+        { label: "Performance", href: "/training-programs/performance" },
       ],
     },
-    {
-      label: t.nav.workOutWithUs,
-      dropdown: [
-        { label: t.nav.ourClubs, href: "/our-clubs" },
-        { label: t.nav.pfApp, href: "/mobileapp" },
-        { label: t.nav.blog, href: "/blog" },
-      ],
-    },
-    { label: t.nav.pfStore, href: "https://shop.planetfitness.com/", external: true },
+    { label: "Blog", href: "/blog" },
+    { label: "Boutique", href: "https://shop.planetfitness.com/", external: true },
   ];
 
   const mobileLinks = [
-    { label: t.nav.memberships, href: "/gym-memberships" },
-    { label: t.nav.whyPlanetFitness, href: "/about-planet-fitness/why-planet-fitness" },
-    { label: t.nav.aboutPlanetFitness, href: "/about-planet-fitness" },
-    { label: t.nav.pfPurpose, href: "/pf-purpose" },
-    { label: t.nav.ourClubs, href: "/our-clubs" },
-    { label: t.nav.pfApp, href: "/mobileapp" },
-    { label: t.nav.blog, href: "/blog" },
-    { label: t.nav.pfStore, href: "https://shop.planetfitness.com/", external: true },
+    { label: "Adhésions", href: "/gym-memberships" },
+    { label: "Clubs", href: "/our-clubs" },
+    { label: "Cours collectifs", href: "/cours-collectifs" },
+    { label: "Programmes d'entraînement", href: "/training-programs" },
+    { label: "À la demande", href: "/training-programs/a-la-demande" },
+    { label: "Performance", href: "/training-programs/performance" },
+    { label: "Blog", href: "/blog" },
+    { label: "Boutique", href: "https://shop.planetfitness.com/", external: true },
   ];
 
   const langOptions: { value: Lang; flag: string; label: string }[] = [
