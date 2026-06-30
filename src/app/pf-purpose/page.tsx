@@ -1,276 +1,447 @@
-import Link from "next/link";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+'use client'
 
-const pillars = [
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+
+const TABS = [
+  { label: 'Our Strategy', id: 'strategy' },
+  { label: 'Engaging Our Communities', id: 'communities' },
+  { label: 'Inclusion & Belonging', id: 'inclusion' },
+  { label: 'Managing Our Environmental Impact', id: 'environment' },
+]
+
+const PILLARS = [
   {
-    title: "Access",
-    desc: "We increase access to fitness for all through our affordable memberships, diverse locations, equipment variety and donations.",
+    image: 'https://images.ctfassets.net/473zoc40547p/yvQ8aX2Vs2K60QmmC9awd/32759a0cc17ff073c97ba517f9b0942e/32580db32dd4ffd404b2b8e91d648c7069811636__2_.jpg?fm=webp',
+    alt: 'Access | Planet Fitness',
+    title: 'Access',
+    description: 'We increase access to fitness for all through our affordable memberships, diverse locations, equipment variety and donations.',
   },
   {
-    title: "Inclusion",
-    desc: "We create, promote and reward inclusive clubs, cultures and communities.",
+    image: 'https://images.ctfassets.net/473zoc40547p/5F6jPPGqKNuBvcNoctbS56/b9892b39f5382601e472f3fb026bd42c/7b2df3cbf41174a864af85db27943745e28ab175__2_.jpg?fm=webp',
+    alt: 'Inclusion | Planet Fitness',
+    title: 'Inclusion',
+    description: 'We create, promote and reward inclusive clubs, cultures and communities.',
   },
   {
-    title: "Sustainability",
-    desc: "We strive to leave a positive impact on the world by actively contributing to a healthier planet.",
+    image: 'https://images.ctfassets.net/473zoc40547p/1CAFyHoMX0O9VuBXn1V4in/e543b790c920141d447e2cefffdc0886/0f6162c037edd4c0bf539601e70dc54c5bad5e35__2_.jpg?fm=webp',
+    alt: 'Sustainability | Planet Fitness',
+    title: 'Sustainability',
+    description: 'We strive to leave a positive impact on the world by actively contributing to a healthier planet.',
   },
-];
+]
 
-const stats = [
-  { number: "$10.7M+", label: "contributed to Boys & Girls Clubs of America (BGCA) since 2016" },
-  { number: "280", label: "Judgement Free Generation® scholarships awarded since 2017" },
-  { number: "45+", label: "mini Judgement Free Zones® built since 2017" },
-  { number: "800+", label: "hours devoted to local volunteering in 2024" },
-  { number: "$300M+", label: "invested to promote youth fitness and wellbeing through our High School Summer Pass™ program since inception" },
-];
+const STATS = [
+  { value: '$10.7M+', label: 'contributed to Boys & Girls Clubs of America (BGCA) since 2016' },
+  { value: '280', label: 'Judgement Free Generation® scholarships awarded since 2017' },
+  { value: '45+', label: 'mini Judgement Free Zones® built since 2017' },
+  { value: '800+', label: 'hours devoted to local volunteering in 2024' },
+  { value: '$300M+', label: 'invested to promote youth fitness and wellbeing through our High School Summer Pass™ program since inception' },
+]
 
-const highlights = [
+const ENV_ICONS = [
+  { icon: 'Energy.svg', label: 'Energy' },
+  { icon: 'Globe.svg', label: 'Greenhouse Gas\n(GHG) Emissions' },
+  { icon: 'Water.svg', label: 'Water' },
+  { icon: 'Trash.svg', label: 'Waste' },
+  { icon: 'Change.svg', label: 'Sustainable Sourcing' },
+]
+
+const ACCORDION_ITEMS = [
   {
-    title: "Decreased Operational Emissions and Energy Use",
-    desc: "Observed a 19% decrease in total operational energy use and 15% decrease in total operational GHG emissions when normalized by kBtu per square foot (from 2019 baseline).",
+    id: 'Globe',
+    icon: 'Globe.svg',
+    title: 'Decreased Operational Emissions and Energy Use',
+    image: 'https://images.ctfassets.net/473zoc40547p/6dCtWrMJoap9Wf1ov2BhrQ/67257d8034b461b9ff4d221c7178340a/ExpandedEmissionsAssessment.jpg?fm=webp',
+    alt: 'Decreased Operational Emissions and Energy Use',
   },
   {
-    title: "Decreased Operational Water Use",
-    desc: "Observed a 15% decrease in total normalized operational water use from our 2019 baseline.",
+    id: 'Water',
+    icon: 'Water.svg',
+    title: 'Decreased Operational Water Use',
+    image: 'https://images.ctfassets.net/473zoc40547p/206SYq3twm5kRp3crc70jD/5c0cc825255a377c0ade4174b9248726/964e1a5a9f0995bfe750d3be6460c6d6b64e34f5.jpg?fm=webp',
+    alt: 'Decreased Operational Water Use',
   },
   {
-    title: "Sustainable Solutions for Used Equipment",
-    desc: "Recycled, resold, or donated 100% of equipment at end-of-life.",
+    id: 'Equipment',
+    icon: 'Equipment.svg',
+    title: 'Sustainable Solutions for Used Equipment',
+    image: 'https://images.ctfassets.net/473zoc40547p/2duaRofSZG7XoO2EGw480t/109e25da9179a41a1b6901bf89441455/9fd683ffd4c2e7640250165fb2137d7d198b9810.jpg?fm=webp',
+    alt: 'Sustainable Solutions for Used Equipment',
   },
   {
-    title: "Expanded Measurement",
-    desc: "We expanded our assessment of Scope 3 emissions to include additional categories as defined by the Greenhouse Gas Protocol.",
+    id: 'ChartProgressive',
+    icon: 'ChartProgressive.svg',
+    title: 'Expanded Measurement',
+    image: 'https://images.ctfassets.net/473zoc40547p/2Vg7JqLemPbeVbDLmopknW/97fc0dead497b7893dd75a1139056d06/35523dcedbd17e325e15f2ac891916f3b8bd1830.jpg?fm=webp',
+    alt: 'Expanded Measurement',
   },
-];
+]
 
-const navTabs = [
-  "Our Strategy",
-  "Engaging Our Communities",
-  "Inclusion & Belonging",
-  "Managing Our Environmental Impact",
-];
+const REPORTS = [
+  { label: '2025 Climate Resilience Report', href: 'https://assets.ctfassets.net/473zoc40547p/5NJNp7GA8RnEIZbje197NC/202bd2438b0695285d48e4c68cab9c91/Planet_Fitness_2025_Climate_Resilience_Report_FINAL1.20.26.pdf' },
+  { label: '2023 ESG Report', href: 'https://downloads.ctfassets.net/nhduxlsunsu5/0pK4R9Mc57y8nDGtRRS6c/733e2b858b66a58be5197426f014d9b4/PF-ESG_Report_full_draft-904b.pdf' },
+  { label: '2022 ESG Report', href: 'https://downloads.ctfassets.net/nhduxlsunsu5/Pkc9NqBd0GcmImTHuqzBy/773b3517f2fef9b5e8a860c2b8e965e8/PF-ESG_Report_2022-803_FINAL-15-.pdf' },
+  { label: '2021 ESG Report', href: 'https://downloads.ctfassets.net/nhduxlsunsu5/7ELlFj6U7YRBpRyVHAQIUk/60d7a6d8f0c196c826980532b954e2a8/PlanetFitness-ESG-versionB-805c.pdf' },
+]
 
-const reports = [
-  "2025 Climate Resilience Report",
-  "2023 ESG Report",
-  "2022 ESG Report",
-  "2021 ESG Report",
-];
+function iconMaskStyle(icon: string) {
+  const url = `https://www.planetfitness.com/remix/images/icons/${icon}`
+  return {
+    mask: `url(${url}) no-repeat center / contain`,
+    WebkitMask: `url(${url}) no-repeat center / contain`,
+  } as React.CSSProperties
+}
 
-const envCategories = ["Energy", "Greenhouse Gas (GHG) Emissions", "Water", "Waste", "Sustainable Sourcing"];
+export default function PfPurposePage() {
+  const [activeTab, setActiveTab] = useState('strategy')
+  const sectionRefs = useRef<Record<string, HTMLElement | null>>({})
 
-export default function PFPurposePage() {
+  useEffect(() => {
+    const observers: IntersectionObserver[] = []
+    TABS.forEach(({ id }) => {
+      const el = sectionRefs.current[id]
+      if (!el) return
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveTab(id) },
+        { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
+      )
+      obs.observe(el)
+      observers.push(obs)
+    })
+    return () => observers.forEach(o => o.disconnect())
+  }, [])
+
+  function scrollTo(id: string) {
+    const el = sectionRefs.current[id]
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   return (
     <>
-      <Header />
-      <main>
+      {/* Hero Title */}
+      <div className="flex w-full flex-col px-6 pb-12 pt-16 md:p-16 lg:mx-auto lg:max-w-[90rem] lg:px-[9.25rem] lg:pt-20">
+        <h1 className="text-7xl/[4.5rem] font-bold tracking-[-0.015em] md:text-[4rem]/[4.5rem] lg:text-7xl">
+          PF <span className="text-secondary-main">Purpose</span>
+        </h1>
+        <p className="text-common-black mt-4 text-2xl">Strengthening Communities</p>
+      </div>
 
-        {/* Hero */}
-        <section className="bg-hero-gradient-1 px-6 pt-16 pb-20 text-center">
-          <p className="text-secondary-main font-semibold text-sm uppercase tracking-widest mb-3">
-            Strengthening Communities
-          </p>
-          <h1 className="font-condensed text-5xl lg:text-7xl text-white uppercase leading-none mb-6">
-            PF Purpose
-          </h1>
+      {/* Hero Banner Image */}
+      <div className="relative w-full">
+        <div className="h-[12.5rem] w-screen overflow-hidden md:h-auto">
+          <Image
+            src="https://images.ctfassets.net/473zoc40547p/eR8buH7ixj0yy6LJ9HDxC/21157881f795bad054d86c7b2a52bdb0/PfPurposeHeroImage.png?fm=webp"
+            alt="PF Purpose | Planet Fitness"
+            width={2560}
+            height={597}
+            className="h-full w-full object-cover object-left"
+            priority
+          />
+        </div>
+      </div>
 
-          {/* Nav pills */}
-          <div className="flex flex-wrap gap-2 justify-center mt-6">
-            {navTabs.map((tab, i) => (
-              <a
-                key={tab}
-                href={`#${tab.toLowerCase().replace(/[^a-z]+/g, "-")}`}
-                className={`rounded-full px-5 py-2 text-sm font-semibold border transition-colors ${
-                  i === 0
-                    ? "bg-white text-primary-main border-white"
-                    : "bg-transparent text-white border-white/40 hover:border-white"
+      {/* Sticky Tab Navigation */}
+      <div className="border-gray-light sticky top-16 z-20 overflow-x-auto border-b bg-white pt-4 transition-[top] duration-300 md:top-[5.5rem] lg:top-20">
+        <div className="mb-4 flex min-w-fit justify-center gap-2 px-6 md:gap-6 md:px-4">
+          {TABS.map(({ label, id }) => (
+            <button
+              key={id}
+              onClick={() => scrollTo(id)}
+              className="whitespace-nowrap"
+            >
+              <div
+                className={`cursor-pointer rounded-full px-4 py-2 font-semibold transition-colors duration-500 ease-in-out ${
+                  activeTab === id ? 'bg-primary-main text-white' : 'bg-surface-gray text-common-black'
                 }`}
               >
-                {tab}
-              </a>
+                {label}
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div>
+        {/* Strategy & Pillars */}
+        <section
+          ref={el => { sectionRefs.current['strategy'] = el }}
+          className="bg-surface-lightPurple flex flex-col items-center px-6 pb-16 pt-16 md:px-8 lg:pb-[5.5rem] lg:pt-[6rem] lg:px-[9.625rem]"
+        >
+          <div className="mx-auto lg:max-w-[42.75rem]">
+            <h2 className="text-center text-[2rem]/10 font-bold lg:text-5xl/[3.5rem]">
+              Our Purpose Strategy &amp; Pillars
+            </h2>
+            <p className="text-gray-dark mt-4 mb-8 text-center text-lg/[1.5rem] lg:mb-16">
+              To create a more connected and Judgement Free™ planet where fitness and wellbeing are within reach for all.
+            </p>
+          </div>
+          <div className="flex w-full flex-col gap-8 md:flex-row md:gap-4 lg:max-w-[71.5rem] lg:gap-[4.625rem]">
+            {PILLARS.map(pillar => (
+              <div key={pillar.title} className="flex flex-1 flex-col">
+                <Image
+                  src={pillar.image}
+                  alt={pillar.alt}
+                  width={760}
+                  height={400}
+                  className="h-auto max-h-[11.625rem] w-full rounded-3xl object-cover md:min-h-[11.625rem]"
+                  loading="eager"
+                />
+                <h3 className="mt-4 text-left text-2xl/8 font-bold tracking-[-0.27px]">{pillar.title}</h3>
+                <p className="text-gray-dark mt-2 text-lg/[1.5rem]">{pillar.description}</p>
+              </div>
             ))}
           </div>
         </section>
 
-        {/* Strategy & Pillars */}
-        <section id="our-strategy" className="bg-white py-16 px-6">
-          <div className="max-w-[57rem] mx-auto">
-            <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase leading-tight mb-4">
-              Our Purpose Strategy &amp; Pillars
-            </h2>
-            <p className="text-gray-dark text-lg leading-relaxed mb-10 max-w-2xl">
-              To create a more connected and Judgement Free™ planet where fitness and wellbeing are within reach for all.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {pillars.map((pillar) => (
-                <div key={pillar.title} className="bg-surface-gray rounded-2xl p-8 border border-border">
-                  <h3 className="font-condensed text-2xl text-primary-main uppercase mb-3">{pillar.title}</h3>
-                  <p className="text-gray-dark text-base leading-relaxed">{pillar.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ESG Report */}
-        <section className="bg-primary-main py-14 px-6">
-          <div className="max-w-[57rem] mx-auto flex flex-col lg:flex-row gap-10 items-center">
-            <div className="flex-1">
-              <h2 className="font-condensed text-3xl lg:text-4xl text-white uppercase leading-tight mb-4">
+        <section className="mx-auto flex w-full flex-col gap-12 px-6 py-16 md:max-w-[52.5rem] md:gap-16 lg:max-w-[74.5rem] lg:py-20">
+          <article className="flex w-full flex-col-reverse items-center justify-between md:mx-auto md:items-center lg:size-full lg:items-center lg:justify-between lg:gap-5 lg:flex-row">
+            <div className="mt-6 md:mt-8 md:max-w-[638px] lg:mt-0 lg:max-w-md">
+              <h2 className="text-[2rem]/10 font-bold tracking-[-0.015em] lg:text-5xl/[3.5rem]">
                 2024 Environmental, Social &amp; Governance (ESG) Report
               </h2>
-              <p className="text-white/80 text-base leading-relaxed mb-6">
+              <p className="text-gray-dark mt-6 text-lg/[1.5rem] lg:my-8">
                 As one of the largest and fastest-growing franchisors and operators of fitness centers with more members than any other fitness brand, we have the responsibility to enhance the health of the communities where we live, work, and workout. We believe we are best positioned to make a societal impact by increasing access to fitness, creating inclusive clubs, cultures and communities and prioritizing sustainable business practices.
               </p>
-              <Link
-                href="#"
-                className="bg-secondary-main text-primary-dark rounded-full px-8 py-3.5 font-bold text-base inline-block"
+              <a
+                href="https://downloads.ctfassets.net/473zoc40547p/1JTpH67RjOtkA3k91KyGxr/415c46171f0f877446f14785f9c4b48e/PF_Full_ESG_Report_2024.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary-main text-common-white mx-auto mt-6 block w-full max-w-sm rounded-full px-8 py-4 text-center text-lg/6 font-semibold md:w-fit md:px-6 md:py-2 lg:mx-0 lg:px-8 lg:py-4"
               >
-                Read our 2024 ESG Report
-              </Link>
+                Read our&nbsp;2024 ESG Report
+              </a>
             </div>
-          </div>
+            <div className="flex max-w-[35.25rem] justify-center">
+              <Image
+                src="https://images.ctfassets.net/473zoc40547p/6KvjK85JrnTzsjOWyKP8n4/8a5ec8e732e7c61e20a9b7f4a23139b9/c98f46a345bfd7b248215c97950bc87cb2b1d9ad.jpg?fm=webp"
+                alt="2024 ESG Report"
+                width={564}
+                height={423}
+                className="h-[245px] w-[327px] rounded-3xl object-cover object-top md:h-[17.625rem] md:w-[377px] lg:h-[423px] lg:w-[35.25rem]"
+                loading="eager"
+              />
+            </div>
+          </article>
         </section>
 
-        {/* Community Engagement Numbers */}
-        <section className="bg-surface-gray py-16 px-6">
-          <div className="max-w-[57rem] mx-auto">
-            <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase leading-none mb-12 text-center">
+        {/* Community Engagement by the Numbers */}
+        <section
+          ref={el => { sectionRefs.current['communities'] = el }}
+          className="bg-primary-main bg-purpleYellowRightGlare w-full py-16 lg:py-20"
+        >
+          <div className="mx-auto max-w-[57rem] px-6 lg:px-0">
+            <h2 className="text-common-white mb-12 text-center text-[2rem]/10 font-bold lg:mb-16 lg:text-5xl/[3.5rem]">
               Community Engagement by the Numbers
             </h2>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 text-center">
-              {stats.map((stat) => (
-                <div key={stat.number} className="bg-white rounded-2xl p-6 border border-border">
-                  <p className="font-condensed text-5xl text-primary-main leading-none mb-3">{stat.number}</p>
-                  <p className="text-gray-dark text-sm leading-relaxed">{stat.label}</p>
-                </div>
-              ))}
+            <div className="grid grid-cols-1 place-items-center gap-4">
+              <div className="grid grid-cols-1 place-items-center gap-4 lg:grid-cols-3">
+                {STATS.slice(0, 3).map(stat => (
+                  <div key={stat.value} className="w-[20.4375rem] max-w-full lg:w-[17.125rem]">
+                    <div className="flex h-[11.5rem] w-full flex-col justify-center rounded-3xl bg-white px-4 py-6 text-center">
+                      <h3 className="font-condensed mb-2 text-5xl/[3rem] text-[#8656ED]">{stat.value}</h3>
+                      <p className="text-common-black text-[1.125rem]/[1.5rem]">{stat.label}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-1 place-items-center gap-4 lg:mx-auto lg:w-fit lg:grid-cols-2">
+                {STATS.slice(3).map(stat => (
+                  <div key={stat.value} className="w-[20.4375rem] max-w-full lg:w-[17.125rem]">
+                    <div className="flex h-[11.5rem] w-full flex-col justify-center rounded-3xl bg-white px-4 py-6 text-center">
+                      <h3 className="font-condensed mb-2 text-5xl/[3rem] text-[#8656ED]">{stat.value}</h3>
+                      <p className="text-common-black text-[1.125rem]/[1.5rem]">{stat.label}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         {/* Engaging Our Communities */}
-        <section id="engaging-our-communities" className="bg-white py-16 px-6">
-          <div className="max-w-[57rem] mx-auto">
-            <p className="text-primary-main font-semibold text-sm uppercase tracking-widest mb-3">
-              Engaging Our Communities
-            </p>
-            <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase leading-tight mb-6">
-              Judgement Free Generation®
-            </h2>
-            <p className="text-gray-dark text-lg leading-relaxed mb-8 max-w-3xl">
-              We remain committed to extending our philosophy of the Judgement Free Zone® beyond our clubs and into our communities. This includes our multi-year partnership with Boys &amp; Girls Clubs of America (BGCA) through our signature initiative – the Judgement Free Generation®. Supported by the Planet Fitness Club Support Center, franchisees, members, team members, and vendors, the initiative focuses on empowering youth through scholarships, community grants, supporting trauma-informed, emotional wellbeing training, and delivering programs that offer access to fitness, including our mini Judgement Free Zones®, fitness spaces installed in BGCs across the country.
-            </p>
-            <Link
-              href="#"
-              className="bg-primary-main text-white rounded-full px-8 py-3.5 font-bold text-base inline-block"
-            >
-              Learn More
-            </Link>
-          </div>
+        <section className="mx-auto flex w-full flex-col gap-12 px-6 py-16 md:max-w-[52.5rem] md:gap-16 lg:max-w-[74.5rem] lg:py-20">
+          <h2 className="text-center text-[2rem]/10 font-bold lg:text-5xl/[3.5rem]">Engaging Our Communities</h2>
+          <article className="flex w-full flex-col-reverse items-center justify-between md:mx-auto md:items-center lg:size-full lg:items-center lg:justify-between lg:gap-5 lg:flex-row-reverse">
+            <div className="mt-6 md:mt-8 md:max-w-[638px] lg:mt-0 lg:max-w-md">
+              <h2 className="text-[1.5rem]/8 font-bold tracking-[-0.015em] lg:text-[2rem]/10">
+                Judgement Free Generation®{' '}
+              </h2>
+              <p className="text-gray-dark mt-6 text-lg/[1.5rem] lg:my-8">
+                We remain committed to extending our philosophy of the Judgement Free Zone® beyond our clubs and into our communities. This includes our multi-year partnership with Boys &amp; Girls Clubs of America (BGCA) through our signature initiative – the Judgement Free Generation®. Supported by the Planet Fitness Club Support Center, franchisees, members, team members, and vendors, the initiative focuses on empowering youth through scholarships, community grants, supporting trauma-informed, emotional wellbeing training, and delivering programs that offer access to fitness, including our mini Judgement Free Zones®, fitness spaces installed in BGCs across the country.
+              </p>
+              <Link
+                href="/jfg"
+                className="bg-primary-main text-common-white mx-auto mt-6 block w-full max-w-sm rounded-full px-8 py-4 text-center text-lg/6 font-semibold md:w-fit md:px-6 md:py-2 lg:mx-0 lg:px-8 lg:py-4"
+              >
+                Learn More
+              </Link>
+            </div>
+            <div className="flex max-w-[35.25rem] justify-center">
+              <Image
+                src="https://images.ctfassets.net/473zoc40547p/2VpeA6Zrn1JV48Ni3aIUIl/a41cb4ac9350413ca3f6c4989910d102/b3cf9c01bdd4e2300d9e13894da7f946636dc07d.jpg?fm=webp"
+                alt="Judgement Free Generation"
+                width={564}
+                height={423}
+                className="h-[245px] w-[327px] rounded-3xl object-cover object-top md:h-[17.625rem] md:w-[377px] lg:h-[423px] lg:w-[35.25rem]"
+              />
+            </div>
+          </article>
         </section>
 
         {/* Inclusion & Belonging */}
-        <section id="inclusion-belonging" className="bg-surface-gray py-16 px-6">
-          <div className="max-w-[57rem] mx-auto">
-            <p className="text-primary-main font-semibold text-sm uppercase tracking-widest mb-3">
-              Inclusion &amp; Belonging
-            </p>
-            <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase leading-tight mb-4">
+        <section
+          ref={el => { sectionRefs.current['inclusion'] = el }}
+          className="bg-lightPinkLeftGlare px-6 py-16 md:px-8 lg:py-20"
+        >
+          <div className="mx-auto lg:max-w-[46.5rem]">
+            <h2 className="mb-6 text-center text-[2rem]/10 font-bold lg:mb-8 lg:text-5xl/[3.5rem]">
               Advancing Our Commitment to Inclusion &amp; Belonging
             </h2>
-            <p className="text-gray-dark text-lg leading-relaxed mb-8">
-              At Planet Fitness, we are more than your neighborhood fitness center – we are the Judgement Free Zone®.
-            </p>
-            <div className="bg-white rounded-2xl p-8 border border-border">
-              <h3 className="font-bold text-common-black text-xl mb-4">Our Vision</h3>
-              <p className="text-gray-dark text-base leading-relaxed">
+            <div className="text-common-black mx-auto mt-4 flex flex-col text-center text-lg/[1.5rem] lg:max-w-[46.5rem]">
+              <p className="px-3">
+                At Planet Fitness, we are more than your neighborhood fitness center – we are the Judgement Free Zone®.
+              </p>
+              <h3 className="py-4 text-2xl font-bold">Our Vision</h3>
+              <p className="mb-8">
                 Increasing access to fitness and wellbeing. Providing an environment where everyone feels like they belong. Our Judgement Free Zone® embodies our commitment to Inclusion &amp; Belonging and fuels our actions not only within our clubs, but also for our employees, franchisees and the communities we serve.
               </p>
-              <p className="text-gray-dark text-base leading-relaxed mt-4">
+              <p>
                 As an organization built on the promise of Judgement Free™ values, we are committed to fostering an internal culture and environment where everyone can thrive.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Environmental Footprint */}
-        <section id="managing-our-environmental-impact" className="bg-white py-16 px-6">
-          <div className="max-w-[57rem] mx-auto">
-            <p className="text-primary-main font-semibold text-sm uppercase tracking-widest mb-3">
-              Environmental Stewardship
+        {/* Reducing Our Environmental Footprint */}
+        <section
+          ref={el => { sectionRefs.current['environment'] = el }}
+          className="w-full px-6 py-16 md:px-[9.25rem] lg:px-8 lg:py-20"
+        >
+          <h2 className="mx-auto mb-12 text-center text-[2rem]/10 font-bold md:mb-8 lg:max-w-[42.5rem] lg:text-5xl/[3.5rem]">
+            Reducing Our Environmental Footprint
+          </h2>
+          <div className="text-common-black mx-auto mb-12 mt-4 flex flex-col gap-6 text-center text-lg/[1.5rem] lg:mb-16 lg:max-w-[42.5rem]">
+            <p>
+              Our commitment to environmental stewardship is founded on the belief that mitigating the impacts of our business on the planet is crucial for sustaining both our long-term growth and the resilience and wellbeing of our members, team members, franchisees, and communities. Our environmental management approach is focused on sustainable practices that enhance operational efficiency, reduce our footprint and drive progress across our value chain.
             </p>
-            <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase leading-tight mb-4">
-              Reducing Our Environmental Footprint
-            </h2>
-            <p className="text-gray-dark text-lg leading-relaxed mb-8 max-w-3xl">
-              Our commitment to environmental stewardship is founded on the belief that mitigating the impacts of our business on the planet is crucial for sustaining both our long-term growth and the resilience and wellbeing of our members, team members, franchisees, and communities.
-            </p>
+          </div>
 
-            {/* Environment categories */}
-            <div className="flex flex-wrap gap-2 mb-10">
-              {envCategories.map((cat) => (
-                <span
-                  key={cat}
-                  className="bg-surface-gray text-common-black border border-border rounded-full px-4 py-1.5 text-sm font-semibold"
-                >
-                  {cat}
+          {/* Icon row */}
+          <div className="mx-auto mb-20 grid grid-cols-2 gap-x-6 gap-y-16 md:grid-cols-5 md:gap-x-4 md:gap-y-0 lg:max-w-[71.5rem]">
+            {ENV_ICONS.map(({ icon, label }) => (
+              <div
+                key={icon}
+                className={`flex flex-col items-center${icon === 'Change.svg' ? ' col-span-full md:col-start-auto' : ''}`}
+              >
+                <i
+                  className="bg-accent-purple mb-4 inline-block size-16 lg:size-[57px]"
+                  style={iconMaskStyle(icon)}
+                />
+                <p className="whitespace-pre-line text-center text-base/6 font-semibold lg:text-2xl/8">{label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* 2024 Highlights accordion */}
+          <div className="relative flex flex-col lg:m-auto lg:max-w-[71.5rem] lg:min-h-[42.5rem] lg:flex-row lg:justify-between lg:gap-10">
+            <div className="flex shrink-0 flex-col items-center md:items-start lg:max-w-[28rem]">
+              <h3 className="self-start text-2xl font-bold tracking-[-0.36px] md:mb-6 lg:mb-8 lg:text-[2rem]/10 lg:tracking-[-0.48px]">
+                2024 Highlights
+              </h3>
+              <fieldset className="flex flex-col md:gap-6 lg:gap-8">
+                {ACCORDION_ITEMS.map((item, i) => (
+                  <div key={item.id} className="border-b md:border-none">
+                    <input
+                      type="radio"
+                      id={`highlights-${item.id}-${i}`}
+                      className="peer hidden"
+                      name="highlights-accordion"
+                      defaultChecked={i === 0}
+                    />
+                    <label
+                      htmlFor={`highlights-${item.id}-${i}`}
+                      className="flex cursor-pointer items-center justify-between py-6 transition-all duration-300 md:py-0 peer-checked:[&_.show-more]:-rotate-90"
+                      role="button"
+                      tabIndex={0}
+                    >
+                      <div className="flex items-center">
+                        <i
+                          className="bg-accent-purple mr-4 inline-block size-8 shrink-0"
+                          style={iconMaskStyle(item.icon)}
+                          aria-hidden="true"
+                        />
+                        <p className="text-lg/6 font-semibold">{item.title}</p>
+                      </div>
+                      <div className="show-more ml-4 flex size-6 rotate-90 items-center justify-center transition-transform duration-300 lg:mt-2">
+                        <i
+                          className="bg-primary-main inline-block h-2.5 w-[7px]"
+                          style={iconMaskStyle('Chevron.svg')}
+                          aria-hidden="true"
+                        />
+                      </div>
+                    </label>
+                    <div className="mx-auto max-w-md overflow-hidden opacity-0 transition-all duration-[400ms] peer-checked:mb-6 max-md:max-h-0 peer-checked:max-md:max-h-[28rem] peer-checked:max-md:w-full md:mx-0 md:w-[327px] md:max-lg:h-0 md:max-lg:peer-checked:my-4 peer-checked:md:max-lg:size-[327px] lg:absolute lg:right-0 lg:top-0 lg:h-[42.5rem] lg:w-1/2 lg:max-w-full lg:opacity-100 lg:transition-opacity lg:duration-300 peer-checked:opacity-100">
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        width={680}
+                        height={680}
+                        className="aspect-square size-full rounded-3xl object-cover"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </fieldset>
+              <a
+                href="https://downloads.ctfassets.net/473zoc40547p/1JTpH67RjOtkA3k91KyGxr/415c46171f0f877446f14785f9c4b48e/PF_Full_ESG_Report_2024.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary-main text-common-white mx-auto mt-8 block w-full max-w-sm rounded-full px-8 py-4 text-center text-lg/6 font-semibold md:w-fit md:px-6 md:py-2 lg:mx-0 lg:mt-12 lg:px-8 lg:py-4"
+              >
+                Read our 2024 ESG Report
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* Additional Reporting */}
+      <section className="bg-surface-gray">
+        <div className="flex w-full flex-col px-6 py-16 lg:mx-auto lg:max-w-[90rem] lg:p-20 lg:px-[9.25rem] lg:pt-20">
+          <h2 className="mb-6 text-center text-[2rem]/10 font-bold md:mb-8 lg:text-5xl/[3.5rem]">
+            Additional Reporting
+          </h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {REPORTS.map(report => (
+              <a
+                key={report.label}
+                href={report.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-full items-center justify-center rounded-3xl bg-white px-4 py-6 shadow-[0_16px_32px_0px_rgba(4,16,35,0.08)]"
+              >
+                <span className="text-primary-main text-center text-[1rem]/[1.5rem] font-semibold underline">
+                  {report.label}
                 </span>
-              ))}
-            </div>
-
-            <h3 className="font-condensed text-2xl lg:text-3xl text-common-black uppercase mb-6">
-              2024 Highlights
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10">
-              {highlights.map((h) => (
-                <div key={h.title} className="bg-surface-gray rounded-2xl p-6 border border-border">
-                  <h4 className="font-bold text-common-black text-base mb-2">{h.title}</h4>
-                  <p className="text-gray-dark text-sm leading-relaxed">{h.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <Link
-              href="#"
-              className="bg-primary-main text-white rounded-full px-8 py-3.5 font-bold text-base inline-block"
-            >
-              Read our 2024 ESG Report
-            </Link>
+              </a>
+            ))}
           </div>
-        </section>
-
-        {/* Additional Reporting */}
-        <section className="bg-surface-gray py-14 px-6">
-          <div className="max-w-[57rem] mx-auto">
-            <h2 className="font-condensed text-3xl text-common-black uppercase mb-6">
-              Additional Reporting
-            </h2>
-            <ul className="flex flex-col gap-3 mb-8">
-              {reports.map((report) => (
-                <li key={report}>
-                  <Link
-                    href="#"
-                    className="text-primary-main font-semibold text-base underline underline-offset-2 hover:text-primary-dark transition-colors"
-                  >
-                    {report}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p className="text-gray-dark text-sm">
-              Please email{" "}
-              <a href="mailto:ESG@planetcsc.com" className="text-primary-main underline">
-                ESG@planetcsc.com
-              </a>{" "}
-              with any questions or feedback.
-            </p>
+          <div className="text-center">
+            <button className="text-primary-main mt-6 font-semibold underline lg:mt-8">Show More</button>
           </div>
-        </section>
-
-      </main>
-      <Footer />
+          <p className="text-gray-dark mt-12 text-left text-sm/[1.125rem] lg:mt-16">
+            Please email{' '}
+            <a href="mailto:ESG@planetcsc.com" className="text-primary-main font-semibold underline">
+              ESG@planetcsc.com
+            </a>{' '}
+            with any questions or feedback.
+          </p>
+        </div>
+      </section>
     </>
-  );
+  )
 }

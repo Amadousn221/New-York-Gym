@@ -171,6 +171,17 @@
   background-color: rgb(86, 20, 150);
 }
 
+/* Light pink/lavender radial glare — Inclusion & Belonging section */
+@utility bg-lightPinkLeftGlare {
+  background-image:
+    radial-gradient(114.44% 81.08% at 47.77% 151.82%, rgb(240, 235, 250) 0%, rgba(240, 235, 250, 0.32) 54.92%, rgba(248, 248, 248, 0) 96.11%),
+    radial-gradient(69.63% 84.59% at 98.21% 96.61%, rgb(240, 235, 250) 0%, rgba(240, 235, 250, 0.32) 49.27%, rgba(240, 235, 250, 0) 100%),
+    radial-gradient(59.96% 112.74% at -10.04% 2.86%, rgba(130, 99, 219, 0.24) 0%, rgba(129, 114, 218, 0.08) 56.87%, rgba(129, 114, 218, 0) 100%),
+    linear-gradient(rgb(248, 248, 248) 0%, rgba(240, 235, 250, 0) 100%),
+    radial-gradient(58.1% 43.11% at 57.81% 32.29%, rgb(240, 235, 250) 0%, rgba(240, 235, 250, 0) 100%),
+    linear-gradient(rgb(246, 244, 251), rgb(246, 244, 251));
+}
+
 /* Hide scrollbar */
 @utility no-scrollbar {
   scrollbar-width: none;
