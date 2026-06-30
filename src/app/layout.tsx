@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
+import { ClientProviders } from "@/components/ClientProviders";
 
 const barlow = Barlow({
   subsets: ["latin"],
@@ -35,10 +36,12 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="fr"
       className={`${barlow.variable} ${barlowCondensed.variable} h-full`}
     >
-      <body className="h-full bg-white">{children}</body>
+      <body className="h-full bg-white">
+        <ClientProviders>{children}</ClientProviders>
+      </body>
     </html>
   );
 }

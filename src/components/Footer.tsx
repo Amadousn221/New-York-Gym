@@ -1,49 +1,7 @@
-import Link from "next/link";
+"use client";
 
-const footerLinks = [
-  {
-    heading: "Info",
-    links: [
-      { label: "Newsroom", href: "/newsroom" },
-      { label: "Careers", href: "/careers" },
-      { label: "FAQs", href: "/about-planet-fitness/customer-service" },
-      { label: "Directory", href: "/clubs" },
-      { label: "Blog", href: "/blog" },
-    ],
-  },
-  {
-    heading: "Partners",
-    links: [
-      { label: "Franchising", href: "/become-a-franchisee" },
-      {
-        label: "Investor Relations",
-        href: "http://investor.planetfitness.com/investors",
-        external: true,
-      },
-      { label: "PF Purpose", href: "/pf-purpose" },
-      { label: "PF Media Network", href: "/pf-media-network" },
-    ],
-  },
-  {
-    heading: "Legal",
-    links: [
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms and Conditions of Use", href: "/terms-and-conditions-of-use" },
-      {
-        label: "Do Not Sell or Share My Personal Information",
-        href: "/#cookie-settings",
-      },
-      {
-        label: "Your State and EU Privacy Rights",
-        href: "/privacy-policy/your-privacy-rights",
-      },
-      {
-        label: "Accessibility",
-        href: "/about-planet-fitness/customer-service#region-faq-accordion-3",
-      },
-    ],
-  },
-];
+import Link from "next/link";
+import { useLang, type Lang } from "@/lib/i18n";
 
 function FacebookIcon() {
   return (
@@ -78,21 +36,59 @@ function YouTubeIcon() {
 }
 
 export function Footer() {
+  const { t, lang, setLang } = useLang();
+  const f = t.footer;
+
+  const footerLinks = [
+    {
+      heading: f.infoHeading,
+      links: [
+        { label: f.newsroom, href: "/newsroom" },
+        { label: f.careers, href: "/careers" },
+        { label: f.faqs, href: "/about-planet-fitness/customer-service" },
+        { label: f.directory, href: "/clubs" },
+        { label: f.blog, href: "/blog" },
+      ],
+    },
+    {
+      heading: f.partnersHeading,
+      links: [
+        { label: f.franchising, href: "/become-a-franchisee" },
+        { label: f.investorRelations, href: "http://investor.planetfitness.com/investors", external: true },
+        { label: f.pfPurpose, href: "/pf-purpose" },
+        { label: f.pfMediaNetwork, href: "/pf-media-network" },
+      ],
+    },
+    {
+      heading: f.legalHeading,
+      links: [
+        { label: f.privacyPolicy, href: "/privacy-policy" },
+        { label: f.termsConditions, href: "/terms-and-conditions-of-use" },
+        { label: f.doNotSell, href: "/#cookie-settings" },
+        { label: f.privacyRights, href: "/privacy-policy/your-privacy-rights" },
+        { label: f.accessibility, href: "/about-planet-fitness/customer-service#region-faq-accordion-3" },
+      ],
+    },
+  ];
+
+  const langOptions: { value: Lang; flag: string; label: string }[] = [
+    { value: "fr", flag: "/images/flags/ca.svg", label: "FR (Français)" },
+    { value: "en", flag: "/images/flags/us.svg", label: "US (English)" },
+  ];
+
+  const currentLang = langOptions.find((l) => l.value === lang)!;
+
   return (
     <footer className="w-full bg-primary-main px-6 pb-[4.5rem] text-lg/6 text-white">
       <div className="mx-auto max-w-[71.5rem]">
         {/* Top row: logo + app download */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between py-6 md:py-12 gap-4">
-          <img
-            src="/images/small-logo.svg"
-            alt="Planet Fitness"
-            className="hidden md:block h-12 w-auto"
-          />
+          <img src="/images/small-logo.svg" alt="Planet Fitness" className="hidden md:block h-12 w-auto" />
           <a
             href="/mobileapp"
             className="flex h-14 w-full max-w-sm items-center justify-center rounded-full bg-white px-6 font-semibold text-primary-main text-lg/6"
           >
-            Download the PF App
+            {f.downloadApp}
           </a>
         </div>
 
@@ -126,49 +122,39 @@ export function Footer() {
 
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-6">
-          <button className="flex items-center gap-2 text-white">
-            <img src="/images/flags/us.svg" alt="US" className="w-5 h-5" />
-            <span>US (English)</span>
-            <img src="/images/icons/Chevron.svg" alt="" className="w-4 h-4 rotate-90" />
-          </button>
+          {/* Language switcher */}
+          <div className="flex gap-4">
+            {langOptions.map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => setLang(opt.value)}
+                className={`flex items-center gap-2 text-white transition-opacity ${
+                  lang === opt.value ? "opacity-100 font-semibold" : "opacity-60 hover:opacity-100"
+                }`}
+              >
+                <img src={opt.flag} alt={opt.label} className="w-5 h-5" />
+                <span>{opt.label}</span>
+              </button>
+            ))}
+          </div>
 
           <div className="flex items-center gap-4">
-            <span className="hidden md:inline text-white">Follow us:</span>
-            <a
-              href="https://www.facebook.com/planetfitness"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-            >
+            <span className="hidden md:inline text-white">{f.followUs}</span>
+            <a href="https://www.facebook.com/planetfitness" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <FacebookIcon />
             </a>
-            <a
-              href="https://www.instagram.com/planetfitness"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
+            <a href="https://www.instagram.com/planetfitness" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <InstagramIcon />
             </a>
-            <a
-              href="https://www.tiktok.com/@planetfitness"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="TikTok"
-            >
+            <a href="https://www.tiktok.com/@planetfitness" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
               <TikTokIcon />
             </a>
-            <a
-              href="https://www.youtube.com/user/planetfitnessnh"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-            >
+            <a href="https://www.youtube.com/user/planetfitnessnh" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
               <YouTubeIcon />
             </a>
           </div>
 
-          <p className="text-base text-white">© 2026 Planet Fitness Franchising, LLC.</p>
+          <p className="text-base text-white">{f.copyright}</p>
         </div>
       </div>
     </footer>

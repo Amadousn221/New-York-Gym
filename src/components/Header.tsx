@@ -2,48 +2,52 @@
 
 import { useState } from "react";
 import Link from "next/link";
-
-type DropdownItem = { label: string; href: string };
-type NavItem =
-  | { label: string; href: string; external?: boolean; dropdown?: never }
-  | { label: string; dropdown: DropdownItem[]; href?: never; external?: never };
-
-const navItems: NavItem[] = [
-  { label: "Memberships", href: "/gym-memberships" },
-  {
-    label: "Why PF",
-    dropdown: [
-      { label: "Why Planet Fitness", href: "/about-planet-fitness/why-planet-fitness" },
-      { label: "About Planet Fitness", href: "/about-planet-fitness" },
-      { label: "PF Purpose", href: "/pf-purpose" },
-    ],
-  },
-  {
-    label: "Work Out With Us",
-    dropdown: [
-      { label: "Our Clubs", href: "/our-clubs" },
-      { label: "PF App", href: "/mobileapp" },
-      { label: "Blog", href: "/blog" },
-    ],
-  },
-  { label: "PF Store", href: "https://shop.planetfitness.com/", external: true },
-];
-
-/* All links flattened for mobile flyout */
-const mobileLinks = [
-  { label: "Memberships", href: "/gym-memberships" },
-  { label: "Why Planet Fitness", href: "/about-planet-fitness/why-planet-fitness" },
-  { label: "About Planet Fitness", href: "/about-planet-fitness" },
-  { label: "PF Purpose", href: "/pf-purpose" },
-  { label: "Our Clubs", href: "/our-clubs" },
-  { label: "PF App", href: "/mobileapp" },
-  { label: "Blog", href: "/blog" },
-  { label: "PF Store", href: "https://shop.planetfitness.com/", external: true },
-];
+import { useLang, type Lang } from "@/lib/i18n";
 
 export function Header() {
+  const { t, lang, setLang } = useLang();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [langOpen, setLangOpen] = useState(false);
+
+  const navItems = [
+    { label: t.nav.memberships, href: "/gym-memberships" },
+    {
+      label: t.nav.whyPF,
+      dropdown: [
+        { label: t.nav.whyPlanetFitness, href: "/about-planet-fitness/why-planet-fitness" },
+        { label: t.nav.aboutPlanetFitness, href: "/about-planet-fitness" },
+        { label: t.nav.pfPurpose, href: "/pf-purpose" },
+      ],
+    },
+    {
+      label: t.nav.workOutWithUs,
+      dropdown: [
+        { label: t.nav.ourClubs, href: "/our-clubs" },
+        { label: t.nav.pfApp, href: "/mobileapp" },
+        { label: t.nav.blog, href: "/blog" },
+      ],
+    },
+    { label: t.nav.pfStore, href: "https://shop.planetfitness.com/", external: true },
+  ];
+
+  const mobileLinks = [
+    { label: t.nav.memberships, href: "/gym-memberships" },
+    { label: t.nav.whyPlanetFitness, href: "/about-planet-fitness/why-planet-fitness" },
+    { label: t.nav.aboutPlanetFitness, href: "/about-planet-fitness" },
+    { label: t.nav.pfPurpose, href: "/pf-purpose" },
+    { label: t.nav.ourClubs, href: "/our-clubs" },
+    { label: t.nav.pfApp, href: "/mobileapp" },
+    { label: t.nav.blog, href: "/blog" },
+    { label: t.nav.pfStore, href: "https://shop.planetfitness.com/", external: true },
+  ];
+
+  const langOptions: { value: Lang; flag: string; label: string }[] = [
+    { value: "fr", flag: "/images/flags/ca.svg", label: "Français" },
+    { value: "en", flag: "/images/flags/us.svg", label: "English" },
+  ];
+
+  const currentLang = langOptions.find((l) => l.value === lang)!;
 
   return (
     <>
@@ -55,7 +59,7 @@ export function Header() {
             <div className="header-lg:mt-[-2rem]">
               <img
                 src="/images/icons/Logo-Primary.svg"
-                alt="Planet Fitness"
+                alt="New York Gym"
                 className="h-12 w-10 header-lg:h-[6.5rem] header-lg:w-[5.4rem]"
               />
             </div>
@@ -64,7 +68,7 @@ export function Header() {
           {/* Desktop nav */}
           <nav className="hidden header-lg:flex items-center gap-0">
             {navItems.map((item) => {
-              if (item.dropdown) {
+              if ("dropdown" in item && item.dropdown) {
                 const isOpen = openDropdown === item.label;
                 return (
                   <div
@@ -83,9 +87,11 @@ export function Header() {
                       {item.label}
                       <ChevronIcon open={isOpen} />
                     </button>
-
                     {isOpen && (
-                      <div className="absolute top-full left-0 min-w-[220px] bg-white border border-border shadow-md z-50" style={{ borderRadius: "0 0 8px 8px" }}>
+                      <div
+                        className="absolute top-full left-0 min-w-[220px] bg-white border border-border shadow-md z-50"
+                        style={{ borderRadius: "0 0 8px 8px" }}
+                      >
                         {item.dropdown.map((sub) => (
                           <Link
                             key={sub.href}
@@ -105,12 +111,12 @@ export function Header() {
               return (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={item.href!}
                   className="flex items-center gap-1 h-14 px-4 text-base font-medium text-common-black hover:bg-surface-gray hover:text-primary-main transition-colors"
-                  {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  {...("external" in item && item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 >
                   {item.label}
-                  {item.external && (
+                  {"external" in item && item.external && (
                     <img src="/images/icons/ExternalLink.svg" alt="" className="w-4 h-4" />
                   )}
                 </Link>
@@ -120,12 +126,40 @@ export function Header() {
 
           {/* Right actions */}
           <div className="flex items-center gap-1">
-            {/* Region selector */}
-            <button className="hidden header-lg:flex items-center gap-1.5 px-4 h-14 text-base text-common-black hover:bg-surface-gray transition-colors">
-              <img src="/images/flags/us.svg" alt="US" className="w-5 h-5" />
-              <span>English</span>
-              <ChevronIcon open={false} />
-            </button>
+            {/* Language switcher */}
+            <div
+              className="relative hidden header-lg:block"
+              onMouseEnter={() => setLangOpen(true)}
+              onMouseLeave={() => setLangOpen(false)}
+            >
+              <button className="flex items-center gap-1.5 px-4 h-14 text-base text-common-black hover:bg-surface-gray transition-colors">
+                <img src={currentLang.flag} alt={currentLang.label} className="w-5 h-5" />
+                <span>{currentLang.label}</span>
+                <ChevronIcon open={langOpen} />
+              </button>
+
+              {langOpen && (
+                <div
+                  className="absolute top-full right-0 min-w-[160px] bg-white border border-border shadow-md z-50"
+                  style={{ borderRadius: "0 0 8px 8px" }}
+                >
+                  {langOptions.map((opt) => (
+                    <button
+                      key={opt.value}
+                      onClick={() => { setLang(opt.value); setLangOpen(false); }}
+                      className={`w-full flex items-center gap-2 px-5 py-3 text-base text-left transition-colors border-b border-border last:border-0 ${
+                        lang === opt.value
+                          ? "text-primary-main font-semibold"
+                          : "text-common-black hover:text-primary-main"
+                      }`}
+                    >
+                      <img src={opt.flag} alt={opt.label} className="w-5 h-5" />
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* My Account */}
             <Link
@@ -133,7 +167,7 @@ export function Header() {
               className="hidden header-lg:flex items-center gap-2 px-4 h-14 text-base text-common-black hover:bg-surface-gray hover:text-primary-main transition-colors"
             >
               <img src="/images/icons/SignIn.svg" alt="" className="w-6 h-6" />
-              <span>My Account</span>
+              <span>{t.nav.myAccount}</span>
             </Link>
 
             {/* Join Now */}
@@ -141,7 +175,7 @@ export function Header() {
               href="/gyms"
               className="bg-primary-main text-white rounded-full px-6 h-12 header-lg:h-14 flex items-center font-bold text-lg ml-2"
             >
-              Join Now
+              {t.nav.joinNow}
             </Link>
 
             {/* Hamburger */}
@@ -161,7 +195,7 @@ export function Header() {
         <div className="fixed inset-0 z-[60] bg-white flex flex-col overflow-y-auto">
           <div className="flex items-center justify-between px-6 h-16 border-b border-border flex-shrink-0">
             <Link href="/" onClick={() => setMenuOpen(false)}>
-              <img src="/images/icons/Logo-Primary.svg" alt="Planet Fitness" className="h-12 w-10" />
+              <img src="/images/icons/Logo-Primary.svg" alt="New York Gym" className="h-12 w-10" />
             </Link>
             <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
               <img src="/images/icons/CloseFlyoutMenu.svg" alt="" className="w-8 h-8" />
@@ -175,10 +209,10 @@ export function Header() {
                 href={link.href}
                 className="text-lg text-common-black py-4 border-b border-border flex items-center gap-2"
                 onClick={() => setMenuOpen(false)}
-                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                {...("external" in link && link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               >
                 {link.label}
-                {link.external && (
+                {"external" in link && link.external && (
                   <img src="/images/icons/ExternalLink.svg" alt="" className="w-4 h-4" />
                 )}
               </Link>
@@ -189,8 +223,24 @@ export function Header() {
               onClick={() => setMenuOpen(false)}
             >
               <img src="/images/icons/SignIn.svg" alt="" className="w-5 h-5" />
-              My Account
+              {t.nav.myAccount}
             </Link>
+
+            {/* Mobile language switcher */}
+            <div className="flex gap-3 py-4 border-b border-border">
+              {langOptions.map((opt) => (
+                <button
+                  key={opt.value}
+                  onClick={() => { setLang(opt.value); setMenuOpen(false); }}
+                  className={`flex items-center gap-2 text-lg ${
+                    lang === opt.value ? "text-primary-main font-semibold" : "text-common-black"
+                  }`}
+                >
+                  <img src={opt.flag} alt={opt.label} className="w-5 h-5" />
+                  {opt.label}
+                </button>
+              ))}
+            </div>
           </nav>
 
           <div className="px-6 mt-4 pb-8">
@@ -199,7 +249,7 @@ export function Header() {
               className="bg-primary-main text-white rounded-full px-8 py-4 font-bold text-lg w-full flex items-center justify-center"
               onClick={() => setMenuOpen(false)}
             >
-              Join Now
+              {t.nav.joinNow}
             </Link>
           </div>
         </div>
@@ -217,7 +267,13 @@ function ChevronIcon({ open }: { open: boolean }) {
       fill="none"
       className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
     >
-      <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M2 4l4 4 4-4"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }

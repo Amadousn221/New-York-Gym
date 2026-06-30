@@ -1,12 +1,16 @@
+"use client";
+
+import { useLang } from "@/lib/i18n";
+
 export function HeroSection() {
+  const { t } = useLang();
+
   return (
     <section className="relative w-full bg-hero-gradient-1 overflow-hidden">
       <div className="relative flex flex-col-reverse md:flex-row items-end md:items-stretch min-h-[538px]">
         {/* Left: search form */}
         <div className="flex flex-col justify-end pb-12 px-6 md:px-12 md:max-w-[480px] lg:max-w-[520px] w-full z-10 md:pb-16">
-          <h1 className="sr-only">
-            We are all strong on this Planet™. Join the club today!
-          </h1>
+          <h1 className="sr-only">{t.hero.srText}</h1>
           <form
             action="/gyms"
             className="flex items-center bg-white rounded-full shadow-md overflow-hidden"
@@ -14,7 +18,7 @@ export function HeroSection() {
             <input
               type="search"
               name="location"
-              placeholder="Search by address, city, or ZIP code"
+              placeholder={t.hero.searchPlaceholder}
               className="flex-1 bg-transparent px-5 py-3 text-base/6 text-common-black outline-none placeholder:text-gray-medium min-w-0"
             />
             <button
@@ -28,7 +32,7 @@ export function HeroSection() {
                   clipRule="evenodd"
                 />
               </svg>
-              <span className="hidden lg:inline">Find a Club</span>
+              <span className="hidden lg:inline">{t.hero.findAClub}</span>
             </button>
           </form>
         </div>
@@ -37,7 +41,7 @@ export function HeroSection() {
         <div className="flex-1 flex items-end justify-center">
           <img
             src="/images/hero-fitness-model.webp"
-            alt="We are all strong on this Planet™. Join the club today!"
+            alt={t.hero.srText}
             className="w-auto md:max-h-[334px] object-contain object-bottom"
           />
         </div>

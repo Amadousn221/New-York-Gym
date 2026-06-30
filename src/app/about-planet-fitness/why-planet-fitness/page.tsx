@@ -288,23 +288,24 @@ export default function WhyPlanetFitnessPage() {
         </section>
 
         {/* ── Purple CTA ──────────────────────────────────────────── */}
-        <section className="bg-primary-main bg-purpleYellowLeftGlare pt-16 md:px-24 lg:px-0">
-          <div className="flex flex-col lg:flex-row lg:items-end">
-            <div className="relative aspect-square w-full max-w-[44.5rem] lg:w-1/2">
+        <section className="bg-primary-main bg-purpleYellowRightGlare overflow-hidden pt-16 md:px-24 lg:bg-purpleYellowLeftGlare lg:px-0">
+          <div className="mx-auto flex max-w-[90rem] flex-col lg:flex-row lg:items-end">
+            <div className="mx-auto w-full max-w-[28rem] shrink-0 self-end lg:mx-0 lg:w-1/2 lg:max-w-[44.5rem]">
               <Image
-                src="/images/why-pf/belong-member.webp"
-                alt="Planet Fitness member working out"
-                fill
-                className="object-cover"
+                src="/images/our-clubs/come-as-you-are-person.png"
+                alt="Planet Fitness member holding a dumbbell"
+                width={712}
+                height={712}
+                className="w-full object-contain object-bottom"
               />
             </div>
-            <div className="px-6 pb-16 pt-8 text-white lg:w-1/2 lg:px-16 lg:pb-24 lg:pt-0">
-              <h2 className="text-[3rem]/[3.5rem] font-bold tracking-[-0.72px] lg:text-5xl/[3.5rem]">
+            <div className="px-6 py-16 text-white lg:max-w-[36rem] lg:px-8 lg:py-24">
+              <h2 className="text-[2.5rem]/[3rem] font-bold tracking-[-0.6px] lg:text-5xl/[3.5rem]">
                 Workout trends come and go. You can just come as you are.
               </h2>
               <Link
                 href="/gym-memberships"
-                className="mt-8 inline-block rounded-full bg-secondary-main px-8 py-4 text-lg/6 font-semibold text-common-black"
+                className="bg-secondary-main text-common-black mt-8 inline-block rounded-full px-8 py-4 text-lg/6 font-semibold"
               >
                 Join Now
               </Link>
