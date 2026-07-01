@@ -33,102 +33,102 @@ function MaskIcon({
 const EQUIPMENT_ACCORDION = [
   {
     id: "strength",
-    label: "Équipement de musculation",
+    label: "Strength Equipment",
     items: [
-      "Tours de câbles",
-      "Banc de musculation",
-      "Espace mobilité & étirements",
-      "Poids libres (haltères & barres)",
+      "Cable Trainers",
+      "Plate Loaded",
+      "Functional & Stretching Room",
+      "Multifunctional Machines (Dumbbells & Barbells)",
     ],
   },
   {
     id: "cardio",
-    label: "Équipement cardio",
-    items: ["Tapis de course", "Elliptiques", "Vélos stationnaires", "Steppers"],
+    label: "Cardio Equipment",
+    items: ["Treadmills", "Ellipticals", "Stationary Bikes", "Stair Climbers"],
   },
   {
     id: "functional",
-    label: "Fonctionnel",
-    items: ["Zone d'étirements", "Espace entraînement fonctionnel", "Équipement abdominaux"],
+    label: "Functional",
+    items: ["Stretching Area", "Functional Training Space", "Ab Equipment"],
   },
 ];
 
 const TRAINING_FEATURES = [
   {
     icon: "/images/icons/Equipment.svg",
-    title: "Coaching gratuit en club¹",
-    desc: "Tu cherches un plan d'entraînement personnalisé ou de l'aide pour utiliser l'équipement ? Nos coachs certifiés sont là pour t'accompagner.",
+    title: "Free In-Club Fitness Training",
+    desc: "Looking for a customized exercise plan or need help with equipment? Our certified in-club trainers are ready to help you keep going.",
     href: "/workout-training",
   },
   {
     icon: "/images/icons/VirtualTour.svg",
-    title: "Reste actif avec l'appli NY Gym",
-    desc: "Entraîne-toi où que tu sois, à tout moment, grâce à des dizaines d'entraînements à la demande disponibles directement sur l'appli NY Gym, à la maison comme au club.",
+    title: "Keep Moving in the PF App",
+    desc: "Work out anywhere, anytime with more than 900 free on-demand workouts in the PF App that can be done at home or in the gym.",
     href: "/mobileapp",
   },
   {
     icon: "/images/icons/WCPerks.svg",
-    title: "Tutoriels équipement",
-    desc: "Scanne les QR codes présents sur chaque machine pour accéder à des instructions détaillées et des vidéos sur l'appli NY Gym, afin de t'aider sur la bonne posture et la bonne technique.",
+    title: "Equipment Tutorials",
+    desc: "Scan the QR codes located on each machine for step-by-step instructions and videos in the PF App to help with form and best practices.",
     href: "/workout-training/equipment-tutorials",
   },
 ];
 
 const AMENITIES_LIST = [
-  "Enregistrement sans contact",
-  "WiFi gratuit",
-  "Fontaine à eau",
-  "Vestiaires",
-  "Douches",
+  "Touchless Check-in",
+  "Free WiFi",
+  "Drink Station",
+  "Lockers",
+  "Showers",
 ];
 
 const CHECKLIST_ITEMS = [
   {
     id: "download-app",
-    label: "Télécharge l'appli",
-    desc: "Télécharge l'appli NY Gym pour utiliser ton pass digital de club au moment de t'enregistrer, et accéder à d'autres fonctionnalités comme le compteur d'affluence et les entraînements à la demande.",
+    label: "Download the app",
+    desc: "Use the PF App to use your digital first pass to check in, plus access other features just as an easy guide of what to expect at our clubs.",
   },
   {
     id: "gear",
-    label: "Trouve ton équipement à la boutique NY Gym",
-    desc: "Procure-toi des vêtements de sport confortables à la boutique NY Gym pour être prêt à te lancer.",
+    label: "Get your gear at the PF store",
+    desc: "Pick up comfortable workout gear at the PF Store so you're ready to hit the floor.",
   },
   {
     id: "ready",
-    label: "Prépare-toi à bouger",
-    desc: "Que tu sois là pour la première fois ou de retour après une pause, notre équipe sera ravie de te faire découvrir le club.",
+    label: "Get ready to move",
+    desc: "Whether you're here for the first time or returning after a while, our staff will be happy to show you around.",
   },
   {
     id: "workouts",
-    label: "Accède aux entraînements digitaux à la demande",
-    desc: "Explore des dizaines de vidéos d'entraînement guidées directement sur l'appli NY Gym — disponibles à tout moment, n'importe où.",
+    label: "Access digital on-demand workouts",
+    desc: "Browse hundreds of guided workout videos right in the PF App — available anytime, anywhere.",
   },
   {
     id: "tutorials",
-    label: "Tutoriels exercices & équipement",
-    desc: "Retrouve des guides détaillés et des tutoriels vidéo pour chaque machine disponible dans nos clubs.",
+    label: "Exercise & equipment tutorials",
+    desc: "Find step-by-step guides and video tutorials for every piece of equipment in our clubs.",
   },
   {
     id: "track",
-    label: "Suis ton activité",
-    desc: "Enregistre tes séances et suis ta progression dans le temps directement depuis l'appli NY Gym.",
+    label: "Track your activity",
+    desc: "Log your workouts and keep track of your progress over time right from the PF App.",
   },
 ];
 
 const BLOG_ARTICLES = [
   {
     image: "/images/our-clubs/blog-essentials.webp",
-    title: "L'essentiel à emporter à la salle",
+    title: "Workout essentials: what to bring to the gym",
     href: "/resources/fitness/workout-essentials-what-to-bring-to-the-gym",
   },
   {
     image: "/images/our-clubs/blog-beginners.webp",
-    title: "Comment démarrer le sport (si tu n'as jamais fait d'exercice)",
+    title: "How to start working out (if you've never exercised before)",
     href: "/resources/fitness/how-to-start-working-out",
   },
   {
     image: "/images/our-clubs/blog-quotes.webp",
-    title: "9 citations motivantes pour te donner envie d'aller à la salle",
+    title: "8 motivational workout quotes to get you into the gym",
     href: "/resources/fitness/motivational-workout-quotes",
   },
 ];
@@ -186,7 +186,7 @@ export default function OurClubsPage() {
           {/* Hero content */}
           <div className="relative z-10 mt-10 px-6 md:mt-14 md:px-12 lg:mt-20 lg:px-24">
             <h1 className="max-w-[24rem] text-[2.5rem]/[3rem] font-bold text-white md:max-w-[34rem] md:text-[3.5rem]/[4rem] lg:max-w-[44rem] lg:text-[4.5rem]/[5rem]">
-              Nos clubs ont tout ce qu&apos;il te faut
+              Our Clubs Have Everything You Need
             </h1>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
@@ -194,14 +194,14 @@ export default function OurClubsPage() {
                 className="flex items-center gap-2 rounded-full bg-black/50 px-5 py-2.5 text-sm/5 font-semibold text-white backdrop-blur-sm transition-colors hover:bg-black/70 md:text-base/6"
               >
                 <Camera className="size-4 shrink-0" />
-                Vue aérienne 3D
+                3D Aerial View
               </a>
               <a
                 href="/virtual-tour"
                 className="flex items-center gap-2 rounded-full bg-black/50 px-5 py-2.5 text-sm/5 font-semibold text-white backdrop-blur-sm transition-colors hover:bg-black/70 md:text-base/6"
               >
                 <Play className="size-4 shrink-0" />
-                Visite virtuelle
+                Virtual Tour
               </a>
             </div>
           </div>
@@ -215,10 +215,10 @@ export default function OurClubsPage() {
           <div className="mx-auto flex max-w-[74.5rem] divide-x divide-white/10">
             {(
               [
-                ["equipment", "Notre équipement"],
-                ["training", "Entraînement fitness"],
-                ["amenities", "Équipements & services"],
-                ["checklist", "Checklist première visite"],
+                ["equipment", "Our Equipment"],
+                ["training", "Fitness Training"],
+                ["amenities", "Amenities"],
+                ["checklist", "First Visit Checklist"],
               ] as [SectionId, string][]
             ).map(([id, label]) => (
               <button
@@ -240,10 +240,10 @@ export default function OurClubsPage() {
         <section id="equipment" className="scroll-mt-14 py-16 lg:py-20">
           <div className="mx-auto max-w-[74.5rem] px-6">
             <p className="mb-3 text-center text-xs/4 font-bold uppercase tracking-widest text-primary-main">
-              Notre équipement
+              Our Equipment
             </p>
             <h2 className="mb-10 text-center text-[2rem]/10 font-bold tracking-[-0.24px] lg:mb-14 lg:text-[2.5rem]/[3rem]">
-              Des tonnes d&apos;équipements cardio et musculation
+              Tons of Strength and Cardio Equipment
             </h2>
 
             <div className="flex flex-col items-start gap-10 lg:flex-row lg:gap-16">
@@ -301,7 +301,7 @@ export default function OurClubsPage() {
                         ))}
                       </ul>
                       <button className="mt-2 pb-4 text-sm/5 font-semibold text-primary-main underline underline-offset-2">
-                        Afficher plus
+                        Show More
                       </button>
                     </div>
                   </div>
@@ -315,10 +315,10 @@ export default function OurClubsPage() {
         <section id="training" className="scroll-mt-14 bg-white py-16 lg:py-20">
           <div className="mx-auto max-w-[74.5rem] px-6">
             <p className="mb-3 text-center text-xs/4 font-bold uppercase tracking-widest text-primary-main">
-              Entraînement fitness
+              Fitness Training
             </p>
             <h2 className="mb-10 text-center text-[2rem]/10 font-bold tracking-[-0.24px] lg:mb-14 lg:text-[2.5rem]/[3rem]">
-              Entraînement fitness gratuit et illimité avec New York Gym
+              Unlimited Free Fitness Training with PF
             </h2>
           </div>
 
@@ -348,7 +348,7 @@ export default function OurClubsPage() {
                     href={feat.href}
                     className="mt-4 text-sm/5 font-semibold text-primary-main underline underline-offset-2"
                   >
-                    En savoir plus
+                    Learn More
                   </Link>
                 </div>
               ))}
@@ -360,10 +360,10 @@ export default function OurClubsPage() {
         <section id="amenities" className="scroll-mt-14 bg-white py-16 lg:py-20">
           <div className="mx-auto max-w-[74.5rem] px-6">
             <p className="mb-3 text-center text-xs/4 font-bold uppercase tracking-widest text-primary-main">
-              Équipements &amp; services
+              Amenities
             </p>
             <h2 className="mb-10 text-center text-[2rem]/10 font-bold tracking-[-0.24px] lg:mb-14 lg:text-[2.5rem]/[3rem]">
-              Découvre nos équipements et services
+              Explore Our Amenities
             </h2>
 
             {/* Checklist + kiosk image */}
@@ -408,17 +408,18 @@ export default function OurClubsPage() {
                 {/* Text */}
                 <div className="flex flex-col justify-center px-8 py-10 text-white lg:px-12 lg:py-14">
                   <h3 className="text-2xl/8 font-bold lg:text-[2rem]/10">
-                    Spa Black Card®
+                    PF Black Card Spa®
                   </h3>
                   <p className="mt-4 text-base/7 text-white/75">
-                    Accède en illimité à nos fauteuils de massage, cabines de bronzage,
-                    invitations d&apos;un ami gratuites, boissons à moitié prix et bien plus encore !
+                    Get unlimited access to our massage chairs, tanning beds,
+                    Red Light Therapy, HydroMassage, Total Body Enhancement, and
+                    much more when you upgrade to a Black Card membership.
                   </p>
                   <Link
                     href="/gym-memberships/#blackCard"
                     className="mt-8 inline-block self-start rounded-full bg-white px-6 py-3 text-sm/5 font-semibold text-common-black transition-colors hover:bg-gray-100"
                   >
-                    Découvrir le NY Gym Black Card®
+                    Explore PF Black Card
                   </Link>
                 </div>
               </div>
@@ -433,10 +434,10 @@ export default function OurClubsPage() {
         >
           <div className="mx-auto max-w-[74.5rem] px-6">
             <p className="mb-3 text-center text-xs/4 font-bold uppercase tracking-widest text-primary-main">
-              Checklist première visite
+              First Visit Checklist
             </p>
             <h2 className="mb-10 text-center text-[2rem]/10 font-bold tracking-[-0.24px] lg:mb-14 lg:text-[2.5rem]/[3rem]">
-              Prépare-toi avec notre checklist première visite
+              Be Ready With Our First Visit Checklist
             </h2>
 
             <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-start lg:gap-16">
@@ -507,7 +508,7 @@ export default function OurClubsPage() {
         <section className="py-16 lg:py-20">
           <div className="mx-auto max-w-[74.5rem] px-6">
             <h2 className="mb-10 text-center text-[2rem]/10 font-bold tracking-[-0.24px] lg:mb-14 lg:text-[2.5rem]/[3rem]">
-              Inspire-toi
+              Get Inspired
             </h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {BLOG_ARTICLES.map((article) => (
@@ -528,7 +529,7 @@ export default function OurClubsPage() {
                     {article.title}
                   </h3>
                   <span className="mt-2 text-sm/5 font-semibold text-primary-main underline underline-offset-2">
-                    En savoir plus
+                    Learn More
                   </span>
                 </Link>
               ))}
@@ -539,12 +540,12 @@ export default function OurClubsPage() {
         {/* ── FIND A CLUB ──────────────────────────────────────────── */}
         <section className="flex flex-col items-center px-6 py-16 lg:py-20">
           <h2 className="text-center text-[2rem]/10 font-bold tracking-[-0.24px] lg:text-[2.5rem]/[3rem]">
-            Trouve un club près de toi
+            Find a Club Near You
           </h2>
           <div className="mt-8 flex w-full max-w-[38rem] overflow-hidden rounded-full border border-border-light bg-white shadow-sm">
             <input
               type="text"
-              placeholder="Adresse, ville ou code postal"
+              placeholder="Search by address, city, or ZIP code"
               className="flex-1 bg-transparent px-6 py-4 text-base text-common-black placeholder-gray-medium outline-none"
             />
             <Link
@@ -552,7 +553,7 @@ export default function OurClubsPage() {
               className="bg-primary-main text-common-white flex shrink-0 items-center gap-2 rounded-full px-6 py-4 text-base font-semibold"
             >
               <Search className="size-5" />
-              Trouver un club
+              Find a Club
             </Link>
           </div>
         </section>

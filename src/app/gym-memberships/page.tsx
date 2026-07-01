@@ -22,50 +22,50 @@ const bcPerks: Perk[] = [
   {
     img: "/images/memberships/bc-access-worldwide.webp",
     alt: "Use of Any Planet Fitness Worldwide",
-    title: "Accès à n'importe quel club New York Gym",
-    desc: "En tant que membre NY Gym Black Card®, tu peux t'entraîner dans n'importe lequel de nos plus de 2 700 clubs.",
+    title: "Use of Any Planet Fitness Worldwide",
+    desc: "As a PF Black Card® member, you'll have the ability to use any of our 2,700+ locations.",
     icon: "BCRecip.svg",
   },
   {
     img: "/images/memberships/bc-guest.webp",
     alt: "Bring a Guest Anytime",
-    title: "Invite un ami à tout moment",
-    desc: "S'entraîner à deux, c'est encore mieux. Les membres NY Gym Black Card® peuvent inviter un ami gratuitement à chaque visite !",
+    title: "Bring a Guest Anytime",
+    desc: "Working out is better with a buddy. PF Black Card® members can bring a guest for free every visit!",
     icon: "BCGuest.svg",
   },
   {
     img: "/images/memberships/bc-app-workouts.webp",
     alt: "PF+ Exclusive App Workouts",
-    title: "Entraînements digitaux exclusifs NY Gym+",
-    desc: "Débloque du contenu digital exclusif, avec accès à l'abonnement premium de notre marque.",
+    title: "PF+ Exclusive App Workouts",
+    desc: "Unlock exclusive digital workout content, with access to our brand's premium subscription.",
     icon: "BCVirtualFT.svg",
   },
   {
     img: "/images/memberships/free-fitness-training.webp",
     alt: "Free In-Club Fitness Training",
-    title: "Coaching gratuit en club¹",
-    desc: "Avec nos coachs certifiés, tu peux rejoindre un cours collectif, apprendre à utiliser nos équipements cardio et musculation, ou créer un plan d'entraînement personnalisé. Le tout gratuitement !",
+    title: "Free In-Club Fitness Training ¹",
+    desc: "With our certified fitness trainers you can take a small group fitness class, learn about our extensive range of cardio and strength machines, or create a customized workout plan. It's all free!",
     icon: "FreeICFT.svg",
   },
   {
     img: "/images/memberships/bc-premium-perks.webp",
     alt: "Premium Perks: Partner Rewards & Discounts",
-    title: "Avantages premium : réductions partenaires",
-    desc: "Rendre le fitness encore plus avantageux. Les membres NY Gym Black Card® bénéficient de réductions exclusives et d'offres spéciales supplémentaires.",
+    title: "Premium Perks: Partner Rewards & Discounts",
+    desc: "Making fitness even more rewarding. PF Black Card® Members get even more exclusive discounts and special offers.",
     icon: "BCPremPerks.svg",
   },
   {
     img: "/images/memberships/bc-drinks.webp",
     alt: "50% Off Select Drinks",
-    title: "50 % de réduction sur une sélection de boissons",
-    desc: "Les membres NY Gym Black Card® bénéficient de tarifs spéciaux pour faciliter le choix de boissons saines.",
+    title: "50% Off Select Drinks",
+    desc: "PF Black Card® members get special pricing that makes it easier to opt for healthy beverages.",
     icon: "BCHalfPriceCoolerDrinks.svg",
   },
   {
     img: "/images/memberships/free-wifi.webp",
     alt: "Free WiFi",
-    title: "WiFi gratuit",
-    desc: "Profite du WiFi gratuit chez New York Gym. Demande simplement le mot de passe à l'accueil.",
+    title: "Free WiFi",
+    desc: "Enjoy free WiFi at Planet Fitness. Just ask for the WiFi password at the front desk.",
     icon: "ClassicWifi.svg",
   },
 ];
@@ -75,43 +75,43 @@ const spaPerks: Perk[] = [
   {
     img: "/images/memberships/spa-massage-chairs.webp",
     alt: "Use of Massage Chairs",
-    title: "Fauteuils de massage",
-    desc: "Avec un abonnement NY Gym Black Card®, tu peux te détendre avec un massage après ton entraînement (ou avant — on ne juge pas).",
+    title: "Use of Massage Chairs",
+    desc: "With a PF Black Card® membership, you can relax and unwind with a massage after your workout (or before – we don't judge).",
     icon: "BCMassageChairs.svg",
   },
   {
     img: "/images/memberships/spa-hydromassage.webp",
     alt: "Use of HydroMassage™",
-    title: "HydroMassage™¹",
-    desc: "HydroMassage™ est un massage aquatique innovant pour le bien-être et la récupération musculaire. De puissantes vagues d'eau chaude pénètrent en profondeur pour soulager les muscles douloureux.",
+    title: "Use of HydroMassage™ ¹",
+    desc: "HydroMassage™ is an innovative water massage for wellness and muscle recovery. Powerful waves of heated water penetrate deeply to soothe aching muscles.",
     icon: "BCHydro.svg",
   },
   {
     img: "/images/memberships/spa-tanning.webp",
     alt: "Use of Tanning",
-    title: "Bronzage¹",
-    desc: "Un avantage exclusif pour les membres NY Gym Black Card®.",
+    title: "Use of Tanning ¹",
+    desc: "An exclusive benefit for PF Black Card® members.",
     icon: "BCTanning.svg",
   },
   {
     img: "/images/memberships/spa-total-body.webp",
     alt: "Use of Total Body Enhancement",
-    title: "Total Body Enhancement¹",
-    desc: "Cette cabine utilise une application de lumière rouge sans UV, associée à la technologie vibra-shape.",
+    title: "Use of Total Body Enhancement ¹",
+    desc: "This booth features a UV free application of red light, which pairs with vibra-shape technology.",
     icon: "BCTotalBodyEnhancement.svg",
   },
   {
     img: "/images/memberships/spa-wellness-pod.webp",
     alt: "Use Of Wellness Pod",
-    title: "Wellness Pod¹",
-    desc: "Un espace relaxant et revitalisant dans le Wellness Pod ! Personnalise ta séance en choisissant tes paramètres préférés.",
+    title: "Use Of Wellness Pod ¹",
+    desc: "A relaxing and rejuvenating escape awaits in the Wellness Pod! Personalize your session by choosing your preferred settings.",
     icon: "BCWellPod.svg",
   },
   {
     img: "/images/memberships/spa-recovery-lounge.webp",
     alt: "Use of Recovery Lounge",
-    title: "Salon de récupération¹",
-    desc: "Le Salon de récupération offre du froid ciblé pour les courbatures et douleurs, complété par de la chaleur dans d'autres zones.",
+    title: "Use of Recovery Lounge ¹",
+    desc: "The Recovery Lounge offers targeted cold for soreness and aches, complemented by warmth in other areas.",
     icon: "BCRecoveryLounge.svg",
   },
 ];
@@ -121,89 +121,89 @@ const classicPerks: Perk[] = [
   {
     img: "/images/memberships/classic-access.webp",
     alt: "Unlimited Access to Home Club",
-    title: "Accès illimité à ton club de proximité",
-    desc: "Viens quand tu veux, aussi souvent que tu veux.",
+    title: "Unlimited Access to Home Club",
+    desc: "Come in anytime, as often as you like.",
     icon: "ClassicAccess.svg",
   },
   {
     img: "/images/memberships/classic-app.webp",
     alt: "PF App Workouts",
-    title: "Entraînements sur l'appli NY Gym",
-    desc: "Découvre l'appli gratuite NY Gym et ses nombreux entraînements à la demande pour tous les niveaux et tous les styles.",
+    title: "PF App Workouts",
+    desc: "Check out the FREE PF App for tons of on-demand workouts for all fitness levels and styles.",
     icon: "MobileApp.svg",
   },
   {
     img: "/images/memberships/free-fitness-training.webp",
     alt: "Free In-Club Fitness Training",
-    title: "Coaching gratuit en club¹",
-    desc: "Avec nos coachs certifiés, tu peux rejoindre un cours collectif, apprendre à utiliser nos équipements cardio et musculation, ou créer un plan d'entraînement personnalisé.",
+    title: "Free In-Club Fitness Training ¹",
+    desc: "With our certified fitness trainers you can take a small group fitness class, learn about our extensive range of cardio and strength machines, or create a customized workout plan.",
     icon: "FreeICFT.svg",
   },
   {
     img: "/images/memberships/free-wifi.webp",
     alt: "Free WiFi",
-    title: "WiFi gratuit",
-    desc: "Profite du WiFi gratuit chez New York Gym. Demande simplement le mot de passe à l'accueil.",
+    title: "Free WiFi",
+    desc: "Enjoy free WiFi at Planet Fitness. Just ask for the WiFi password at the front desk.",
     icon: "ClassicWifi.svg",
   },
   {
     img: "/images/memberships/classic-perks.webp",
     alt: "Perks: Partner Rewards & Discounts",
-    title: "Avantages : réductions partenaires",
-    desc: "Rendre le fitness encore plus avantageux. Les membres bénéficient de réductions et d'offres spéciales exclusives.",
+    title: "Perks: Partner Rewards & Discounts",
+    desc: "Making fitness even more rewarding. Members get exclusive discounts and special offers.",
     icon: "WCPerks.svg",
   },
 ];
 
 /* ── Compare data ───────────────────────────────────────────────── */
 const compareBC = [
-  "Accès à n'importe quel club New York Gym",
-  "Coaching gratuit en club¹",
-  "Entraînements digitaux exclusifs NY Gym+",
-  "WiFi gratuit",
-  "Avantages premium : réductions partenaires",
-  "Invite un ami à tout moment",
-  "Fauteuils de massage",
-  "HydroMassage™¹",
-  "Bronzage¹",
-  "Total Body Enhancement¹",
-  "50 % de réduction sur une sélection de boissons",
-  "Wellness Pod¹",
-  "Salon de récupération¹",
+  "Use of Any Planet Fitness Worldwide",
+  "Free In-Club Fitness Training ¹",
+  "PF+ Exclusive App Workouts",
+  "Free WiFi",
+  "Premium Perks: Partner Rewards & Discounts",
+  "Bring a Guest Anytime",
+  "Use of Massage Chairs",
+  "Use of HydroMassage™ ¹",
+  "Use of Tanning ¹",
+  "Use of Total Body Enhancement ¹",
+  "50% Off Select Drinks",
+  "Wellness Pod ¹",
+  "Use of Recovery Lounge ¹",
 ];
 const compareClassic = [
-  "Accès illimité à ton club de proximité",
-  "Coaching gratuit en club¹",
-  "Entraînements sur l'appli NY Gym",
-  "WiFi gratuit",
-  "Avantages : réductions partenaires",
+  "Unlimited Access to Home Club",
+  "Free In-Club Fitness Training ¹",
+  "PF App Workouts",
+  "Free WiFi",
+  "Perks: Partner Rewards & Discounts",
 ];
 
 /* ── FAQs ───────────────────────────────────────────────────────── */
 const faqs: FaqItem[] = [
   {
-    q: "Quelle est la différence entre l'abonnement NY Gym Black Card® et l'abonnement Classic ?",
-    a: "New York Gym propose deux formules d'abonnement : NY Gym Black Card® et Classic. Avec le NY Gym Black Card®, tu as accès à tous les clubs New York Gym, tandis que l'abonnement Classic te donne accès à ton club d'attache. En tant que membre NY Gym Black Card®, tu bénéficies également d'avantages supplémentaires non inclus dans le Classic, comme l'option d'inviter un ami à tout moment, l'accès au Spa Black Card® NY Gym, et d'autres avantages exclusifs.",
+    q: "What's the difference between PF Black Card® and Classic memberships?",
+    a: "Planet Fitness offers two membership options: PF Black Card® and Classic. With a PF Black Card®, you will have access to all Planet Fitness clubs worldwide, while the Classic membership gives you access to your home club location. Additionally, as a PF Black Card® member you will have access to several amenities that are not available to Classic members such as the option to bring a guest anytime, access to the PF Black Card® Spa, and other exclusive PF Black Card® perks.",
   },
   {
-    q: "Quel âge faut-il avoir pour souscrire à un abonnement New York Gym ?",
-    a: "Tu peux rejoindre New York Gym dès 13 ans avec l'autorisation d'un parent ou tuteur légal. Les membres de 13 ans doivent être accompagnés d'un parent ou tuteur lors de leurs séances. Les membres âgés de 14 ans doivent être accompagnés en permanence. Les membres de 15 à 17 ans doivent avoir une décharge signée par un parent ou tuteur.",
+    q: "How old do I have to be to get a Planet Fitness membership?",
+    a: "You can join PF if you are 13 years or older with a parent/legal guardian's permission. Members aged 13 must be accompanied by a parent or guardian when they work out. Many clubs also require that members aged 14 must be accompanied by a parent/guardian at all times. Members who are 15-17 years old must have a signed waiver from a parent or guardian.",
   },
   {
-    q: "New York Gym propose-t-il des cours collectifs ou du coaching individuel ?",
-    a: "Oui. Nous proposons des séances d'entraînement en petit groupe gratuites, selon les disponibilités. Ces cours sont animés par des coachs certifiés et accessibles à tous les membres. De plus, l'appli NY Gym propose de nombreuses routines pour tous les niveaux, du débutant à l'entraînement avancé.",
+    q: "Does Planet Fitness offer classes or personal training?",
+    a: "Yes. We offer free fitness training in small group formats that are first come, first serve. Fitness classes are led by certified fitness trainers and are available to all Planet Fitness members. Additionally, our PF App is equipped with tons of helpful routines from beginner-level workouts to advanced fitness training.",
   },
   {
-    q: "Quels sont les horaires de mon club ?",
-    a: "Les horaires varient selon le club. Rends-toi sur notre page Nos clubs et clique sur « Détails du club » pour obtenir les horaires spécifiques de ton club.",
+    q: "What are my club's hours?",
+    a: "Hours vary by location. Please visit our Gyms Near Me page and click on 'Club Details' to get more information on specific club hours.",
   },
   {
-    q: "Qu'est-ce que la Zone Sans Jugement® ?",
-    a: "La Zone Sans Jugement® est notre environnement accueillant et sans intimidation, où les membres de tous niveaux sont encouragés à atteindre leurs objectifs personnels sans crainte du jugement.",
+    q: "What is the Judgement Free Zone®?",
+    a: "The Judgement Free Zone® is our welcoming, non-intimidating environment where members of all fitness levels are encouraged to reach their personal goals without fear of judgment.",
   },
   {
-    q: "Comment puis-je résilier mon abonnement ?",
-    a: "Tu peux résilier ton abonnement en personne dans ton club d'attache ou en envoyant un courrier recommandé. Il n'y a pas de frais de résiliation pour les abonnements mensuels.",
+    q: "How do I cancel my membership?",
+    a: "You can cancel your membership in-person at your home club or by sending a certified letter. There is no cancellation fee for month-to-month memberships.",
   },
 ];
 
@@ -288,9 +288,9 @@ export default function GymMembershipsPage() {
   };
 
   const tabs: { id: TabId; label: string }[] = [
-    { id: "blackCard", label: "NY Gym Black Card®" },
+    { id: "blackCard", label: "PF Black Card®" },
     { id: "classicCard", label: "Classic" },
-    { id: "compare", label: "Comparer" },
+    { id: "compare", label: "Compare" },
   ];
 
   /* Current active images, never undefined */
@@ -320,23 +320,23 @@ export default function GymMembershipsPage() {
           />
 
           <h1 className="text-common-white max-w-md text-center text-5xl font-bold leading-[3.5rem] tracking-[-0.72px]">
-            Nos abonnements
+            Our Memberships
           </h1>
 
           {/* Card grid — no logos, matching real site */}
           <div className="grid w-full grid-cols-1 items-center justify-center gap-4 md:grid-cols-2 max-w-[57rem]">
 
-            {/* NY Gym Black Card® card */}
+            {/* PF Black Card® card */}
             <div className="bg-gradient-330-18-84 flex size-full flex-col justify-between rounded-2xl p-6 text-lg/6 text-common-white shadow-[0_16px_32px_0px_rgba(4,16,35,0.24)] min-h-[220px]">
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="font-condensed text-2xl/6 font-bold uppercase">NY GYM BLACK CARD®</span>
+                  <span className="font-condensed text-2xl/6 font-bold uppercase">PF BLACK CARD®</span>
                   <span className="bg-secondary-main text-primary-dark rounded px-2 pb-[5px] pt-[3px] text-sm/4 font-semibold whitespace-nowrap">
-                    Meilleure offre
+                    Best Value
                   </span>
                 </div>
                 <p className="mt-6">
-                  Accès à n&apos;importe quel club, invite un ami à tout moment, entraînements digitaux premium NY Gym+, et bien plus encore !
+                  Access to any club, bring a guest anytime, PF+ premium digital workouts, and so much more!
                 </p>
               </div>
               <div className="mt-8 flex items-center gap-6">
@@ -345,13 +345,13 @@ export default function GymMembershipsPage() {
                   onClick={(e) => { e.preventDefault(); scrollTo("blackCard"); }}
                   className="whitespace-nowrap font-semibold underline"
                 >
-                  En savoir plus
+                  Learn More
                 </a>
                 <Link
                   href="/gyms"
                   className="bg-common-white text-primary-main rounded-full px-6 py-2 font-semibold"
                 >
-                  Devenir membre
+                  Join Now
                 </Link>
               </div>
             </div>
@@ -361,7 +361,7 @@ export default function GymMembershipsPage() {
               <div>
                 <span className="font-condensed text-2xl/6 font-bold uppercase text-common-black">CLASSIC</span>
                 <p className="mt-6 text-common-black">
-                  Notre abonnement standard, avec accès illimité à ton club de proximité.
+                  Our standard membership, with unlimited access to your home club.
                 </p>
               </div>
               <div className="mt-8 flex items-center gap-6">
@@ -370,13 +370,13 @@ export default function GymMembershipsPage() {
                   onClick={(e) => { e.preventDefault(); scrollTo("classicCard"); }}
                   className="text-primary-main whitespace-nowrap font-semibold underline"
                 >
-                  En savoir plus
+                  Learn More
                 </a>
                 <Link
                   href="/gyms"
                   className="bg-primary-main text-common-white rounded-full px-6 py-2 font-semibold"
                 >
-                  Devenir membre
+                  Join Now
                 </Link>
               </div>
             </div>
@@ -411,7 +411,7 @@ export default function GymMembershipsPage() {
             {/* Dark banner with PF Black Card logo */}
             <div className="bg-gradient-330-18-84 flex w-full justify-center py-[5.75rem] md:py-[5.625rem] lg:py-[7.5rem]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/LogoPFBlack.svg" alt="Rejoindre NY Gym Black Card®" className="h-14 md:h-20" />
+              <img src="/images/LogoPFBlack.svg" alt="Join PF Black Card®" className="h-14 md:h-20" />
             </div>
 
             {/* 2-col: accordion left + image right */}
@@ -421,7 +421,7 @@ export default function GymMembershipsPage() {
                 {/* Left: heading + accordion + CTA */}
                 <div className="flex shrink-0 flex-col items-center md:items-start lg:max-w-[28rem]">
                   <h3 className="self-start text-2xl font-bold tracking-[-0.36px] mb-6 lg:mb-8">
-                    L&apos;abonnement qui te donne accès à tous les avantages
+                    The Membership That Gets You All the Perks
                   </h3>
                   <PerkAccordion
                     perks={bcPerks}
@@ -432,7 +432,7 @@ export default function GymMembershipsPage() {
                     href="/gyms"
                     className="mt-8 inline-block bg-primary-main text-white rounded-full px-8 py-3.5 font-semibold hover:bg-primary-dark transition-colors"
                   >
-                    Rejoindre NY Gym Black Card®
+                    Join PF Black Card®
                   </Link>
                 </div>
 
@@ -455,15 +455,15 @@ export default function GymMembershipsPage() {
             <div className="w-full px-6 md:px-[2.25rem] lg:px-8">
               <div className="bg-purpleVioletLefSandRightGlare relative h-48 rounded-3xl md:h-[16.25rem] lg:m-auto lg:h-80 lg:max-w-[71.5rem] overflow-hidden">
                 <div className="font-condensed absolute inset-0 z-10 flex flex-col items-center justify-center font-extrabold italic text-center">
-                  <span className="text-common-white text-2xl/none md:text-5xl/none">ACCÈS GRATUIT AU</span>
+                  <span className="text-common-white text-2xl/none md:text-5xl/none">FREE ACCESS TO THE</span>
                   <span className="text-secondary-main text-[2rem]/none md:text-[4rem]/none lg:text-[4rem]/none">
-                    SPA BLACK CARD®
+                    BLACK CARD SPA®
                   </span>
                 </div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="https://www.planetfitness.com/remix/images/pf-member-on-massage-chair.svg"
-                  alt="Membre NY Gym sur le fauteuil de massage"
+                  alt="Planet Fitness member on the massage chair"
                   className="absolute size-full rounded-3xl object-cover object-[80%_top] opacity-[0.64] lg:rounded-[2rem]"
                 />
               </div>
@@ -489,7 +489,7 @@ export default function GymMembershipsPage() {
                 {/* Right: heading + accordion + CTA */}
                 <div className="flex shrink-0 flex-col items-center md:items-start lg:max-w-[28rem]">
                   <h3 className="self-start text-2xl font-bold tracking-[-0.36px] mb-6 lg:mb-8">
-                    Détends-toi après ton entraînement
+                    Relax and Unwind After Your Workout
                   </h3>
                   <PerkAccordion
                     perks={spaPerks}
@@ -500,7 +500,7 @@ export default function GymMembershipsPage() {
                     href="/gyms"
                     className="mt-8 inline-block bg-primary-main text-white rounded-full px-8 py-3.5 font-semibold hover:bg-primary-dark transition-colors"
                   >
-                    Rejoindre NY Gym Black Card®
+                    Join PF Black Card®
                   </Link>
                 </div>
               </div>
@@ -532,7 +532,7 @@ export default function GymMembershipsPage() {
                 {/* Left: heading + accordion + CTA */}
                 <div className="flex shrink-0 flex-col items-center md:items-start lg:max-w-[28rem]">
                   <h3 className="self-start text-2xl font-bold tracking-[-0.36px] mb-6 lg:mb-8">
-                    Un fitness de qualité à prix abordable
+                    Get High-Quality Fitness at an Affordable Price
                   </h3>
                   <PerkAccordion
                     perks={classicPerks}
@@ -543,7 +543,7 @@ export default function GymMembershipsPage() {
                     href="/gyms"
                     className="mt-8 inline-block bg-primary-main text-white rounded-full px-8 py-3.5 font-semibold hover:bg-primary-dark transition-colors"
                   >
-                    Rejoindre Classic
+                    Join Classic
                   </Link>
                 </div>
 
@@ -571,13 +571,13 @@ export default function GymMembershipsPage() {
               <div className="bg-surface-gray mx-6 rounded-t-2xl transition-all duration-1000 ease-in-out lg:mx-0 lg:flex lg:min-h-60 lg:rounded-t-2xl overflow-hidden">
                 <div className="flex flex-col gap-6 p-6 lg:w-1/2 lg:justify-center lg:pl-12 xl:pl-16">
                   <p className="text-xl font-bold text-common-black leading-snug">
-                    Tu ne sais pas quel abonnement te convient le mieux ?
+                    Not sure which membership plan is right for you?
                   </p>
                   <button
                     onClick={() => setShowCompare((v) => !v)}
                     className="border-primary-main text-primary-main h-10 w-40 rounded-full border-[1.5px] text-sm font-semibold transition-colors hover:bg-primary-main hover:text-white"
                   >
-                    {showCompare ? "Masquer" : "Afficher"} le tableau comparatif
+                    {showCompare ? "Hide" : "Show"} Comparison Chart
                   </button>
                 </div>
                 <div
@@ -599,7 +599,7 @@ export default function GymMembershipsPage() {
                       <tr>
                         <th className="p-4 text-left">
                           <div className="bg-gradient-330-18-84 rounded-xl p-4">
-                            <p className="font-condensed font-bold uppercase text-white text-base">NY GYM BLACK CARD®</p>
+                            <p className="font-condensed font-bold uppercase text-white text-base">PF BLACK CARD®</p>
                           </div>
                         </th>
                         <th className="p-4 text-left">
@@ -634,7 +634,7 @@ export default function GymMembershipsPage() {
                     href="/gyms"
                     className="inline-block bg-primary-main text-white rounded-full px-10 py-4 font-semibold hover:bg-primary-dark transition-colors"
                   >
-                    Rejoindre aujourd&apos;hui
+                    Join Today
                   </Link>
                 </div>
               </div>
@@ -646,16 +646,16 @@ export default function GymMembershipsPage() {
         {/* ══ FIND A CLUB ══════════════════════════════════════════════ */}
         <section className="flex flex-col items-center gap-6 px-6 py-16 lg:py-20 text-center">
           <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase leading-none">
-            Trouve un club près de toi
+            Find a Club Near You
           </h2>
           <p className="text-gray-dark text-lg max-w-md">
-            Plus de 2 700 clubs à travers le pays — il y a forcément un New York Gym près de chez toi.
+            Over 2,700 locations nationwide — there&apos;s a Planet Fitness close to you.
           </p>
           <Link
             href="/gyms"
             className="bg-primary-main text-white rounded-full px-10 py-4 font-bold text-lg hover:bg-primary-dark transition-colors"
           >
-            Trouver un club
+            Find a Club
           </Link>
         </section>
 
@@ -663,7 +663,7 @@ export default function GymMembershipsPage() {
         <section className="bg-surface-gray py-16 px-6">
           <div className="max-w-[57rem] mx-auto">
             <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase leading-none mb-10">
-              FAQ Abonnements
+              Memberships FAQs
             </h2>
             <div className="border-t border-border divide-y divide-border">
               {faqs.map((faq, i) => (
@@ -702,9 +702,10 @@ export default function GymMembershipsPage() {
         {/* ══ DISCLAIMER ═══════════════════════════════════════════════ */}
         <section className="bg-white py-8 px-6">
           <p className="text-gray-medium text-xs leading-relaxed max-w-4xl mx-auto text-center">
-            ¹ Les tarifs peuvent varier selon le club. Certains services sont soumis à disponibilité et ne sont accessibles que dans les clubs participants.
-            L&apos;abonnement Classic débute à 9 000 FCFA/mois et l&apos;abonnement NY Gym Black Card® à 15 000 FCFA/mois. Tous les frais sont facturés mensuellement.
-            Les tarifs et services peuvent varier selon le club. Une cotisation annuelle peut être appliquée — voir le club pour les détails.
+            ¹ Services may vary by location. Some services available at participating locations only.
+            Membership dues begin at $15 and PF Black Card® membership begins at $24.99. All fees
+            are billed monthly. Pricing and services may vary by location. Annual fee of $39 will
+            be billed on or around the 5th of the month following 4 months after your join date.
           </p>
         </section>
 

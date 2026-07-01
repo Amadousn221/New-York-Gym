@@ -5,58 +5,58 @@ import { Footer } from "@/components/Footer";
 
 const programs = [
   {
-    title: "Coaching individuel",
+    title: "Personal Training",
     description:
-      "Obtiens des résultats durables et reste motivé grâce à des coachs hautement qualifiés et certifiés.",
-    cta: "EN SAVOIR PLUS",
-    href: "/training-programs/personal",
+      "Accelerate results that last and stay motivated by highly educated and certified Personal Trainers.",
+    cta: "Learn More",
+    href: "/training-programs/personal-training",
     image: "/images/memberships/free-fitness-training.webp",
-    imageAlt: "Coaching individuel chez NY Gym",
+    imageAlt: "Personal Training at NY Gym",
   },
   {
     title: "HYROX",
     description:
-      "Améliore ta routine fitness ou prépare-toi pour une course HYROX grâce à des cours encadrés par des experts, conçus pour tous les niveaux.",
-    cta: "EN SAVOIR PLUS",
+      "Upgrade your fitness routine or prepare for a HYROX race with expert-led HYROX training classes designed for all fitness levels.",
+    cta: "Learn More",
     href: "/training-programs/hyrox",
     image: "/images/our-clubs/fitness-training.webp",
-    imageAlt: "HYROX Training chez NY Gym",
+    imageAlt: "HYROX Training at NY Gym",
   },
   {
     title: "REGYMEN",
     description:
-      "Brûle des graisses, développe du muscle et gagne en énergie. Vis un entraînement fractionné à haute intensité (HIIT) en groupe, exclusif à New York Gym.",
-    cta: "EN SAVOIR PLUS",
+      "Burn fat, build muscle and increase energy levels. Experience a high-intensity interval training (HIIT) group program exclusive to NY Gym.",
+    cta: "Learn More",
     href: "/training-programs/regymen",
     image: "/images/why-pf/accordion-equipment.webp",
-    imageAlt: "REGYMEN HIIT chez NY Gym",
+    imageAlt: "REGYMEN HIIT Program at NY Gym",
   },
   {
-    title: "Entraînement en équipe",
+    title: "Team Training",
     description:
-      "Relève le défi avec un entraînement de groupe encadré par un coach — intense, varié, qui renforce la confiance et te garde motivé.",
-    cta: "EN SAVOIR PLUS",
+      "Rise to the challenge with coach-led Team Training — high-energy group workouts that add variety, build confidence, and keep you accountable.",
+    cta: "Learn More",
     href: "/training-programs/team-training",
     image: "/images/about-pf/exercise-bike.webp",
-    imageAlt: "Entraînement en équipe chez NY Gym",
+    imageAlt: "Team Training at NY Gym",
   },
   {
     title: "Craftboxing",
     description:
-      "Améliore ton bien-être mental et physique grâce aux fondamentaux de la boxe, encadrés par des coachs professionnels certifiés.",
-    cta: "EN SAVOIR PLUS",
-    href: "/training-programs/craft-boxing",
+      "Improve your mental and physical well-being with boxing fundamentals designed by professional boxer, George Foreman III.",
+    cta: "Learn More",
+    href: "/training-programs/craftboxing",
     image: "/images/why-pf/accordion-judgement-free.webp",
-    imageAlt: "Craftboxing chez NY Gym",
+    imageAlt: "Craftboxing at NY Gym",
   },
   {
     title: "Fit-Fix",
     description:
-      "Fit-Fix propose un entraînement en circuit rapide et efficace de 20 minutes qui t'aide à perdre du poids, tonifier tes muscles et voir des résultats sur tout le corps — en moins de temps.",
-    cta: "EN SAVOIR PLUS",
+      "Fit-Fix offers a fast, effective 20-minute circuit training workout that helps you lose weight, tone muscles, and see full-body results — all in less time.",
+    cta: "Learn More",
     href: "/training-programs/fit-fix",
     image: "/images/why-pf/recover-spa.webp",
-    imageAlt: "Fit-Fix Circuit Training chez NY Gym",
+    imageAlt: "Fit-Fix Circuit Training at NY Gym",
   },
 ];
 
@@ -83,13 +83,13 @@ export default function TrainingProgramsPage() {
           {/* Text — overlaid on left */}
           <div className="relative z-10 px-6 py-16 md:px-16 lg:px-24 max-w-[52rem]">
             <p className="text-secondary-main font-bold text-sm uppercase tracking-widest mb-4">
-              ENTRAÎNEMENT
+              Training
             </p>
             <h1 className="font-condensed text-6xl lg:text-[6.5rem] text-white uppercase leading-none mb-6">
-              PROGRAMMES<br />D&apos;ENTRAÎNEMENT
+              Training<br />Programs
             </h1>
             <p className="text-white/90 text-lg lg:text-xl leading-relaxed max-w-[32rem]">
-              Du coaching individuel aux programmes collectifs sur mesure, tout ce dont tu as besoin pour accélérer tes résultats se trouve sous un même toit.
+              From 1-on-1 coaching to tailored group training programs, everything you need to accelerate results is all under one roof.
             </p>
           </div>
         </section>
@@ -101,10 +101,10 @@ export default function TrainingProgramsPage() {
             {/* Section heading */}
             <div className="text-center mb-12">
               <h2 className="font-condensed text-4xl lg:text-6xl text-common-black uppercase leading-none mb-4">
-                Reste motivé. Dépasse tes plateaux. Atteins tes objectifs.
+                Find Your Program
               </h2>
               <p className="text-gray-dark text-lg max-w-2xl mx-auto">
-                Choisis le programme qui correspond à tes objectifs. Chaque niveau, chaque emploi du temps, chaque ambition — nous avons un programme pour toi.
+                Choose the program that fits your goals. Every level, every schedule, every ambition — we have a program for you.
               </p>
             </div>
 
@@ -154,16 +154,16 @@ export default function TrainingProgramsPage() {
             {/* Text — left */}
             <div className="flex-1 flex flex-col justify-center px-6 py-16 md:px-16 lg:px-24 lg:py-24">
               <h2 className="font-condensed text-4xl lg:text-6xl text-white uppercase leading-none mb-6">
-                Transforme ta passion pour le fitness en carrière de coach sportif
+                Turn Your Passion for Fitness Into a Career in Personal Training
               </h2>
               <p className="text-white/90 text-lg leading-relaxed max-w-[34rem] mb-10">
-                L&apos;Institut de formation de coachs sportifs New York Gym propose l&apos;une des certifications les plus abordables et reconnues du pays.
+                NY Gym Personal Training Institute offers one of the most affordable, nationally recognized certifications. Start your journey today.
               </p>
               <Link
                 href="/careers"
                 className="inline-flex items-center justify-center bg-secondary-main text-common-black font-bold text-lg rounded-full px-10 py-4 w-full max-w-xs hover:bg-white transition-colors"
               >
-                EN SAVOIR PLUS
+                Learn More
               </Link>
             </div>
 
