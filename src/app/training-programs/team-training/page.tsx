@@ -1,7 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Archivo, Inter } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+
+const archivo = Archivo({ subsets: ["latin"], weight: ["700", "800"], variable: "--font-archivo" });
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-inter" });
 
 const cards = [
   {
@@ -40,34 +43,42 @@ const groupBenefits = [
   },
 ];
 
+const careerPhotos = [
+  "/images/goodlife-team/careers-1.jpeg",
+  "/images/goodlife-team/careers-2.jpeg",
+  "/images/goodlife-team/careers-3.jpeg",
+  "/images/goodlife-team/careers-4.jpeg",
+];
+
 export default function TeamTrainingPage() {
   return (
     <>
       <Header />
-      <main>
-        {/* ── Hero — split panel ───────────────────────────────── */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
-          <div className="bg-surface-gray flex flex-col justify-center px-6 py-16 md:px-16 lg:px-20 lg:py-24">
-            <p className="text-primary-main font-bold text-sm uppercase tracking-widest mb-4">
-              ENTRAÎNEMENT
+      <main className={`${archivo.variable} ${inter.variable} font-[family-name:var(--font-inter)]`}>
+
+        {/* ── Hero ──────────────────────────────────────────────────── */}
+        <section className="bg-[#F5F6F7] grid grid-cols-1 lg:grid-cols-2">
+          <div className="px-6 py-16 md:px-16 lg:px-20 lg:py-24 flex flex-col justify-center">
+            <p className="text-[#ED002E] font-bold text-sm uppercase tracking-widest mb-5">
+              Entraînement
             </p>
-            <h1 className="font-condensed text-5xl lg:text-7xl text-common-black uppercase leading-none mb-6">
-              ENTRAÎNEMENT EN ÉQUIPE
+            <h1 className="font-[family-name:var(--font-archivo)] text-[#3a3b40] text-5xl lg:text-6xl font-extrabold uppercase leading-none mb-6">
+              Entraînement en équipe
             </h1>
-            <p className="text-gray-dark text-lg leading-relaxed max-w-md mb-8">
+            <p className="text-[#1B1C1F]/80 text-base leading-relaxed max-w-md mb-8">
               Pourquoi le faire seul ? L&apos;entraînement en groupe chez New York Gym est une
               excellente façon de démarrer ta remise en forme ou de dépasser un plateau.
               C&apos;est fun, social, et pensé pour s&apos;adapter aux besoins de chacun.
             </p>
-            <Link
+            <a
               href="/our-clubs"
-              className="inline-flex items-center justify-center bg-primary-main text-white font-bold text-base rounded-full px-8 py-4 w-fit hover:bg-primary-dark transition-colors"
+              className="inline-flex items-center justify-center bg-[#ED002E] text-white font-bold text-sm rounded px-8 py-3 w-fit hover:bg-[#c40025] transition-colors"
             >
               Trouver un cours
-            </Link>
+            </a>
           </div>
 
-          <div className="relative min-h-[320px] lg:min-h-0">
+          <div className="relative min-h-[320px] lg:min-h-[560px]">
             <Image
               src="/images/goodlife-team/hero.png"
               alt="Deux membres de NY Gym s'entraînant ensemble"
@@ -78,54 +89,41 @@ export default function TeamTrainingPage() {
           </div>
         </section>
 
-        {/* ── Camps 6 semaines ─────────────────────────────────── */}
-        <section className="bg-primary-dark py-14 px-6">
-          <div className="mx-auto max-w-[74.5rem] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <p className="font-condensed text-3xl lg:text-5xl text-white uppercase leading-tight">
-                CAMPS D&apos;ENTRAÎNEMENT EN ÉQUIPE DE 6 SEMAINES<br />
-                <span className="text-secondary-main">DÈS 120 000 FCFA*</span>
-              </p>
-            </div>
-            <p className="text-white/80 text-base leading-relaxed">
-              L&apos;entraînement en équipe t&apos;offre l&apos;opportunité unique de te dépasser
-              à travers des séances fun, tout en créant des liens avec d&apos;autres passionnés de
-              santé et de fitness. Notre ambiance en petit groupe est solidaire et sans jugement.
-            </p>
-          </div>
-        </section>
-
-        {/* ── Pensé pour toi ───────────────────────────────────── */}
+        {/* ── Designed for you. Located near you. ──────────────────── */}
         <section className="bg-white py-16 px-6 lg:py-24">
           <div className="mx-auto max-w-[74.5rem]">
-            <div className="text-center mb-14">
-              <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase">
+            <div className="text-center mb-6">
+              <h2 className="font-[family-name:var(--font-archivo)] text-3xl lg:text-4xl font-extrabold text-[#1B1C1F]">
                 Entraînement en équipe
               </h2>
+              <div className="w-16 h-1 bg-[#ED002E] mx-auto mt-4 mb-3" />
+              <span className="inline-block text-[#ED002E] text-xs font-bold uppercase tracking-widest">
+                Camps de 6 semaines dès 120 000 FCFA*
+              </span>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mt-14">
               <div>
-                <h3 className="font-bold text-2xl lg:text-3xl text-common-black mb-5">
+                <h3 className="font-[family-name:var(--font-archivo)] text-2xl lg:text-3xl font-extrabold text-[#1B1C1F] mb-5">
                   Pensé pour toi. Situé près de toi.
                 </h3>
-                <p className="text-gray-dark text-base leading-relaxed mb-4">
+                <p className="text-[#1B1C1F]/80 text-base leading-relaxed mb-4">
                   Nos séances d&apos;entraînement en équipe exclusives ont lieu dans un club proche
                   de chez toi. C&apos;est une façon fun et motivante de te remettre en forme et de
                   développer ta force grâce à un programme fonctionnel.
                 </p>
-                <p className="text-gray-dark text-base leading-relaxed mb-8">
+                <p className="text-[#1B1C1F]/80 text-base leading-relaxed mb-8">
                   Tu peux rejoindre des groupes existants, en créer un nouveau, ou même demander
                   une séance qui correspond à ton emploi du temps.
                 </p>
-                <Link
+                <a
                   href="/our-clubs"
-                  className="inline-flex items-center justify-center bg-primary-main text-white font-bold text-base rounded-full px-8 py-4 w-fit hover:bg-primary-dark transition-colors"
+                  className="inline-flex items-center justify-center bg-[#ED002E] text-white font-bold text-sm rounded px-8 py-3 w-fit hover:bg-[#c40025] transition-colors"
                 >
                   Réserver maintenant
-                </Link>
+                </a>
               </div>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+              <div className="relative aspect-[4/3] rounded overflow-hidden max-w-md mx-auto lg:mx-0">
                 <Image
                   src="/images/goodlife-team/designed-near-you.jpeg"
                   alt="Membres s'entraînant ensemble sur la zone de turf"
@@ -137,21 +135,26 @@ export default function TeamTrainingPage() {
           </div>
         </section>
 
-        {/* ── Apporte de la variété ────────────────────────────── */}
-        <section className="bg-surface-gray py-16 px-6 lg:py-24">
-          <div className="mx-auto max-w-[74.5rem]">
-            <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase text-center mb-14">
+        {/* ── Apporte de la variété à ta routine ──────────────────── */}
+        <section className="bg-white pt-16 px-6 lg:pt-24">
+          <div className="mx-auto max-w-[74.5rem] text-center mb-14">
+            <h2 className="font-[family-name:var(--font-archivo)] text-3xl lg:text-4xl font-extrabold text-[#1B1C1F]">
               Apporte de la variété à ta routine
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          </div>
+
+          <div className="bg-[#DCE0E6] pt-20 -mt-20 pb-16">
+            <div className="mx-auto max-w-[74.5rem] grid grid-cols-1 sm:grid-cols-3 gap-6 px-6">
               {cards.map((c) => (
-                <div key={c.title} className="bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col">
+                <div key={c.title} className="bg-white rounded shadow-md overflow-hidden">
                   <div className="relative aspect-[4/3]">
                     <Image src={c.image} alt={c.title} fill className="object-cover" />
                   </div>
-                  <div className="p-6 flex flex-col flex-1">
-                    <h3 className="font-bold text-lg text-common-black mb-3">{c.title}</h3>
-                    <p className="text-gray-dark text-sm leading-relaxed flex-1">{c.body}</p>
+                  <div className="p-6">
+                    <h3 className="font-[family-name:var(--font-archivo)] text-lg font-extrabold text-[#1B1C1F] mb-2">
+                      {c.title}
+                    </h3>
+                    <p className="text-[#1B1C1F]/75 text-sm leading-relaxed">{c.body}</p>
                   </div>
                 </div>
               ))}
@@ -159,10 +162,10 @@ export default function TeamTrainingPage() {
           </div>
         </section>
 
-        {/* ── Connexion communautaire ──────────────────────────── */}
-        <section className="bg-white py-16 px-6 lg:py-24">
+        {/* ── Entraînement en équipe. Connexion communautaire. ─────── */}
+        <section className="bg-[#DCE0E6] py-16 px-6 lg:py-24">
           <div className="mx-auto max-w-[74.5rem] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+            <div className="relative aspect-[4/3] rounded overflow-hidden max-w-md mx-auto lg:mx-0">
               <Image
                 src="/images/goodlife-team/community.jpeg"
                 alt="Un groupe de membres se soutenant pendant l'entraînement"
@@ -171,98 +174,93 @@ export default function TeamTrainingPage() {
               />
             </div>
             <div>
-              <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase mb-5">
-                Entraînement en équipe.<br />
-                <span className="text-primary-main">Connexion communautaire.</span>
+              <h2 className="font-[family-name:var(--font-archivo)] text-3xl lg:text-4xl font-extrabold text-[#1B1C1F] mb-5">
+                Entraînement en équipe. Connexion communautaire.
               </h2>
-              <p className="text-gray-dark text-base leading-relaxed mb-8">
+              <p className="text-[#1B1C1F]/80 text-base leading-relaxed mb-8">
                 Atteins tes objectifs fitness ensemble grâce à l&apos;entraînement en équipe. Nos
                 coachs sont concentrés sur ton accompagnement pour surmonter tes défis spécifiques
                 et améliorer ta santé et ton bien-être sur le long terme. C&apos;est plus facile de
                 rester motivé quand tu sais que tu n&apos;es pas seul.
               </p>
-              <Link
+              <a
                 href="/our-clubs"
-                className="inline-flex items-center justify-center bg-primary-main text-white font-bold text-base rounded-full px-8 py-4 w-fit hover:bg-primary-dark transition-colors"
+                className="inline-flex items-center justify-center bg-[#ED002E] text-white font-bold text-sm rounded px-8 py-3 w-fit hover:bg-[#c40025] transition-colors"
               >
                 Réserver maintenant
-              </Link>
+              </a>
             </div>
           </div>
         </section>
 
-        {/* ── Rappel offre ─────────────────────────────────────── */}
-        <section className="bg-common-black py-14 px-6">
-          <div className="mx-auto max-w-[74.5rem] text-center flex flex-col items-center gap-6">
-            <div>
-              <p className="font-condensed text-4xl text-white uppercase">
-                Entraînement en équipe
-              </p>
-              <p className="font-condensed text-3xl text-secondary-main uppercase">
-                Camps de 6 semaines dès 120 000 FCFA*
-              </p>
-            </div>
-            <p className="text-white/70 text-base">
-              Trouve un boot camp près de chez toi ou demande-en un !
+        {/* ── CTA rappel offre ──────────────────────────────────────── */}
+        <section className="bg-white py-16 px-6 lg:py-24 text-center">
+          <div className="mx-auto max-w-2xl">
+            <h2 className="font-[family-name:var(--font-archivo)] text-3xl lg:text-4xl font-extrabold text-[#1B1C1F] mb-2">
+              Entraînement en équipe
+            </h2>
+            <p className="text-[#ED002E] font-bold text-sm uppercase tracking-widest mb-8">
+              Camps de 6 semaines dès 120 000 FCFA*
             </p>
-            <Link
+            <p className="text-[#1B1C1F]/80 text-lg mb-8">
+              Trouve un boot camp près de chez toi, ou demande-en un !
+            </p>
+            <a
               href="/our-clubs"
-              className="inline-flex items-center justify-center bg-primary-main text-white font-bold text-base rounded-full px-10 py-4 hover:bg-primary-dark transition-colors"
+              className="inline-flex items-center justify-center bg-[#ED002E] text-white font-bold text-sm rounded px-8 py-3 hover:bg-[#c40025] transition-colors"
             >
               Trouver un club
-            </Link>
+            </a>
           </div>
         </section>
 
-        {/* ── Pourquoi s'entraîner en groupe ? ─────────────────── */}
-        <section className="bg-white py-16 px-6 lg:py-24">
+        {/* ── Pourquoi s'entraîner en groupe ? ─────────────────────── */}
+        <section className="bg-white pb-16 px-6 lg:pb-24">
           <div className="mx-auto max-w-[60rem]">
-            <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase text-center mb-3">
-              Pourquoi s&apos;entraîner en groupe ?
-            </h2>
-            <div className="w-16 h-1 bg-primary-main mx-auto mb-14" />
+            <div className="text-center mb-14">
+              <h2 className="font-[family-name:var(--font-archivo)] text-3xl lg:text-4xl font-extrabold text-[#1B1C1F]">
+                Pourquoi s&apos;entraîner en groupe ?
+              </h2>
+              <div className="w-16 h-1 bg-[#ED002E] mx-auto mt-4" />
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
               {groupBenefits.map((b) => (
                 <div key={b.title}>
-                  <h3 className="font-bold text-common-black text-lg mb-3">{b.title}</h3>
-                  <p className="text-gray-dark text-sm leading-relaxed">{b.body}</p>
+                  <h3 className="font-bold text-[#1B1C1F] text-lg mb-2">{b.title}</h3>
+                  <p className="text-[#1B1C1F]/75 text-sm leading-relaxed">{b.body}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── Devenir coach ────────────────────────────────────── */}
-        <section className="bg-surface-gray py-16 px-6 lg:py-24 text-center">
+        {/* ── Devenir coach fitness en groupe ──────────────────────── */}
+        <section className="bg-[#F5F6F7] py-16 px-6 lg:py-24 text-center">
           <div className="mx-auto max-w-[74.5rem]">
-            <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase mb-3">
+            <h2 className="font-[family-name:var(--font-archivo)] text-3xl lg:text-4xl font-extrabold text-[#1B1C1F] mb-3">
               Devenir coach fitness en groupe
             </h2>
-            <div className="w-16 h-1 bg-primary-main mx-auto mb-8" />
-            <p className="text-gray-dark text-lg mb-10 max-w-xl mx-auto">
+            <div className="w-16 h-1 bg-[#ED002E] mx-auto mb-8" />
+            <p className="text-[#1B1C1F]/80 text-lg mb-10">
               Tu penses pouvoir pousser un groupe à donner le meilleur de lui-même ?
-              Si oui, on aimerait beaucoup discuter avec toi.
+              Si oui, on aimerait beaucoup discuter avec toi !
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-10">
-              {[
-                "/images/goodlife-team/careers-1.jpeg",
-                "/images/goodlife-team/careers-2.jpeg",
-                "/images/goodlife-team/careers-3.jpeg",
-                "/images/goodlife-team/careers-4.jpeg",
-              ].map((src) => (
-                <div key={src} className="relative aspect-[3/4] rounded-xl overflow-hidden">
-                  <Image src={src} alt="Coach fitness en groupe NY Gym" fill className="object-cover" />
+              {careerPhotos.map((src) => (
+                <div key={src} className="relative aspect-[3/4] rounded overflow-hidden">
+                  <Image src={src} alt="Un coach fitness en groupe NY Gym" fill className="object-cover" />
                 </div>
               ))}
             </div>
-            <Link
+            <a
               href="/blog"
-              className="inline-flex items-center justify-center bg-primary-main text-white font-bold text-base rounded-full px-10 py-4 hover:bg-primary-dark transition-colors"
+              className="inline-flex items-center justify-center bg-[#ED002E] text-white font-bold text-sm rounded px-8 py-3 hover:bg-[#c40025] transition-colors"
             >
               En savoir plus
-            </Link>
+            </a>
           </div>
         </section>
+
       </main>
       <Footer />
     </>

@@ -1,94 +1,69 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Archivo, Inter } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
-const benefits = [
+const archivo = Archivo({ subsets: ["latin"], weight: ["700", "800"], variable: "--font-archivo" });
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-inter" });
+
+const programs = [
   {
-    title: "Des coachs professionnels qui révèlent le meilleur de toi",
-    body: "Tous les coachs REGYMEN de New York Gym sont certifiés via l'Institut de formation New York Gym ou un organisme reconnu. Ton coach a suivi une formation exigeante pour s'assurer qu'il possède les compétences nécessaires pour bien t'encadrer. En plus, les coachs REGYMEN de New York Gym continuent de se former et d'obtenir des certifications complémentaires, pour t'offrir l'accès aux meilleurs formateurs du pays.",
+    title: "BURN",
+    body: "Notre séance la plus populaire. BURN associe cardio et musculation — les stations HIIT alternent tapis de course, ski erg, vélos assault, TRX, haltères et kettlebells pour transformer ton corps en machine à brûler des calories.",
+    image: "/images/goodlife-regymen/program-burn.jpeg",
   },
   {
-    title: "Un programme construit pour le groupe, pensé pour toi",
-    body: "Les séances REGYMEN de New York Gym s'appuient sur des principes scientifiques d'entraînement et des méthodes d'entraînement fractionné de pointe pour t'aider à atteindre des résultats durables. Objectifs, nutrition et style de vie sont pris en compte pour concevoir chaque séance. Ce n'est pas qu'un entraînement — c'est aussi l'occasion de développer des compétences fitness et santé pour la vie.",
+    title: "BUILD",
+    body: "Repars plus fort qu'à ton arrivée. BUILD est un entraînement de force dynamique avec traîneaux, pneus, barres olympiques, slam balls, battle ropes et barres pour augmenter ta masse musculaire maigre et affiner ta technique.",
+    image: "/images/goodlife-regymen/program-build.jpeg",
   },
   {
-    title: "Des zones d'entraînement dédiées",
-    body: "Se sentir à l'aise et confiant pendant l'entraînement, c'est essentiel pour en tirer le meilleur. De nombreux clubs disposent d'un espace dédié aux cours REGYMEN, équipé pour que le groupe puisse se concentrer sur l'effort collectif, sans distraction.",
+    title: "BLAST",
+    body: "Un entraînement HIIT full body intense de 30 minutes pour brûler un maximum de calories rapidement — entre, donne tout, et continue ta journée.",
+    image: "/images/goodlife-regymen/program-blast.jpeg",
   },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "« Je suis parti d'un homme timide et en surpoids de 42 ans à quelqu'un de plus mince, plus fort, et rempli de confiance. C'est difficile de dire à quel point ça a changé ma vie. »",
-    author: "Jean S., Dakar",
-  },
-  {
-    quote:
-      "« Un jour j'ai vu des photos de moi et je me suis dit \"ce n'est pas moi\". Je ne me reconnaissais plus. Aujourd'hui je pèse 86 kg de moins, je me sens plus jeune, plein d'énergie, et je garde ma forme physique tous les jours. »",
-    author: "Robert S., Thiès",
-  },
-  {
-    quote:
-      "« J'ai enfin trouvé ce qui me manquait dans ma vie. J'étais impressionné par la rapidité de mes progrès en forme physique — j'ai perdu 60 kg et suis devenu champion régional de powerlifting. »",
-    author: "Khadija U., Saint-Louis",
-  },
-];
-
-const steps = [
-  {
-    number: "01",
-    title: "Réserve ton premier cours",
-    body: "Après une prise de contact, choisis le créneau REGYMEN qui te convient. Nos équipes sont là pour répondre à toutes tes questions avant ta première séance.",
-  },
-  {
-    number: "02",
-    title: "Découvre le format",
-    body: "Ton coach REGYMEN t'explique la structure de la séance — intervalles, objectifs, rythme — pour que tu saches exactement à quoi t'attendre et comment progresser.",
-  },
-  {
-    number: "03",
-    title: "Reste régulier",
-    body: "En participant chaque semaine, tu verras rapidement des progrès. En t'appuyant sur des principes d'entraînement solides, tu avanceras pas à pas vers tes objectifs de santé et de forme.",
-  },
+const careerPhotos = [
+  "/images/goodlife-regymen/careers-1.jpeg",
+  "/images/goodlife-regymen/careers-2.jpeg",
+  "/images/goodlife-regymen/careers-3.jpeg",
 ];
 
 export default function RegymenPage() {
   return (
     <>
       <Header />
-      <main>
-        {/* ── Hero — split panel ───────────────────────────────── */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 min-h-[560px]">
-          <div className="bg-hero-gradient-1 flex flex-col justify-center px-6 py-16 md:px-16 lg:px-20 lg:py-24">
-            <p className="text-secondary-main font-bold text-sm uppercase tracking-widest mb-4">
-              ENTRAÎNEMENT COLLECTIF
+      <main className={`${archivo.variable} ${inter.variable} font-[family-name:var(--font-inter)]`}>
+
+        {/* ── Hero — white split panel ──────────────────────────────── */}
+        <section className="bg-white grid grid-cols-1 lg:grid-cols-2">
+          <div className="px-6 py-16 md:px-16 lg:px-20 lg:py-24 flex flex-col justify-center">
+            <p className="text-[#ED002E] font-bold text-sm uppercase tracking-widest mb-6">
+              Entraînement collectif
             </p>
-            <h1 className="font-condensed text-5xl lg:text-7xl text-white uppercase leading-none mb-6">
-              New York Gym<br />
-              <span className="text-secondary-main">REGYMEN</span>
-            </h1>
-            <p className="text-white/70 text-xs font-bold uppercase tracking-widest mb-4">
-              CHEZ NEW YORK GYM — LA RÉFÉRENCE DE L&apos;ENTRAÎNEMENT FRACTIONNÉ EN GROUPE.
-            </p>
-            <p className="text-white/90 text-lg leading-relaxed max-w-md mb-8">
-              Obtiens les résultats d&apos;un entraînement pensé par des coachs certifiés en HIIT.
-              Avec REGYMEN, tu vis une expérience de groupe qui allie intensité, structure et
-              motivation collective.
-            </p>
-            <Link
-              href="/gym-memberships"
-              className="inline-flex items-center justify-center bg-secondary-main text-common-black font-bold text-base rounded-full px-8 py-4 w-fit hover:bg-white transition-colors"
+            <p
+              className="font-[family-name:var(--font-archivo)] text-[#1B1C1F] text-6xl lg:text-7xl font-extrabold uppercase leading-none mb-8 -skew-x-3 w-fit"
             >
-              Réserve un cours d&apos;essai gratuit
-            </Link>
+              Regymen
+            </p>
+            <p className="text-[#1B1C1F]/80 text-base leading-relaxed max-w-md mb-8">
+              Obtiens des résultats concrets et dépasse tes plateaux avec REGYMEN — une série
+              de programmes collectifs basés sur la science, combinant HIIT, entraînement de
+              force dynamique et équipements de pointe, exclusif à New York Gym.
+            </p>
+            <a
+              href="/gym-memberships"
+              className="inline-flex items-center justify-center bg-[#ED002E] text-white font-bold text-sm rounded-full px-8 py-3 w-fit hover:bg-[#c40025] transition-colors"
+            >
+              Devenir membre
+            </a>
           </div>
 
-          <div className="relative min-h-[320px] lg:min-h-0">
+          <div className="relative min-h-[320px] lg:min-h-[560px]">
             <Image
               src="/images/goodlife-regymen/hero.jpeg"
-              alt="Membre s'entraînant en cours REGYMEN à NY Gym"
+              alt="Un membre s'entraînant sur un vélo assault sous un éclairage néon"
               fill
               className="object-cover"
               priority
@@ -96,186 +71,130 @@ export default function RegymenPage() {
           </div>
         </section>
 
-        {/* ── Bandeau bénéfices ────────────────────────────────── */}
-        <section className="bg-primary-dark py-14 px-6">
-          <div className="mx-auto max-w-[74.5rem] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <p className="font-condensed text-3xl lg:text-5xl text-white uppercase leading-tight">
-                ENTRAÎNE-TOI EFFICACEMENT<br />
-                <span className="text-secondary-main">VOIS DES RÉSULTATS DURABLES</span><br />
-                DÉVELOPPE DES COMPÉTENCES POUR LA VIE
-              </p>
-            </div>
-            <p className="text-white/80 text-base leading-relaxed">
-              Nos coachs certifiés REGYMEN sont là pour t&apos;aider à atteindre tes objectifs
-              fitness. Ils t&apos;accompagnent avec un programme sur-mesure qui t&apos;aide à
-              construire la bonne technique, la confiance et la motivation pour poursuivre ton
-              parcours.
-            </p>
-          </div>
-        </section>
-
-        {/* ── Plus fort ensemble ───────────────────────────────── */}
+        {/* ── Donne-nous 60 minutes ───────────────────────────────── */}
         <section className="bg-white py-16 px-6 lg:py-24">
-          <div className="mx-auto max-w-[74.5rem]">
-            <h2 className="font-condensed text-4xl lg:text-6xl text-common-black uppercase text-center mb-14">
-              Plus fort ensemble
+          <div className="mx-auto max-w-[74.5rem] grid grid-cols-1 lg:grid-cols-2 gap-10 mb-14">
+            <h2 className="font-[family-name:var(--font-archivo)] text-3xl lg:text-4xl font-extrabold uppercase text-[#1B1C1F] lg:text-right leading-tight">
+              Donne-nous 60 minutes et on te donne de vrais résultats
             </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {benefits.map((b) => (
-                <div key={b.title} className="flex flex-col gap-4 border-t-4 border-primary-main pt-6">
-                  <h3 className="font-bold text-lg text-common-black">{b.title}</h3>
-                  <p className="text-gray-dark text-sm leading-relaxed">{b.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Témoignages image ────────────────────────────────── */}
-        <section className="bg-surface-gray py-16 px-6 lg:py-20">
-          <div className="mx-auto max-w-[74.5rem]">
-            <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase text-center mb-14">
-              Portraits de membres
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {[
-                { name: "Marie Diop", src: "/images/goodlife-regymen/careers-1.jpeg" },
-                { name: "Bruno Costa", src: "/images/goodlife-regymen/careers-2.jpeg" },
-                { name: "Fatou Ndiaye", src: "/images/goodlife-regymen/careers-3.jpeg" },
-                { name: "Ngor Faye", src: "/images/goodlife-regymen/welcome.jpeg" },
-              ].map((m) => (
-                <div key={m.name} className="flex flex-col gap-2">
-                  <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-primary-main/10">
-                    <Image src={m.src} alt={`Parcours REGYMEN de ${m.name}`} fill className="object-cover" />
-                  </div>
-                  <p className="text-sm font-semibold text-center text-common-black">{m.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Témoignages écrits ───────────────────────────────── */}
-        <section className="bg-white py-16 px-6 lg:py-20">
-          <div className="mx-auto max-w-[74.5rem]">
-            <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase text-center mb-14">
-              Témoignages
-            </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {testimonials.map((t) => (
-                <div
-                  key={t.author}
-                  className="bg-surface-gray rounded-2xl p-8 flex flex-col gap-4"
-                >
-                  <p className="text-gray-dark text-base leading-relaxed italic flex-1">{t.quote}</p>
-                  <p className="font-semibold text-primary-main text-sm">— {t.author}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Ton parcours REGYMEN ─────────────────────────────── */}
-        <section className="bg-surface-gray py-16 px-6 lg:py-24">
-          <div className="mx-auto max-w-[74.5rem]">
-            <h2 className="font-condensed text-4xl lg:text-5xl text-common-black uppercase text-center mb-4">
-              Ton parcours REGYMEN
-            </h2>
-            <p className="text-center text-gray-dark text-base max-w-xl mx-auto mb-14">
-              New York Gym compte plus de coachs certifiés que n&apos;importe quel autre réseau.
-              Prêt à trouver ta séance ? Voici à quoi t&apos;attendre.
+            <p className="text-[#1B1C1F]/80 text-base leading-relaxed">
+              Notre combinaison de HIIT et d&apos;entraînement de force dynamique déclenche
+              l&apos;effet afterburn, pour que ton corps continue à brûler des calories longtemps
+              après la fin de la séance. Le conditionnement haute intensité suivi de courtes
+              périodes de repos aide à brûler les graisses, développer le muscle et booster
+              l&apos;énergie — prépare-toi à te remettre en forme.
             </p>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {steps.map((s) => (
-                <div key={s.number} className="flex flex-col gap-3">
-                  <span className="font-condensed text-6xl text-primary-main/20 leading-none">
-                    {s.number}
-                  </span>
-                  <h3 className="font-bold text-lg text-common-black">{s.title}</h3>
-                  <p className="text-gray-dark text-sm leading-relaxed">{s.body}</p>
-                </div>
-              ))}
-            </div>
           </div>
-        </section>
 
-        {/* ── Cours d'essai gratuit ────────────────────────────── */}
-        <section className="bg-primary-main py-16 px-6 lg:py-24">
-          <div className="mx-auto max-w-[48rem]">
-            <div className="text-center mb-10">
-              <p className="font-condensed text-3xl text-white uppercase">
-                JE SUIS PRÊT POUR UN
-              </p>
-              <p className="font-condensed text-5xl lg:text-6xl text-secondary-main uppercase">
-                COURS D&apos;ESSAI GRATUIT
-              </p>
-              <p className="text-white/70 text-sm mt-2">
-                Cours d&apos;essai valable une seule fois par personne.
-              </p>
-              <p className="text-white/80 text-base mt-4 max-w-md mx-auto">
-                Profite d&apos;un cours REGYMEN gratuit encadré par un coach certifié. Inclus :
-                une évaluation de ta condition physique et de tes objectifs, une séance complète
-                de 20 minutes, et des conseils personnalisés pour la suite.
-              </p>
-            </div>
-
-            <form className="flex flex-col gap-4">
-              <select className="rounded-full px-6 py-4 text-base text-common-black outline-none">
-                <option value="">Club le plus proche</option>
-                <option>NY Gym — Dakar Plateau</option>
-                <option>NY Gym — Almadies</option>
-                <option>NY Gym — Sacré-Cœur</option>
-              </select>
-              <div className="grid grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder="Prénom"
-                  className="rounded-full px-6 py-4 text-base text-common-black outline-none"
-                />
-                <input
-                  type="text"
-                  placeholder="Nom"
-                  className="rounded-full px-6 py-4 text-base text-common-black outline-none"
-                />
+          <div className="mx-auto max-w-[60rem] relative aspect-video rounded overflow-hidden">
+            <Image
+              src="/images/goodlife-regymen/program-build.jpeg"
+              alt="Voir REGYMEN en action"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+              <div className="size-16 rounded-full bg-[#ED002E] flex items-center justify-center">
+                <svg viewBox="0 0 16 16" className="w-6 h-6 text-white">
+                  <path d="M4 2l10 6-10 6V2z" fill="currentColor" />
+                </svg>
               </div>
-              <input
-                type="email"
-                placeholder="Adresse e-mail"
-                className="rounded-full px-6 py-4 text-base text-common-black outline-none"
-              />
-              <input
-                type="tel"
-                placeholder="Téléphone"
-                className="rounded-full px-6 py-4 text-base text-common-black outline-none"
-              />
-              <button
-                type="submit"
-                className="bg-secondary-main text-common-black font-bold text-lg rounded-full px-10 py-4 hover:bg-white transition-colors mt-2"
-              >
-                COMMENCER
-              </button>
-            </form>
+            </div>
+            <p className="absolute bottom-4 left-6 text-white font-bold drop-shadow">
+              Voir REGYMEN en action
+            </p>
           </div>
         </section>
 
-        {/* ── Bootcamp cross-sell ──────────────────────────────── */}
-        <section className="bg-common-black py-14 px-6">
-          <div className="mx-auto max-w-[74.5rem] flex flex-col items-center gap-6 text-center">
-            <p className="font-condensed text-3xl lg:text-5xl text-white uppercase max-w-2xl">
-              Essaie un Bootcamp New York Gym.{" "}
-              <span className="text-secondary-main">
-                Un entraînement en petit groupe, fun, solidaire et sans jugement.
-              </span>
-            </p>
-            <Link
-              href="/training-programs/team-training"
-              className="inline-flex items-center justify-center bg-primary-main text-white font-bold text-base rounded-full px-10 py-4 hover:bg-primary-dark transition-colors"
-            >
-              EN SAVOIR PLUS
-            </Link>
+        {/* ── Programmes REGYMEN ──────────────────────────────────── */}
+        <section className="bg-white pt-16 px-6 lg:pt-24">
+          <div className="mx-auto max-w-[74.5rem]">
+            <div className="flex flex-col items-center text-center mb-14">
+              <svg viewBox="0 0 100 100" className="w-20 h-20 mb-4">
+                <path
+                  d="M50 2 96 22v36c0 24-20 36-46 40C24 94 4 82 4 58V22Z"
+                  fill="#ED002E"
+                />
+                <text x="50" y="66" textAnchor="middle" fontSize="46" fontWeight="800" fill="white" fontFamily="var(--font-archivo)">
+                  R
+                </text>
+              </svg>
+              <h2 className="font-[family-name:var(--font-archivo)] text-3xl lg:text-4xl font-extrabold text-[#1B1C1F]">
+                Programmes REGYMEN
+              </h2>
+            </div>
+          </div>
+
+          <div className="bg-[#DCE0E6] pt-20 -mt-20 pb-16">
+            <div className="mx-auto max-w-[74.5rem] grid grid-cols-1 sm:grid-cols-3 gap-6 px-6">
+              {programs.map((p) => (
+                <div key={p.title} className="bg-white rounded shadow-md overflow-hidden">
+                  <div className="relative aspect-[4/3]">
+                    <Image src={p.image} alt={`Séance ${p.title}`} fill className="object-cover" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-[family-name:var(--font-archivo)] text-xl font-extrabold text-[#1B1C1F] mb-2">
+                      {p.title}
+                    </h3>
+                    <p className="text-[#1B1C1F]/75 text-sm leading-relaxed">{p.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
+
+        {/* ── Tous âges, niveaux et profils bienvenus ! ───────────── */}
+        <section className="bg-[#DCE0E6] py-16 px-6 lg:py-24">
+          <div className="mx-auto max-w-[74.5rem] grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div className="relative aspect-[4/3] rounded overflow-hidden max-w-md mx-auto lg:mx-0">
+              <Image
+                src="/images/goodlife-regymen/welcome.jpeg"
+                alt="Un groupe de membres réunis"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="font-[family-name:var(--font-archivo)] text-3xl lg:text-4xl font-extrabold text-[#1B1C1F] mb-5">
+                Tous âges, niveaux et profils bienvenus !
+              </h2>
+              <p className="text-[#1B1C1F]/80 text-base leading-relaxed">
+                Que tu sois un athlète confirmé ou que tu démarres tout juste, il y a un programme
+                REGYMEN fait pour toi. Guidés par des instructeurs inspirants et compétents, chaque
+                séance est conçue pour révéler le meilleur de toi — peu importe qui tu es.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Devenir instructeur REGYMEN ─────────────────────────── */}
+        <section className="bg-white pb-16 px-6 lg:pb-24">
+          <div className="mx-auto max-w-[74.5rem] text-center">
+            <div className="w-16 h-1 bg-[#ED002E] mx-auto mb-10" />
+            <p className="text-[#1B1C1F] text-lg mb-10">
+              Tu es un coach de haut niveau, passionné par le fait de guider et d&apos;inspirer
+              les autres ? Si oui, on aimerait beaucoup discuter avec toi !
+            </p>
+            <div className="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-10">
+              {careerPhotos.map((src) => (
+                <div key={src} className="relative aspect-[3/4] rounded overflow-hidden">
+                  <Image src={src} alt="Un instructeur REGYMEN NY Gym" fill className="object-cover" />
+                </div>
+              ))}
+            </div>
+            <a
+              href="/blog"
+              className="inline-flex items-center justify-center gap-2 bg-[#ED002E] text-white font-bold text-sm rounded px-8 py-3 hover:bg-[#c40025] transition-colors"
+            >
+              En savoir plus
+              <svg viewBox="0 0 8 14" className="w-2 h-3">
+                <path d="M1 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+              </svg>
+            </a>
+          </div>
+        </section>
+
       </main>
       <Footer />
     </>
