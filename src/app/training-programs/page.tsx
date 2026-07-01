@@ -11,7 +11,7 @@ const programs = [
     cta: "EN SAVOIR PLUS",
     href: "/training-programs/personal",
     image: "/images/memberships/free-fitness-training.webp",
-    imageAlt: "Coaching individuel à NY Gym",
+    imageAlt: "Coaching individuel chez NY Gym",
   },
   {
     title: "HYROX",
@@ -20,7 +20,7 @@ const programs = [
     cta: "EN SAVOIR PLUS",
     href: "/training-programs/hyrox",
     image: "/images/our-clubs/fitness-training.webp",
-    imageAlt: "HYROX Training à NY Gym",
+    imageAlt: "HYROX Training chez NY Gym",
   },
   {
     title: "REGYMEN",
@@ -28,8 +28,8 @@ const programs = [
       "Brûle des graisses, développe du muscle et gagne en énergie. Vis un entraînement fractionné à haute intensité (HIIT) en groupe, exclusif à New York Gym.",
     cta: "EN SAVOIR PLUS",
     href: "/training-programs/regymen",
-    image: "/images/goodlife-regymen/hero.jpeg",
-    imageAlt: "REGYMEN HIIT à NY Gym",
+    image: "/images/why-pf/accordion-equipment.webp",
+    imageAlt: "REGYMEN HIIT chez NY Gym",
   },
   {
     title: "Entraînement en équipe",
@@ -38,7 +38,7 @@ const programs = [
     cta: "EN SAVOIR PLUS",
     href: "/training-programs/team-training",
     image: "/images/about-pf/exercise-bike.webp",
-    imageAlt: "Entraînement en équipe à NY Gym",
+    imageAlt: "Entraînement en équipe chez NY Gym",
   },
   {
     title: "Craftboxing",
@@ -47,7 +47,7 @@ const programs = [
     cta: "EN SAVOIR PLUS",
     href: "/training-programs/craft-boxing",
     image: "/images/why-pf/accordion-judgement-free.webp",
-    imageAlt: "Craftboxing à NY Gym",
+    imageAlt: "Craftboxing chez NY Gym",
   },
   {
     title: "Fit-Fix",
@@ -56,7 +56,7 @@ const programs = [
     cta: "EN SAVOIR PLUS",
     href: "/training-programs/fit-fix",
     image: "/images/why-pf/recover-spa.webp",
-    imageAlt: "Fit-Fix Circuit Training à NY Gym",
+    imageAlt: "Fit-Fix Circuit Training chez NY Gym",
   },
 ];
 
@@ -101,10 +101,10 @@ export default function TrainingProgramsPage() {
             {/* Section heading */}
             <div className="text-center mb-12">
               <h2 className="font-condensed text-4xl lg:text-6xl text-common-black uppercase leading-none mb-4">
-                Trouve ton programme
+                Reste motivé. Dépasse tes plateaux. Atteins tes objectifs.
               </h2>
               <p className="text-gray-dark text-lg max-w-2xl mx-auto">
-                Reste motivé. Dépasse tes plateaux. Atteins tes objectifs.
+                Choisis le programme qui correspond à tes objectifs. Chaque niveau, chaque emploi du temps, chaque ambition — nous avons un programme pour toi.
               </p>
             </div>
 

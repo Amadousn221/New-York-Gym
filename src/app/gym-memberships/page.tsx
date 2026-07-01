@@ -21,51 +21,51 @@ interface FaqItem { q: string; a: string; }
 const bcPerks: Perk[] = [
   {
     img: "/images/memberships/bc-access-worldwide.webp",
-    alt: "Accès à n'importe quel club New York Gym",
+    alt: "Use of Any Planet Fitness Worldwide",
     title: "Accès à n'importe quel club New York Gym",
     desc: "En tant que membre NY Gym Black Card®, tu peux t'entraîner dans n'importe lequel de nos plus de 2 700 clubs.",
     icon: "BCRecip.svg",
   },
   {
     img: "/images/memberships/bc-guest.webp",
-    alt: "Invite un ami à tout moment",
+    alt: "Bring a Guest Anytime",
     title: "Invite un ami à tout moment",
-    desc: "S'entraîner est encore meilleur avec un ami. Les membres NY Gym Black Card® peuvent amener un invité gratuitement à chaque visite !",
+    desc: "S'entraîner à deux, c'est encore mieux. Les membres NY Gym Black Card® peuvent inviter un ami gratuitement à chaque visite !",
     icon: "BCGuest.svg",
   },
   {
     img: "/images/memberships/bc-app-workouts.webp",
-    alt: "Entraînements digitaux exclusifs NY Gym+",
+    alt: "PF+ Exclusive App Workouts",
     title: "Entraînements digitaux exclusifs NY Gym+",
-    desc: "Accède à du contenu digital exclusif grâce à l'abonnement premium de notre marque.",
+    desc: "Débloque du contenu digital exclusif, avec accès à l'abonnement premium de notre marque.",
     icon: "BCVirtualFT.svg",
   },
   {
     img: "/images/memberships/free-fitness-training.webp",
-    alt: "Coaching gratuit en club",
+    alt: "Free In-Club Fitness Training",
     title: "Coaching gratuit en club¹",
-    desc: "Avec nos coachs certifiés, tu peux rejoindre un cours collectif, découvrir nos équipements cardio et musculation, ou élaborer un plan d'entraînement personnalisé. Et tout ça, c'est gratuit !",
+    desc: "Avec nos coachs certifiés, tu peux rejoindre un cours collectif, apprendre à utiliser nos équipements cardio et musculation, ou créer un plan d'entraînement personnalisé. Le tout gratuitement !",
     icon: "FreeICFT.svg",
   },
   {
     img: "/images/memberships/bc-premium-perks.webp",
-    alt: "Avantages premium : réductions partenaires",
+    alt: "Premium Perks: Partner Rewards & Discounts",
     title: "Avantages premium : réductions partenaires",
-    desc: "Le fitness encore plus avantageux. Les membres NY Gym Black Card® bénéficient de réductions exclusives et d'offres spéciales supplémentaires.",
+    desc: "Rendre le fitness encore plus avantageux. Les membres NY Gym Black Card® bénéficient de réductions exclusives et d'offres spéciales supplémentaires.",
     icon: "BCPremPerks.svg",
   },
   {
     img: "/images/memberships/bc-drinks.webp",
-    alt: "50 % de réduction sur une sélection de boissons",
+    alt: "50% Off Select Drinks",
     title: "50 % de réduction sur une sélection de boissons",
-    desc: "Les membres NY Gym Black Card® profitent de tarifs préférentiels qui facilitent le choix de boissons saines.",
+    desc: "Les membres NY Gym Black Card® bénéficient de tarifs spéciaux pour faciliter le choix de boissons saines.",
     icon: "BCHalfPriceCoolerDrinks.svg",
   },
   {
     img: "/images/memberships/free-wifi.webp",
-    alt: "WiFi gratuit",
+    alt: "Free WiFi",
     title: "WiFi gratuit",
-    desc: "Profite du WiFi gratuit chez New York Gym. Demande le mot de passe à l'accueil.",
+    desc: "Profite du WiFi gratuit chez New York Gym. Demande simplement le mot de passe à l'accueil.",
     icon: "ClassicWifi.svg",
   },
 ];
@@ -74,44 +74,44 @@ const bcPerks: Perk[] = [
 const spaPerks: Perk[] = [
   {
     img: "/images/memberships/spa-massage-chairs.webp",
-    alt: "Fauteuils de massage",
+    alt: "Use of Massage Chairs",
     title: "Fauteuils de massage",
     desc: "Avec un abonnement NY Gym Black Card®, tu peux te détendre avec un massage après ton entraînement (ou avant — on ne juge pas).",
     icon: "BCMassageChairs.svg",
   },
   {
     img: "/images/memberships/spa-hydromassage.webp",
-    alt: "HydroMassage™",
+    alt: "Use of HydroMassage™",
     title: "HydroMassage™¹",
-    desc: "L'HydroMassage™ est un massage aquatique innovant pour le bien-être et la récupération musculaire. De puissantes vagues d'eau chaude pénètrent en profondeur pour soulager les muscles.",
+    desc: "HydroMassage™ est un massage aquatique innovant pour le bien-être et la récupération musculaire. De puissantes vagues d'eau chaude pénètrent en profondeur pour soulager les muscles douloureux.",
     icon: "BCHydro.svg",
   },
   {
     img: "/images/memberships/spa-tanning.webp",
-    alt: "Bronzage",
+    alt: "Use of Tanning",
     title: "Bronzage¹",
-    desc: "Un avantage exclusif réservé aux membres NY Gym Black Card®.",
+    desc: "Un avantage exclusif pour les membres NY Gym Black Card®.",
     icon: "BCTanning.svg",
   },
   {
     img: "/images/memberships/spa-total-body.webp",
-    alt: "Total Body Enhancement",
+    alt: "Use of Total Body Enhancement",
     title: "Total Body Enhancement¹",
-    desc: "Cette cabine propose une application de lumière rouge sans UV, associée à la technologie vibra-shape.",
+    desc: "Cette cabine utilise une application de lumière rouge sans UV, associée à la technologie vibra-shape.",
     icon: "BCTotalBodyEnhancement.svg",
   },
   {
     img: "/images/memberships/spa-wellness-pod.webp",
-    alt: "Wellness Pod",
+    alt: "Use Of Wellness Pod",
     title: "Wellness Pod¹",
-    desc: "Une parenthèse relaxante et régénératrice t'attend dans le Wellness Pod ! Personnalise ta séance en choisissant tes paramètres préférés.",
+    desc: "Un espace relaxant et revitalisant dans le Wellness Pod ! Personnalise ta séance en choisissant tes paramètres préférés.",
     icon: "BCWellPod.svg",
   },
   {
     img: "/images/memberships/spa-recovery-lounge.webp",
-    alt: "Salon de récupération",
+    alt: "Use of Recovery Lounge",
     title: "Salon de récupération¹",
-    desc: "Le salon de récupération offre du froid ciblé pour soulager les courbatures, complété par de la chaleur dans d'autres zones.",
+    desc: "Le Salon de récupération offre du froid ciblé pour les courbatures et douleurs, complété par de la chaleur dans d'autres zones.",
     icon: "BCRecoveryLounge.svg",
   },
 ];
@@ -120,37 +120,37 @@ const spaPerks: Perk[] = [
 const classicPerks: Perk[] = [
   {
     img: "/images/memberships/classic-access.webp",
-    alt: "Accès illimité à ton club de proximité",
+    alt: "Unlimited Access to Home Club",
     title: "Accès illimité à ton club de proximité",
     desc: "Viens quand tu veux, aussi souvent que tu veux.",
     icon: "ClassicAccess.svg",
   },
   {
     img: "/images/memberships/classic-app.webp",
-    alt: "Entraînements sur l'appli NY Gym",
+    alt: "PF App Workouts",
     title: "Entraînements sur l'appli NY Gym",
-    desc: "Découvre l'appli NY Gym GRATUITE avec des tonnes d'entraînements à la demande pour tous les niveaux et tous les styles.",
+    desc: "Découvre l'appli gratuite NY Gym et ses nombreux entraînements à la demande pour tous les niveaux et tous les styles.",
     icon: "MobileApp.svg",
   },
   {
     img: "/images/memberships/free-fitness-training.webp",
-    alt: "Coaching gratuit en club",
+    alt: "Free In-Club Fitness Training",
     title: "Coaching gratuit en club¹",
-    desc: "Avec nos coachs certifiés, tu peux rejoindre un cours collectif, découvrir nos équipements cardio et musculation, ou élaborer un plan d'entraînement personnalisé.",
+    desc: "Avec nos coachs certifiés, tu peux rejoindre un cours collectif, apprendre à utiliser nos équipements cardio et musculation, ou créer un plan d'entraînement personnalisé.",
     icon: "FreeICFT.svg",
   },
   {
     img: "/images/memberships/free-wifi.webp",
-    alt: "WiFi gratuit",
+    alt: "Free WiFi",
     title: "WiFi gratuit",
-    desc: "Profite du WiFi gratuit chez New York Gym. Demande le mot de passe à l'accueil.",
+    desc: "Profite du WiFi gratuit chez New York Gym. Demande simplement le mot de passe à l'accueil.",
     icon: "ClassicWifi.svg",
   },
   {
     img: "/images/memberships/classic-perks.webp",
-    alt: "Avantages : réductions partenaires",
+    alt: "Perks: Partner Rewards & Discounts",
     title: "Avantages : réductions partenaires",
-    desc: "Le fitness encore plus avantageux. Les membres bénéficient de réductions exclusives et d'offres spéciales.",
+    desc: "Rendre le fitness encore plus avantageux. Les membres bénéficient de réductions et d'offres spéciales exclusives.",
     icon: "WCPerks.svg",
   },
 ];
@@ -183,27 +183,27 @@ const compareClassic = [
 const faqs: FaqItem[] = [
   {
     q: "Quelle est la différence entre l'abonnement NY Gym Black Card® et l'abonnement Classic ?",
-    a: "New York Gym propose deux formules d'abonnement : NY Gym Black Card® et Classic. Avec le NY Gym Black Card®, tu peux accéder à tous nos clubs partout dans le monde, tandis que l'abonnement Classic te donne accès à ton club d'attache. En plus, en tant que membre NY Gym Black Card®, tu bénéficies de nombreux avantages non disponibles avec le Classic : inviter un ami à tout moment, accéder au Spa Black Card®, et d'autres avantages exclusifs NY Gym Black Card®.",
+    a: "New York Gym propose deux formules d'abonnement : NY Gym Black Card® et Classic. Avec le NY Gym Black Card®, tu as accès à tous les clubs New York Gym, tandis que l'abonnement Classic te donne accès à ton club d'attache. En tant que membre NY Gym Black Card®, tu bénéficies également d'avantages supplémentaires non inclus dans le Classic, comme l'option d'inviter un ami à tout moment, l'accès au Spa Black Card® NY Gym, et d'autres avantages exclusifs.",
   },
   {
     q: "Quel âge faut-il avoir pour souscrire à un abonnement New York Gym ?",
-    a: "Tu peux rejoindre NY Gym dès 13 ans avec l'autorisation d'un parent ou tuteur légal. Les membres de 13 ans doivent être accompagnés d'un parent ou tuteur lors de leurs entraînements. Les membres de 15 à 17 ans doivent disposer d'une décharge signée par un parent ou tuteur.",
+    a: "Tu peux rejoindre New York Gym dès 13 ans avec l'autorisation d'un parent ou tuteur légal. Les membres de 13 ans doivent être accompagnés d'un parent ou tuteur lors de leurs séances. Les membres âgés de 14 ans doivent être accompagnés en permanence. Les membres de 15 à 17 ans doivent avoir une décharge signée par un parent ou tuteur.",
   },
   {
     q: "New York Gym propose-t-il des cours collectifs ou du coaching individuel ?",
-    a: "Oui. Nous proposons un coaching fitness gratuit en petits groupes, accessible en accès libre. Les cours sont encadrés par des coachs certifiés et disponibles pour tous les membres New York Gym. De plus, l'appli NY Gym propose de nombreuses routines d'entraînement, des niveaux débutant à avancé.",
+    a: "Oui. Nous proposons des séances d'entraînement en petit groupe gratuites, selon les disponibilités. Ces cours sont animés par des coachs certifiés et accessibles à tous les membres. De plus, l'appli NY Gym propose de nombreuses routines pour tous les niveaux, du débutant à l'entraînement avancé.",
   },
   {
     q: "Quels sont les horaires de mon club ?",
-    a: "Les horaires varient selon les clubs. Consulte notre page Trouver un club et clique sur « Détails du club » pour connaître les horaires spécifiques de ton club.",
+    a: "Les horaires varient selon le club. Rends-toi sur notre page Nos clubs et clique sur « Détails du club » pour obtenir les horaires spécifiques de ton club.",
   },
   {
     q: "Qu'est-ce que la Zone Sans Jugement® ?",
-    a: "La Zone Sans Jugement® est notre environnement accueillant et sans intimidation, où les membres de tous les niveaux de fitness sont encouragés à atteindre leurs objectifs personnels sans crainte d'être jugés.",
+    a: "La Zone Sans Jugement® est notre environnement accueillant et sans intimidation, où les membres de tous niveaux sont encouragés à atteindre leurs objectifs personnels sans crainte du jugement.",
   },
   {
     q: "Comment puis-je résilier mon abonnement ?",
-    a: "Tu peux résilier ton abonnement directement en club ou en envoyant une lettre recommandée. Aucuns frais de résiliation ne s'appliquent aux abonnements sans engagement.",
+    a: "Tu peux résilier ton abonnement en personne dans ton club d'attache ou en envoyant un courrier recommandé. Il n'y a pas de frais de résiliation pour les abonnements mensuels.",
   },
 ];
 
@@ -326,7 +326,7 @@ export default function GymMembershipsPage() {
           {/* Card grid — no logos, matching real site */}
           <div className="grid w-full grid-cols-1 items-center justify-center gap-4 md:grid-cols-2 max-w-[57rem]">
 
-            {/* PF Black Card® card */}
+            {/* NY Gym Black Card® card */}
             <div className="bg-gradient-330-18-84 flex size-full flex-col justify-between rounded-2xl p-6 text-lg/6 text-common-white shadow-[0_16px_32px_0px_rgba(4,16,35,0.24)] min-h-[220px]">
               <div>
                 <div className="flex items-center justify-between">
@@ -411,7 +411,7 @@ export default function GymMembershipsPage() {
             {/* Dark banner with PF Black Card logo */}
             <div className="bg-gradient-330-18-84 flex w-full justify-center py-[5.75rem] md:py-[5.625rem] lg:py-[7.5rem]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/LogoPFBlack.svg" alt="Join PF Black Card®" className="h-14 md:h-20" />
+              <img src="/images/LogoPFBlack.svg" alt="Rejoindre NY Gym Black Card®" className="h-14 md:h-20" />
             </div>
 
             {/* 2-col: accordion left + image right */}
@@ -463,7 +463,7 @@ export default function GymMembershipsPage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="https://www.planetfitness.com/remix/images/pf-member-on-massage-chair.svg"
-                  alt="Planet Fitness member on the massage chair"
+                  alt="Membre NY Gym sur le fauteuil de massage"
                   className="absolute size-full rounded-3xl object-cover object-[80%_top] opacity-[0.64] lg:rounded-[2rem]"
                 />
               </div>
@@ -575,7 +575,7 @@ export default function GymMembershipsPage() {
                   </p>
                   <button
                     onClick={() => setShowCompare((v) => !v)}
-                    className="border-primary-main text-primary-main h-10 w-52 rounded-full border-[1.5px] text-sm font-semibold transition-colors hover:bg-primary-main hover:text-white"
+                    className="border-primary-main text-primary-main h-10 w-40 rounded-full border-[1.5px] text-sm font-semibold transition-colors hover:bg-primary-main hover:text-white"
                   >
                     {showCompare ? "Masquer" : "Afficher"} le tableau comparatif
                   </button>
@@ -702,7 +702,9 @@ export default function GymMembershipsPage() {
         {/* ══ DISCLAIMER ═══════════════════════════════════════════════ */}
         <section className="bg-white py-8 px-6">
           <p className="text-gray-medium text-xs leading-relaxed max-w-4xl mx-auto text-center">
-            ¹ Les tarifs peuvent varier selon le club. Certains services sont soumis à disponibilité. L&apos;abonnement Classic débute à 9 000 FCFA/mois et l&apos;abonnement NY Gym Black Card® à 15 000 FCFA/mois. Les abonnements peuvent nécessiter le paiement d&apos;une cotisation annuelle facturée sur l&apos;abonnement en cours. Voir le club pour les détails.
+            ¹ Les tarifs peuvent varier selon le club. Certains services sont soumis à disponibilité et ne sont accessibles que dans les clubs participants.
+            L&apos;abonnement Classic débute à 9 000 FCFA/mois et l&apos;abonnement NY Gym Black Card® à 15 000 FCFA/mois. Tous les frais sont facturés mensuellement.
+            Les tarifs et services peuvent varier selon le club. Une cotisation annuelle peut être appliquée — voir le club pour les détails.
           </p>
         </section>
 

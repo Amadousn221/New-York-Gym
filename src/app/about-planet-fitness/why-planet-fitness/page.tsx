@@ -49,7 +49,7 @@ const accordionItems: AccordionItem[] = [
     image: "/images/why-pf/accordion-equipment.webp",
     alt: "Équipement haut de gamme",
     description:
-      "Nous investissons dans des équipements fitness de premier ordre pour que tu aies toujours accès aux meilleurs outils. Du cardio à la musculation, nos clubs ont tout ce qu'il te faut pour atteindre tes objectifs.",
+      "Nous investissons dans des équipements fitness de premier plan pour que tu aies toujours accès aux meilleurs outils. Du cardio à la musculation, nos clubs ont tout ce qu'il te faut pour atteindre tes objectifs.",
   },
   {
     id: "clean-clubs",
@@ -58,7 +58,7 @@ const accordionItems: AccordionItem[] = [
     image: "/images/why-pf/accordion-clean.webp",
     alt: "Clubs propres et spacieux",
     description:
-      "Nos clubs sont nettoyés et entretenus selon les plus hauts standards, pour que tu puisses te concentrer sur ton entraînement. Des espaces ouverts et accueillants où le fitness est confortable pour tous.",
+      "Nos clubs sont nettoyés et entretenus selon les plus hauts standards pour que tu puisses te concentrer sur ton entraînement. Des espaces ouverts et accueillants pour que le fitness soit confortable pour tous.",
   },
   {
     id: "best-value",
@@ -67,7 +67,7 @@ const accordionItems: AccordionItem[] = [
     image: "/images/why-pf/accordion-value.webp",
     alt: "Le meilleur rapport qualité-prix",
     description:
-      "Nous croyons en une expérience fitness de qualité, accessible à tous. Accède à d'excellents équipements et à une équipe chaleureuse à un tarif pensé pour chaque budget.",
+      "À partir de 9 000 FCFA par mois, New York Gym offre le meilleur rapport qualité-prix dans le fitness. Accède à des équipements de qualité et un personnel accueillant à un tarif accessible à tous.",
   },
 ];
 
@@ -79,16 +79,16 @@ const articles: ArticleItem[] = [
     cta: "En savoir plus",
     href: "/gym-memberships/#blackCard",
     image: "/images/why-pf/recover-spa.webp",
-    alt: "Membre New York Gym se détendant sur un fauteuil HydroMassage",
+    alt: "Membre NY Gym les yeux fermés avec un casque, se relaxant sur un fauteuil HydroMassage",
   },
   {
     title: "Emmène ton entraînement partout",
     description:
-      "Avec l'appli gratuite New York Gym, entraîne-toi où que tu sois, à tout moment. Parcours des centaines de vidéos et guides d'entraînement, regarde des tutoriels d'équipement, suis ta progression, et bien plus encore.",
+      "Avec l'appli gratuite NY Gym, entraîne-toi où que tu sois, à tout moment. Parcours des centaines de vidéos et guides d'entraînement, regarde des tutoriels d'équipement, suis ta progression, et bien plus encore.",
     cta: "Télécharger l'appli NY Gym",
     href: "/mobileapp",
     image: "/images/why-pf/pf-app.webp",
-    alt: "Écran de l'appli New York Gym ouvert sur l'onglet Entraînements",
+    alt: "Écran de téléphone ouvert sur l'onglet Entraînements de l'appli NY Gym",
   },
   {
     title: "Offres et réductions exclusives",
@@ -97,7 +97,7 @@ const articles: ArticleItem[] = [
     cta: "Découvrir tous les avantages NY Gym",
     href: "/my-account/perks",
     image: "/images/why-pf/perks.webp",
-    alt: "Membre New York Gym en tenue de sport regardant son téléphone en souriant",
+    alt: "Homme en tenue de sport regardant son téléphone et souriant dans un club NY Gym",
   },
 ];
 
@@ -149,7 +149,7 @@ export default function WhyPlanetFitnessPage() {
           <div className="absolute inset-0">
             <Image
               src="/images/why-pf/hero.webp"
-              alt="Intérieur du club New York Gym avec des membres qui s'entraînent"
+              alt="Planet Fitness gym interior with members working out"
               fill
               className="object-cover object-center"
               priority

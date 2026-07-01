@@ -31,7 +31,7 @@ export default function AboutPlanetFitnessPage() {
         <section className="relative flex h-[41.5rem] md:h-[29.3rem] lg:h-[50.625rem] lg:justify-center 2xl:h-[70rem]">
           <Image
             src="/images/about-pf/exercise-bike.webp"
-            alt="Accessibilité et qualité pour tous"
+            alt="Affordability and quality for everyone"
             fill
             className="object-cover object-center"
             priority
@@ -52,33 +52,35 @@ export default function AboutPlanetFitnessPage() {
               </h2>
               <p className="mb-6">
                 New York Gym a été fondé en 2008, à Dakar. Au départ, le club
-                fonctionnait comme n&apos;importe quelle autre salle de sport de
-                son quartier, et s&apos;adressait au même petit pourcentage de la
-                population qui pratiquait déjà une activité physique en club.
+                fonctionnait comme n&rsquo;importe quelle autre salle de sport
+                de son quartier, et s&rsquo;adressait au même petit pourcentage
+                de la population qui pratiquait déjà une activité physique en
+                club.{" "}
                 <br />
-                <br />
-                Les fondateurs ont vite compris qu&apos;il y avait une opportunité
-                de servir un public bien plus large. Ils se sont posé la
-                question : « Pourquoi une grande majorité de la population ne
-                fréquente-t-elle pas de salle de sport ? » La réponse était
-                simple : les personnes qui découvraient le fitness, ou qui
-                n&apos;en faisaient qu&apos;occasionnellement, n&apos;appréciaient
-                pas l&apos;ambiance intimidante des salles classiques, et ne
-                voulaient pas payer cher pour tester.
+                <br />{" "}
+                Les fondateurs ont vite compris qu&rsquo;il y avait une
+                opportunité de servir un public bien plus large. Ils se sont
+                posé la question : &laquo;&nbsp;Pourquoi une grande majorité de
+                la population ne fréquente-t-elle pas de salle de
+                sport&nbsp;?&raquo; La réponse : les personnes qui découvraient
+                le fitness n&rsquo;appréciaient pas l&rsquo;ambiance intimidante
+                des salles classiques, et ne voulaient pas payer cher pour
+                tester.
               </p>
             </div>
             <p className="max-h-0 opacity-0 transition-all duration-300 group-has-[input:checked]:visible group-has-[input:checked]:mb-6 group-has-[input:checked]:max-h-[41rem] group-has-[input:checked]:opacity-100 max-md:invisible md:mb-0 md:max-h-none md:opacity-100 lg:w-1/2 lg:max-w-[31.25rem]">
-              Alors, ils ont complètement transformé l&apos;environnement de la
-              salle, dans l&apos;attitude comme dans le format, en créant un modèle
-              accessible et sans jugement qui a changé la façon de concevoir le
-              fitness. New York Gym est devenu synonyme de cet esprit sans
-              jugement — une communauté accueillante et chaleureuse où chacun
-              peut se sentir à l&apos;aise, quel que soit son niveau.
+              Alors, ils ont complètement transformé l&rsquo;environnement de
+              la salle, dans l&rsquo;attitude comme dans le format, en créant
+              un modèle accessible et sans jugement qui a changé la façon de
+              concevoir le fitness. New York Gym est devenu synonyme de cet
+              esprit sans jugement &mdash; une communauté accueillante et
+              chaleureuse où chacun peut se sentir à l&rsquo;aise, quel que
+              soit son niveau.{" "}
               <br />
-              <br />
-              Aujourd&apos;hui, New York Gym est l&apos;un des réseaux de clubs
-              fitness qui connaît la croissance la plus rapide, en nombre de
-              membres comme de clubs. Avec des dizaines de clubs à travers
+              <br />{" "}
+              Aujourd&rsquo;hui, New York Gym est l&rsquo;un des réseaux de
+              clubs fitness qui connaît la croissance la plus rapide, en nombre
+              de membres comme de clubs. Avec des dizaines de clubs à travers
               plusieurs villes et pays, New York Gym continue de porter sa
               mission unique : améliorer la vie des gens en offrant une
               expérience fitness accessible, de qualité, dans un environnement
@@ -118,7 +120,7 @@ export default function AboutPlanetFitnessPage() {
                       'var(--font-barlow-condensed), "Barlow Condensed", sans-serif',
                   }}
                 >
-                  New York Gym{" "}
+                  NEW YORK GYM{" "}
                   <span
                     style={{
                       background:
@@ -129,12 +131,11 @@ export default function AboutPlanetFitnessPage() {
                       color: "transparent",
                     }}
                   >
-                    Today
+                    TODAY
                   </span>
                 </h2>
                 <p className="mb-8 text-lg/6 text-gray-dark">
-                  Visite notre salle de presse dès aujourd&apos;hui et reste informé
-                  de l&apos;actualité de New York Gym !
+                  Visite notre salle de presse dès aujourd&rsquo;hui et reste informé de l&rsquo;actualité de New York Gym !
                 </p>
                 <Link
                   href="/newsroom"
@@ -164,11 +165,12 @@ export default function AboutPlanetFitnessPage() {
                 Un monde plus sain commence par des communautés plus saines
               </h2>
               <p className="my-8 text-lg/6 text-gray-dark">
-                Nous croyons avoir la responsabilité d&apos;améliorer la santé des
-                communautés où nous vivons, travaillons et nous entraînons. Et
-                de générer un impact positif en augmentant l&apos;accès au fitness,
-                en créant des clubs, des cultures et des communautés inclusives,
-                et en priorisant des pratiques commerciales durables.
+                Nous croyons avoir la responsabilité d&rsquo;améliorer la santé
+                des communautés où nous vivons, travaillons et nous entraînons.
+                Et de générer un impact positif en augmentant l&rsquo;accès au
+                fitness, en créant des clubs, des cultures et des communautés
+                inclusives, et en priorisant des pratiques commerciales
+                durables.
               </p>
               <Link
                 href="/pf-purpose"

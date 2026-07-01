@@ -34,9 +34,6 @@ const EQUIPMENT_ACCORDION = [
   {
     id: "strength",
     label: "Équipement de musculation",
-    desc: "Notre gamme d'équipements de musculation propose des machines simples d'utilisation pour cibler chaque groupe musculaire.",
-    image: "/images/our-clubs/equipment-strength.webp",
-    imageAlt: "Équipement de musculation",
     items: [
       "Tours de câbles",
       "Banc de musculation",
@@ -47,22 +44,12 @@ const EQUIPMENT_ACCORDION = [
   {
     id: "cardio",
     label: "Équipement cardio",
-    desc: "Nos équipements cardio de pointe offrent quelque chose pour tous — pour faire monter le cœur et transpirer, à ton propre rythme.",
-    image: "/images/our-clubs/equipment-cardio.webp",
-    imageAlt: "Équipement cardio",
-    items: ["Tapis de course", "Elliptique", "Rameur", "Vélo droit"],
+    items: ["Tapis de course", "Elliptiques", "Vélos stationnaires", "Steppers"],
   },
   {
     id: "functional",
     label: "Fonctionnel",
-    desc: "Apporte de la variété à ta routine et développe ta force globale grâce à des exercices qui sollicitent plusieurs groupes musculaires simultanément.",
-    image: "/images/our-clubs/equipment-functional.webp",
-    imageAlt: "Fonctionnel",
-    items: [
-      "Stations fonctionnelles (battle ropes, tour de câbles, kettlebells, bandes de résistance, ballons médicaux, etc.)",
-      "Station TRX (TRX, ballons médicaux, kettlebells, Bosu balls, bandes de résistance, etc.)",
-      "Espaces d'entraînement personnalisés",
-    ],
+    items: ["Zone d'étirements", "Espace entraînement fonctionnel", "Équipement abdominaux"],
   },
 ];
 
@@ -71,7 +58,7 @@ const TRAINING_FEATURES = [
     icon: "/images/icons/Equipment.svg",
     title: "Coaching gratuit en club¹",
     desc: "Tu cherches un plan d'entraînement personnalisé ou de l'aide pour utiliser l'équipement ? Nos coachs certifiés sont là pour t'accompagner.",
-    href: "/about-planet-fitness/pe-pf",
+    href: "/workout-training",
   },
   {
     icon: "/images/icons/VirtualTour.svg",
@@ -83,7 +70,7 @@ const TRAINING_FEATURES = [
     icon: "/images/icons/WCPerks.svg",
     title: "Tutoriels équipement",
     desc: "Scanne les QR codes présents sur chaque machine pour accéder à des instructions détaillées et des vidéos sur l'appli NY Gym, afin de t'aider sur la bonne posture et la bonne technique.",
-    href: "/mobileapp",
+    href: "/workout-training/equipment-tutorials",
   },
 ];
 
@@ -104,27 +91,27 @@ const CHECKLIST_ITEMS = [
   {
     id: "gear",
     label: "Trouve ton équipement à la boutique NY Gym",
-    desc: "Nous avons tout ce qu'il te faut pour bouger et te sentir bien. Consulte la boutique NY Gym et n'oublie pas de profiter de tes offres Avantages dans l'appli NY Gym pour des réductions !",
+    desc: "Procure-toi des vêtements de sport confortables à la boutique NY Gym pour être prêt à te lancer.",
   },
   {
     id: "ready",
     label: "Prépare-toi à bouger",
-    desc: "Utilise nos vestiaires pour enfiler ta tenue de sport. Après l'entraînement, récupère sous la douche — n'oublie pas ta serviette, ton shampooing et ton savon !",
+    desc: "Que tu sois là pour la première fois ou de retour après une pause, notre équipe sera ravie de te faire découvrir le club.",
   },
   {
     id: "workouts",
     label: "Accède aux entraînements digitaux à la demande",
-    desc: "Profite de l'appli NY Gym GRATUITE pour des dizaines d'entraînements à la demande, adaptés à tous les niveaux et styles. Des séances sur tapis de course aux programmes de musculation sans matériel, nos meilleurs coachs te gardent motivé au club ou à la maison.",
+    desc: "Explore des dizaines de vidéos d'entraînement guidées directement sur l'appli NY Gym — disponibles à tout moment, n'importe où.",
   },
   {
     id: "tutorials",
     label: "Tutoriels exercices & équipement",
-    desc: "L'appli est là pour t'aider à démarrer ! Pas sûr par où commencer ? L'appli NY Gym propose des guides sur l'équipement et les exercices. Scanne le QR code sur la machine pour accéder à des instructions détaillées et des vidéos sur la posture et la bonne technique.",
+    desc: "Retrouve des guides détaillés et des tutoriels vidéo pour chaque machine disponible dans nos clubs.",
   },
   {
     id: "track",
     label: "Suis ton activité",
-    desc: "Consulte l'écran Mon Parcours pour suivre tes enregistrements, te connecter à des trackers fitness comme Apple Santé, et mesurer ton niveau d'activité en le notant dans le Suivi d'activité.",
+    desc: "Enregistre tes séances et suis ta progression dans le temps directement depuis l'appli NY Gym.",
   },
 ];
 
@@ -132,17 +119,17 @@ const BLOG_ARTICLES = [
   {
     image: "/images/our-clubs/blog-essentials.webp",
     title: "L'essentiel à emporter à la salle",
-    href: "/blog/articles/what-to-bring-to-the-gym",
+    href: "/resources/fitness/workout-essentials-what-to-bring-to-the-gym",
   },
   {
     image: "/images/our-clubs/blog-beginners.webp",
     title: "Comment démarrer le sport (si tu n'as jamais fait d'exercice)",
-    href: "/blog/articles/how-to-start-working-out",
+    href: "/resources/fitness/how-to-start-working-out",
   },
   {
     image: "/images/our-clubs/blog-quotes.webp",
     title: "9 citations motivantes pour te donner envie d'aller à la salle",
-    href: "/blog/articles/motivational-workout-quotes",
+    href: "/resources/fitness/motivational-workout-quotes",
   },
 ];
 
@@ -253,27 +240,22 @@ export default function OurClubsPage() {
         <section id="equipment" className="scroll-mt-14 py-16 lg:py-20">
           <div className="mx-auto max-w-[74.5rem] px-6">
             <p className="mb-3 text-center text-xs/4 font-bold uppercase tracking-widest text-primary-main">
-              NOTRE ÉQUIPEMENT
+              Notre équipement
             </p>
             <h2 className="mb-10 text-center text-[2rem]/10 font-bold tracking-[-0.24px] lg:mb-14 lg:text-[2.5rem]/[3rem]">
               Des tonnes d&apos;équipements cardio et musculation
             </h2>
 
             <div className="flex flex-col items-start gap-10 lg:flex-row lg:gap-16">
-              {/* Left: image — changes with open tab */}
+              {/* Left: image */}
               <div className="w-full shrink-0 overflow-hidden rounded-2xl lg:w-[45%]">
                 <div className="relative aspect-[4/5] w-full bg-gray-200">
-                  {EQUIPMENT_ACCORDION.map((item) => (
-                    <Image
-                      key={item.id}
-                      src={item.image}
-                      alt={item.imageAlt}
-                      fill
-                      className={`object-cover transition-opacity duration-300 ${
-                        openEquipmentItem === item.id ? "opacity-100" : "opacity-0"
-                      }`}
-                    />
-                  ))}
+                  <Image
+                    src="/images/why-pf/accordion-equipment.webp"
+                    alt="Planet Fitness member using strength equipment"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
 
@@ -300,11 +282,10 @@ export default function OurClubsPage() {
                     <div
                       className={`overflow-hidden transition-all duration-300 ${
                         openEquipmentItem === item.id
-                          ? "mb-4 max-h-[32rem] opacity-100"
+                          ? "mb-4 max-h-96 opacity-100"
                           : "max-h-0 opacity-0"
                       }`}
                     >
-                      <p className="mb-4 text-sm/6 text-gray-dark">{item.desc}</p>
                       <ul className="flex flex-col gap-3 pb-2">
                         {item.items.map((subitem) => (
                           <li key={subitem} className="flex items-center gap-3">
@@ -334,7 +315,7 @@ export default function OurClubsPage() {
         <section id="training" className="scroll-mt-14 bg-white py-16 lg:py-20">
           <div className="mx-auto max-w-[74.5rem] px-6">
             <p className="mb-3 text-center text-xs/4 font-bold uppercase tracking-widest text-primary-main">
-              ENTRAÎNEMENT FITNESS
+              Entraînement fitness
             </p>
             <h2 className="mb-10 text-center text-[2rem]/10 font-bold tracking-[-0.24px] lg:mb-14 lg:text-[2.5rem]/[3rem]">
               Entraînement fitness gratuit et illimité avec New York Gym
@@ -344,8 +325,8 @@ export default function OurClubsPage() {
           {/* Full-width training image */}
           <div className="relative aspect-[16/7] w-full overflow-hidden bg-gray-200">
             <Image
-              src="/images/our-clubs/fitness-training.webp"
-              alt="Unlimited Free Fitness Training with PF"
+              src="/images/our-clubs/hero.webp"
+              alt="Planet Fitness personal training session"
               fill
               className="object-cover object-center"
             />
@@ -379,7 +360,7 @@ export default function OurClubsPage() {
         <section id="amenities" className="scroll-mt-14 bg-white py-16 lg:py-20">
           <div className="mx-auto max-w-[74.5rem] px-6">
             <p className="mb-3 text-center text-xs/4 font-bold uppercase tracking-widest text-primary-main">
-              ÉQUIPEMENTS &amp; SERVICES
+              Équipements &amp; services
             </p>
             <h2 className="mb-10 text-center text-[2rem]/10 font-bold tracking-[-0.24px] lg:mb-14 lg:text-[2.5rem]/[3rem]">
               Découvre nos équipements et services
@@ -391,8 +372,8 @@ export default function OurClubsPage() {
               <div className="w-full max-w-[24rem] shrink-0 overflow-hidden rounded-2xl lg:w-[40%] lg:max-w-none">
                 <div className="relative aspect-square w-full bg-gray-200">
                   <Image
-                    src="/images/our-clubs/amenities.webp"
-                    alt="Scanning a QR code on the phone"
+                    src="/images/why-pf/accordion-judgement-free.webp"
+                    alt="Planet Fitness touchless check-in kiosk"
                     fill
                     className="object-cover"
                   />
@@ -415,6 +396,15 @@ export default function OurClubsPage() {
             {/* PF Black Card Spa® */}
             <div className="mt-14 overflow-hidden rounded-3xl bg-common-black lg:mt-20">
               <div className="flex flex-col lg:flex-row">
+                {/* Spa image */}
+                <div className="relative h-60 w-full shrink-0 bg-gray-800 lg:h-auto lg:w-1/2">
+                  <Image
+                    src="/images/why-pf/recover-spa.webp"
+                    alt="Woman relaxing in the Black Card Spa"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 {/* Text */}
                 <div className="flex flex-col justify-center px-8 py-10 text-white lg:px-12 lg:py-14">
                   <h3 className="text-2xl/8 font-bold lg:text-[2rem]/10">
@@ -431,15 +421,6 @@ export default function OurClubsPage() {
                     Découvrir le NY Gym Black Card®
                   </Link>
                 </div>
-                {/* Spa image */}
-                <div className="relative h-60 w-full shrink-0 bg-gray-800 lg:h-auto lg:w-1/2">
-                  <Image
-                    src="/images/our-clubs/black-card-spa.webp"
-                    alt="Planet Fitness member on the massage chair"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -452,7 +433,7 @@ export default function OurClubsPage() {
         >
           <div className="mx-auto max-w-[74.5rem] px-6">
             <p className="mb-3 text-center text-xs/4 font-bold uppercase tracking-widest text-primary-main">
-              CHECKLIST PREMIÈRE VISITE
+              Checklist première visite
             </p>
             <h2 className="mb-10 text-center text-[2rem]/10 font-bold tracking-[-0.24px] lg:mb-14 lg:text-[2.5rem]/[3rem]">
               Prépare-toi avec notre checklist première visite

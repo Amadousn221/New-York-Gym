@@ -33,11 +33,11 @@ const PILLARS = [
 ]
 
 const STATS = [
-  { value: '1,2 Md FCFA+', label: 'reversés à des associations de jeunesse locales depuis 2016' },
+  { value: '1,2 milliard FCFA+', label: 'reversés à des associations de jeunesse locales depuis 2016' },
   { value: '280', label: 'bourses Génération Sans Jugement® attribuées depuis 2017' },
   { value: '45+', label: 'mini Zones Sans Jugement® installées depuis 2017' },
   { value: '800+ heures', label: 'consacrées au bénévolat local en 2024' },
-  { value: '35 Md FCFA+', label: 'investis pour promouvoir le fitness et le bien-être des jeunes via notre programme Pass Été Lycéens™ depuis sa création' },
+  { value: '35 milliards FCFA+', label: 'investis pour promouvoir le fitness et le bien-être des jeunes via notre programme Pass Été Lycéens™ depuis sa création' },
 ]
 
 const ENV_ICONS = [
@@ -133,7 +133,7 @@ export default function PfPurposePage() {
         <div className="h-[12.5rem] w-screen overflow-hidden md:h-auto">
           <Image
             src="https://images.ctfassets.net/473zoc40547p/eR8buH7ixj0yy6LJ9HDxC/21157881f795bad054d86c7b2a52bdb0/PfPurposeHeroImage.png?fm=webp"
-            alt="New York Gym Purpose"
+            alt="PF Purpose | Planet Fitness"
             width={2560}
             height={597}
             className="h-full w-full object-cover object-left"
@@ -204,7 +204,7 @@ export default function PfPurposePage() {
                 Rapport Environnemental, Social &amp; de Gouvernance (ESG) 2025
               </h2>
               <p className="text-gray-dark mt-6 text-lg/[1.5rem] lg:my-8">
-                En tant que réseau de clubs fitness parmi les plus dynamiques, avec plus de membres que la plupart des autres marques de fitness, nous avons la responsabilité d&apos;améliorer la santé des communautés où nous vivons, travaillons et nous entraînons. Nous croyons être idéalement positionnés pour avoir un impact sociétal en augmentant l&apos;accès au fitness, en créant des clubs, des cultures et des communautés inclusifs, et en priorisant des pratiques commerciales durables.
+                En tant que réseau de clubs fitness parmi les plus dynamiques, avec plus de membres que la plupart des autres marques de fitness, nous avons la responsabilité d&rsquo;améliorer la santé des communautés où nous vivons, travaillons et nous entraînons. Nous croyons être idéalement positionnés pour avoir un impact sociétal en augmentant l&rsquo;accès au fitness, en créant des clubs, des cultures et des communautés inclusifs, et en priorisant des pratiques commerciales durables.
               </p>
               <a
                 href="https://downloads.ctfassets.net/473zoc40547p/1JTpH67RjOtkA3k91KyGxr/415c46171f0f877446f14785f9c4b48e/PF_Full_ESG_Report_2024.pdf"
@@ -235,7 +235,7 @@ export default function PfPurposePage() {
         >
           <div className="mx-auto max-w-[57rem] px-6 lg:px-0">
             <h2 className="text-common-white mb-12 text-center text-[2rem]/10 font-bold lg:mb-16 lg:text-5xl/[3.5rem]">
-              L&apos;engagement communautaire en chiffres
+              L&rsquo;engagement communautaire en chiffres
             </h2>
             <div className="grid grid-cols-1 place-items-center gap-4">
               <div className="grid grid-cols-1 place-items-center gap-4 lg:grid-cols-3">
@@ -268,10 +268,10 @@ export default function PfPurposePage() {
           <article className="flex w-full flex-col-reverse items-center justify-between md:mx-auto md:items-center lg:size-full lg:items-center lg:justify-between lg:gap-5 lg:flex-row-reverse">
             <div className="mt-6 md:mt-8 md:max-w-[638px] lg:mt-0 lg:max-w-md">
               <h2 className="text-[1.5rem]/8 font-bold tracking-[-0.015em] lg:text-[2rem]/10">
-                Génération Sans Jugement®
+                Génération Sans Jugement®{' '}
               </h2>
               <p className="text-gray-dark mt-6 text-lg/[1.5rem] lg:my-8">
-                Nous restons engagés à étendre notre philosophie Sans Jugement® au-delà de nos clubs, jusque dans nos communautés. Cela inclut notre partenariat pluriannuel avec des associations locales de jeunesse à travers l&apos;initiative signature Génération Sans Jugement®. Soutenue par le centre de support des clubs New York Gym, les franchisés, les membres, l&apos;équipe et les partenaires, cette initiative vise à responsabiliser les jeunes à travers des bourses, un accompagnement au bien-être émotionnel tenant compte des traumatismes, et des programmes offrant un accès gratuit au sport — y compris nos mini Zones Sans Jugement®, des espaces fitness installés dans des centres de jeunesse à travers le pays.
+                Nous restons engagés à étendre notre philosophie Sans Jugement® au-delà de nos clubs, jusque dans nos communautés. Cela inclut notre partenariat pluriannuel avec des associations locales de jeunesse à travers l&rsquo;initiative signature Génération Sans Jugement®. Soutenue par le centre de support des clubs New York Gym, les franchisés, les membres, l&rsquo;équipe et les partenaires, cette initiative vise à responsabiliser les jeunes à travers des bourses, un accompagnement au bien-être émotionnel tenant compte des traumatismes, et des programmes offrant un accès gratuit au sport — y compris nos mini Zones Sans Jugement®, des espaces fitness installés dans des centres de jeunesse à travers le pays.
               </p>
               <Link
                 href="/jfg"
@@ -283,7 +283,7 @@ export default function PfPurposePage() {
             <div className="flex max-w-[35.25rem] justify-center">
               <Image
                 src="https://images.ctfassets.net/473zoc40547p/2VpeA6Zrn1JV48Ni3aIUIl/a41cb4ac9350413ca3f6c4989910d102/b3cf9c01bdd4e2300d9e13894da7f946636dc07d.jpg?fm=webp"
-                alt="Génération Sans Jugement"
+                alt="Judgement Free Generation"
                 width={564}
                 height={423}
                 className="h-[245px] w-[327px] rounded-3xl object-cover object-top md:h-[17.625rem] md:w-[377px] lg:h-[423px] lg:w-[35.25rem]"
@@ -299,18 +299,18 @@ export default function PfPurposePage() {
         >
           <div className="mx-auto lg:max-w-[46.5rem]">
             <h2 className="mb-6 text-center text-[2rem]/10 font-bold lg:mb-8 lg:text-5xl/[3.5rem]">
-              Faire avancer notre engagement en faveur de l&apos;inclusion et de l&apos;appartenance
+              Faire avancer notre engagement en faveur de l&rsquo;inclusion et de l&rsquo;appartenance
             </h2>
             <div className="text-common-black mx-auto mt-4 flex flex-col text-center text-lg/[1.5rem] lg:max-w-[46.5rem]">
               <p className="px-3">
-                Chez New York Gym, nous sommes bien plus qu&apos;un club de fitness de quartier — nous sommes la Zone Sans Jugement®.
+                Chez New York Gym, nous sommes bien plus qu&rsquo;un club de fitness de quartier — nous sommes la Zone Sans Jugement®.
               </p>
               <h3 className="py-4 text-2xl font-bold">Notre vision</h3>
               <p className="mb-8">
-                Augmenter l&apos;accès au fitness et au bien-être. Offrir un environnement où chacun se sent à sa place. Notre Zone Sans Jugement® incarne notre engagement envers l&apos;inclusion et l&apos;appartenance, et guide nos actions — pas seulement dans nos clubs, mais aussi envers notre équipe, nos franchisés et les communautés que nous servons.
+                Augmenter l&rsquo;accès au fitness et au bien-être. Offrir un environnement où chacun se sent à sa place. Notre Zone Sans Jugement® incarne notre engagement envers l&rsquo;inclusion et l&rsquo;appartenance, et guide nos actions — pas seulement dans nos clubs, mais aussi envers notre équipe, nos franchisés et les communautés que nous servons.
               </p>
               <p>
-                En tant qu&apos;organisation construite sur la promesse de nos valeurs Sans Jugement™, nous sommes engagés à cultiver une culture et un environnement internes où chacun peut s&apos;épanouir.
+                En tant qu&rsquo;organisation construite sur la promesse de nos valeurs Sans Jugement™, nous sommes engagés à cultiver une culture et un environnement internes où chacun peut s&rsquo;épanouir.
               </p>
             </div>
           </div>
@@ -326,7 +326,7 @@ export default function PfPurposePage() {
           </h2>
           <div className="text-common-black mx-auto mb-12 mt-4 flex flex-col gap-6 text-center text-lg/[1.5rem] lg:mb-16 lg:max-w-[42.5rem]">
             <p>
-              Notre engagement envers la gestion environnementale repose sur la conviction qu&apos;atténuer l&apos;impact de notre activité sur la planète est essentiel pour soutenir la croissance à long terme et la résilience de nos clubs, de notre équipe, de nos franchisés et de nos communautés. Notre approche de gestion environnementale se concentre sur des pratiques durables qui améliorent l&apos;efficacité opérationnelle, réduisent notre empreinte et font progresser l&apos;ensemble de notre chaîne de valeur.
+              Notre engagement envers la gestion environnementale repose sur la conviction qu&rsquo;atténuer l&rsquo;impact de notre activité sur la planète est essentiel pour soutenir la croissance à long terme et la résilience de nos clubs, de notre équipe, de nos franchisés et de nos communautés. Notre approche de gestion environnementale se concentre sur des pratiques durables qui améliorent l&rsquo;efficacité opérationnelle, réduisent notre empreinte et font progresser l&rsquo;ensemble de notre chaîne de valeur.
             </p>
           </div>
 
