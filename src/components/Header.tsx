@@ -9,6 +9,18 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [langOpen, setLangOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
+  const [accountMobileOpen, setAccountMobileOpen] = useState(false);
+
+  const accountLinks = [
+    { label: "Tableau de bord — Offres", href: "/dashboard/deals-dashboard" },
+    { label: "Tableau de bord — Leads", href: "/dashboard/leads-dashboard" },
+    { label: "Paiements", href: "/dashboard/payments" },
+    { label: "Contacts", href: "/dashboard/contacts" },
+    { label: "Plans d'adhésion", href: "/dashboard/membership-plans" },
+    { label: "Options d'adhésion", href: "/dashboard/membership-addons" },
+    { label: "Transactions", href: "/dashboard/membership-transactions" },
+  ];
 
   const navItems = [
     { label: "Adhésions", href: "/gym-memberships" },
@@ -20,6 +32,15 @@ export function Header() {
         { label: "Programmes d'entraînement", href: "/training-programs" },
         { label: "À la demande", href: "/training-programs/a-la-demande" },
         { label: "Performance", href: "/training-programs/performance" },
+        { label: "Application NY Gym", href: "/mobileapp" },
+      ],
+    },
+    {
+      label: "À propos",
+      dropdown: [
+        { label: "Pourquoi NY Gym", href: "/about-planet-fitness/why-planet-fitness" },
+        { label: "Notre histoire", href: "/about-planet-fitness" },
+        { label: "Notre mission", href: "/pf-purpose" },
       ],
     },
     { label: "Blog", href: "/blog" },
@@ -33,6 +54,10 @@ export function Header() {
     { label: "Programmes d'entraînement", href: "/training-programs" },
     { label: "À la demande", href: "/training-programs/a-la-demande" },
     { label: "Performance", href: "/training-programs/performance" },
+    { label: "Application NY Gym", href: "/mobileapp" },
+    { label: "Pourquoi NY Gym", href: "/about-planet-fitness/why-planet-fitness" },
+    { label: "Notre histoire", href: "/about-planet-fitness" },
+    { label: "Notre mission", href: "/pf-purpose" },
     { label: "Blog", href: "/blog" },
     { label: "Boutique", href: "https://shop.planetfitness.com/", external: true },
   ];
@@ -157,13 +182,40 @@ export function Header() {
             </div>
 
             {/* My Account */}
-            <Link
-              href="/login"
-              className="hidden header-lg:flex items-center gap-2 px-4 h-14 text-base text-common-black hover:bg-surface-gray hover:text-primary-main transition-colors"
+            <div
+              className="relative hidden header-lg:block"
+              onMouseEnter={() => setAccountOpen(true)}
+              onMouseLeave={() => setAccountOpen(false)}
             >
-              <img src="/images/icons/SignIn.svg" alt="" className="w-6 h-6" />
-              <span>{t.nav.myAccount}</span>
-            </Link>
+              <button
+                className={`flex items-center gap-2 px-4 h-14 text-base transition-colors ${
+                  accountOpen
+                    ? "text-primary-main bg-surface-gray"
+                    : "text-common-black hover:bg-surface-gray hover:text-primary-main"
+                }`}
+              >
+                <img src="/images/icons/SignIn.svg" alt="" className="w-6 h-6" />
+                <span>{t.nav.myAccount}</span>
+                <ChevronIcon open={accountOpen} />
+              </button>
+              {accountOpen && (
+                <div
+                  className="absolute top-full right-0 min-w-[240px] bg-white border border-border shadow-md z-50"
+                  style={{ borderRadius: "0 0 8px 8px" }}
+                >
+                  {accountLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block px-6 py-3.5 text-sm text-common-black hover:text-primary-main hover:bg-surface-gray transition-colors border-b border-border last:border-0"
+                      onClick={() => setAccountOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* Join Now */}
             <Link
@@ -212,14 +264,32 @@ export function Header() {
                 )}
               </Link>
             ))}
-            <Link
-              href="/login"
-              className="text-lg text-common-black py-4 border-b border-border flex items-center gap-2"
-              onClick={() => setMenuOpen(false)}
-            >
-              <img src="/images/icons/SignIn.svg" alt="" className="w-5 h-5" />
-              {t.nav.myAccount}
-            </Link>
+            <div className="border-b border-border">
+              <button
+                className="w-full text-lg text-common-black py-4 flex items-center gap-2"
+                onClick={() => setAccountMobileOpen((v) => !v)}
+              >
+                <img src="/images/icons/SignIn.svg" alt="" className="w-5 h-5" />
+                {t.nav.myAccount}
+                <span className="ml-auto">
+                  <ChevronIcon open={accountMobileOpen} />
+                </span>
+              </button>
+              {accountMobileOpen && (
+                <div className="pl-7 pb-2 flex flex-col gap-1">
+                  {accountLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="text-base text-gray-medium hover:text-primary-main py-2 border-b border-border last:border-0 block"
+                      onClick={() => { setMenuOpen(false); setAccountMobileOpen(false); }}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* Mobile language switcher */}
             <div className="flex gap-3 py-4 border-b border-border">

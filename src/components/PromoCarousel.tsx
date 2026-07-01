@@ -94,12 +94,11 @@ export function PromoCarousel({ slides, initialIndex = 0, autoPlayInterval = 500
           <div
             key={index}
             style={{ width: `${SLIDE_VW}vw`, flexShrink: 0 }}
-            className="flex flex-col md:flex-row items-center gap-6 md:gap-10 pl-12 md:pl-36 pr-6 md:pr-8 py-[62px] md:py-[70px]"
+            className="flex flex-col md:flex-row items-center gap-6 md:gap-10 px-4 md:pl-36 md:pr-8 py-[62px] md:py-[70px]"
           >
             {/* Square image — LEFT */}
             <div
-              className="flex-shrink-0 aspect-square rounded-3xl shadow-[0_0_0_5px_rgb(86,20,150)]"
-              style={{ width: "48%" }}
+              className="flex-shrink-0 aspect-square rounded-3xl shadow-[0_0_0_5px_rgb(86,20,150)] w-[85%] md:w-[48%]"
             >
               <div className="w-full h-full rounded-3xl overflow-hidden">
                 <img
@@ -112,7 +111,7 @@ export function PromoCarousel({ slides, initialIndex = 0, autoPlayInterval = 500
             </div>
 
             {/* Text content — RIGHT */}
-            <div className="flex flex-col flex-1 max-w-[52%]">
+            <div className="flex flex-col flex-1 max-w-full md:max-w-[52%]">
               <h2
                 className={cn(
                   "font-condensed text-[2rem]/none lg:text-5xl font-bold uppercase text-common-black mb-4"
