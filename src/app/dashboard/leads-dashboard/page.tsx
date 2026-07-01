@@ -19,55 +19,55 @@ interface Lead {
   company: string
   companyIcon: string
   phone: string
-  status: 'Closed' | 'Contacted'
+  status: 'Clôturé' | 'Contacté'
 }
 
 const leads: Lead[] = [
-  { name: 'Collins', company: 'NovaWave LLC', companyIcon: '/images/crm/company-icon-01.svg', phone: '+1 875455453', status: 'Closed' },
-  { name: 'Konopelski', company: 'BlueSky Industries', companyIcon: '/images/crm/company-icon-02.svg', phone: '+1 989757485', status: 'Closed' },
-  { name: 'Adams', company: 'Silver Hawk', companyIcon: '/images/crm/company-icon-03.svg', phone: '+1 546555455', status: 'Closed' },
-  { name: 'Schumm', company: 'Summit Peak', companyIcon: '/images/crm/company-icon-04.svg', phone: '+1 454478787', status: 'Contacted' },
-  { name: 'Wisozk', company: 'RiverStone Ltd', companyIcon: '/images/crm/company-icon-05.svg', phone: '+1 1245427875', status: 'Closed' },
+  { name: 'Collins', company: 'NovaWave LLC', companyIcon: '/images/crm/company-icon-01.svg', phone: '+1 875455453', status: 'Clôturé' },
+  { name: 'Konopelski', company: 'BlueSky Industries', companyIcon: '/images/crm/company-icon-02.svg', phone: '+1 989757485', status: 'Clôturé' },
+  { name: 'Adams', company: 'Silver Hawk', companyIcon: '/images/crm/company-icon-03.svg', phone: '+1 546555455', status: 'Clôturé' },
+  { name: 'Schumm', company: 'Summit Peak', companyIcon: '/images/crm/company-icon-04.svg', phone: '+1 454478787', status: 'Contacté' },
+  { name: 'Wisozk', company: 'RiverStone Ltd', companyIcon: '/images/crm/company-icon-05.svg', phone: '+1 1245427875', status: 'Clôturé' },
 ]
 
 const pieSegments = [
-  { color: BLUE, label: 'Inpipeline', pct: 30 },
-  { color: GREEN, label: 'Follow Up', pct: 35 },
-  { color: '#F9B801', label: 'Schedule Service', pct: 10 },
+  { color: BLUE, label: 'En pipeline', pct: 30 },
+  { color: GREEN, label: 'Suivi', pct: 35 },
+  { color: '#F9B801', label: 'Service planifié', pct: 10 },
   { color: ACCENT, label: 'Conversation', pct: 25 },
 ]
 
 const areaPoints = [
   { label: 'Jan', v: 3000 },
-  { label: 'Feb', v: 4200 },
+  { label: 'Fév', v: 4200 },
   { label: 'Mar', v: 2800 },
-  { label: 'Apr', v: 2200 },
-  { label: 'May', v: 3100 },
+  { label: 'Avr', v: 2200 },
+  { label: 'Mai', v: 3100 },
   { label: 'Jun', v: 2600 },
   { label: 'Jul', v: 3200 },
-  { label: 'Aug', v: 2800 },
+  { label: 'Aoû', v: 2800 },
   { label: 'Sep', v: 3800 },
   { label: 'Oct', v: 4900 },
   { label: 'Nov', v: 4100 },
-  { label: 'Dec', v: 2400 },
+  { label: 'Déc', v: 2400 },
 ]
 
 const lostDeals = [
   { label: 'Conversation', v: 380 },
-  { label: 'Follow Up', v: 270 },
-  { label: 'Inpipeline', v: 460 },
+  { label: 'Suivi', v: 270 },
+  { label: 'En pipeline', v: 460 },
 ]
 
 const wonDeals = [
   { label: 'Conversation', v: 395 },
-  { label: 'Follow Up', v: 105 },
-  { label: 'Inpipeline', v: 300 },
+  { label: 'Suivi', v: 105 },
+  { label: 'En pipeline', v: 300 },
 ]
 
-function StatusBadge({ status }: { status: 'Closed' | 'Contacted' }) {
+function StatusBadge({ status }: { status: 'Clôturé' | 'Contacté' }) {
   const styles: Record<string, CSSProperties> = {
-    Closed: { backgroundColor: SUCCESS, color: '#fff' },
-    Contacted: { backgroundColor: WARNING, color: '#fff' },
+    'Clôturé': { backgroundColor: SUCCESS, color: '#fff' },
+    'Contacté': { backgroundColor: WARNING, color: '#fff' },
   }
   return (
     <span style={{
@@ -254,14 +254,14 @@ const cardTitleStyle: CSSProperties = {
 }
 
 export default function LeadsDashboardPage() {
-  const [leadsFilter] = useState('Last 30 days')
-  const [pieFilter] = useState('Last 30 Days')
-  const [areaFilter] = useState('Last 30 Days')
-  const [areaPipeline] = useState('Sales Pipeline')
-  const [lostFilter] = useState('Last 3 months')
-  const [lostPipeline] = useState('Marketing Pipeline')
-  const [wonFilter] = useState('Last 3 months')
-  const [wonPipeline] = useState('Marketing Pipeline')
+  const [leadsFilter] = useState('30 derniers jours')
+  const [pieFilter] = useState('30 derniers jours')
+  const [areaFilter] = useState('30 derniers jours')
+  const [areaPipeline] = useState('Pipeline des ventes')
+  const [lostFilter] = useState('3 derniers mois')
+  const [lostPipeline] = useState('Pipeline Marketing')
+  const [wonFilter] = useState('3 derniers mois')
+  const [wonPipeline] = useState('Pipeline Marketing')
 
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -271,7 +271,7 @@ export default function LeadsDashboardPage() {
         padding: '14px 24px', display: 'flex', alignItems: 'center',
         justifyContent: 'space-between', flexWrap: 'wrap', gap: 8,
       }}>
-        <h1 style={{ fontSize: 22, fontWeight: 700, color: TEXT_DARK, margin: 0 }}>Leads Dashboard</h1>
+        <h1 style={{ fontSize: 22, fontWeight: 700, color: TEXT_DARK, margin: 0 }}>Tableau de bord — Leads</h1>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <button style={{
             display: 'flex', alignItems: 'center', gap: 6,
@@ -300,7 +300,7 @@ export default function LeadsDashboardPage() {
           {/* Recently Created Leads */}
           <div style={{ ...cardStyle, flex: '1 1 400px', minWidth: 320 }}>
             <div style={cardHeaderStyle}>
-              <span style={cardTitleStyle}>Recently Created Leads</span>
+              <span style={cardTitleStyle}>Leads récemment créés</span>
               <DropdownBtn>{leadsFilter}</DropdownBtn>
             </div>
 
@@ -308,7 +308,7 @@ export default function LeadsDashboardPage() {
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
                   <tr>
-                    {['Lead Name', 'Company Name', 'Phone', 'Status'].map(col => (
+                    {['Nom du lead', 'Entreprise', 'Téléphone', 'Statut'].map(col => (
                       <th key={col} style={{
                         padding: '8px 10px 8px 16px', fontSize: 13, fontWeight: 600,
                         color: TEXT_DARK, textAlign: 'left',
@@ -344,7 +344,7 @@ export default function LeadsDashboardPage() {
           {/* Projects By Stage - Pie */}
           <div style={{ ...cardStyle, flex: '1 1 320px', minWidth: 280 }}>
             <div style={cardHeaderStyle}>
-              <span style={cardTitleStyle}>Projects By Stage</span>
+              <span style={cardTitleStyle}>Projets par étape</span>
               <DropdownBtn>{pieFilter}</DropdownBtn>
             </div>
             <div style={{ padding: '24px 20px', display: 'flex', justifyContent: 'center' }}>
@@ -373,7 +373,7 @@ export default function LeadsDashboardPage() {
           {/* Lost Deals Stage */}
           <div style={{ ...cardStyle, flex: '1 1 300px', minWidth: 260 }}>
             <div style={{ ...cardHeaderStyle, flexWrap: 'wrap', gap: 8 }}>
-              <span style={cardTitleStyle}>Lost Deals Stage</span>
+              <span style={cardTitleStyle}>Deals perdus — étape</span>
               <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                 <DropdownBtn>{lostPipeline}</DropdownBtn>
                 <DropdownBtn>{lostFilter}</DropdownBtn>
@@ -392,7 +392,7 @@ export default function LeadsDashboardPage() {
           {/* Won Deals Stage */}
           <div style={{ ...cardStyle, flex: '1 1 300px', minWidth: 260 }}>
             <div style={{ ...cardHeaderStyle, flexWrap: 'wrap', gap: 8 }}>
-              <span style={cardTitleStyle}>Won Deals Stage</span>
+              <span style={cardTitleStyle}>Deals gagnés — étape</span>
               <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                 <DropdownBtn>{wonPipeline}</DropdownBtn>
                 <DropdownBtn>{wonFilter}</DropdownBtn>

@@ -20,21 +20,21 @@ interface Transaction {
   amount: string
   date: string
   paymentType: string
-  status: 'Completed' | 'Cancel'
+  status: 'Completed' | 'Cancel' | 'Complété' | 'Annulé'
   starred: boolean
 }
 
 const allRows: Transaction[] = [
-  { id: 1, type: 'Wallet Topup', amount: '+$650', date: '25 Sep 2025, 01:22 PM', paymentType: 'Paypal',  status: 'Completed', starred: false },
-  { id: 2, type: 'Purchase',     amount: '-350',   date: '27 Sep 2025, 04:18 PM', paymentType: 'Cash',    status: 'Cancel',    starred: false },
-  { id: 3, type: 'Refund',       amount: '+$100',  date: '29 Sep 2025, 10:08 AM', paymentType: 'Paypal',  status: 'Completed', starred: false },
-  { id: 4, type: 'Wallet Topup', amount: '+$650',  date: '05 Oct 2025, 09:43 AM', paymentType: 'Cash',    status: 'Completed', starred: false },
-  { id: 5, type: 'Wallet Topup', amount: '+$650',  date: '17 Oct 2025, 01:22 AM', paymentType: 'Paypal',  status: 'Cancel',    starred: false },
-  { id: 6, type: 'Wallet Topup', amount: '+$650',  date: '22 Oct 2025, 06:32 PM', paymentType: 'Cash',    status: 'Completed', starred: false },
-  { id: 7, type: 'Refund',       amount: '+$500',  date: '05 May 2025, 10:45 AM', paymentType: 'Cash',    status: 'Completed', starred: false },
-  { id: 8, type: 'Wallet Topup', amount: '+$380',  date: '03 May 2025, 09:45 AM', paymentType: 'Cash',    status: 'Completed', starred: false },
-  { id: 9, type: 'Refund',       amount: '+$290',  date: '15 Feb 2025, 02:02 PM', paymentType: 'PayPal',  status: 'Completed', starred: false },
-  { id: 10, type: 'Wallet Topup', amount: '+$380', date: '25 Feb 2025, 01:22 PM', paymentType: 'Cash',    status: 'Completed', starred: false },
+  { id: 1, type: 'Recharge portefeuille', amount: '+$650', date: '25 Sep 2025, 13:22', paymentType: 'Paypal', status: 'Complété', starred: false },
+  { id: 2, type: 'Achat',                 amount: '-350',  date: '27 Sep 2025, 16:18', paymentType: 'Cash',   status: 'Annulé',   starred: false },
+  { id: 3, type: 'Remboursement',         amount: '+$100', date: '29 Sep 2025, 10:08', paymentType: 'Paypal', status: 'Complété', starred: false },
+  { id: 4, type: 'Recharge portefeuille', amount: '+$650', date: '05 Oct 2025, 09:43', paymentType: 'Cash',   status: 'Complété', starred: false },
+  { id: 5, type: 'Recharge portefeuille', amount: '+$650', date: '17 Oct 2025, 01:22', paymentType: 'Paypal', status: 'Annulé',   starred: false },
+  { id: 6, type: 'Recharge portefeuille', amount: '+$650', date: '22 Oct 2025, 18:32', paymentType: 'Cash',   status: 'Complété', starred: false },
+  { id: 7, type: 'Remboursement',         amount: '+$500', date: '05 Mai 2025, 10:45', paymentType: 'Cash',   status: 'Complété', starred: false },
+  { id: 8, type: 'Recharge portefeuille', amount: '+$380', date: '03 Mai 2025, 09:45', paymentType: 'Cash',   status: 'Complété', starred: false },
+  { id: 9, type: 'Remboursement',         amount: '+$290', date: '15 Fév 2025, 14:02', paymentType: 'PayPal', status: 'Complété', starred: false },
+  { id: 10, type: 'Recharge portefeuille', amount: '+$380', date: '25 Fév 2025, 13:22', paymentType: 'Cash',  status: 'Complété', starred: false },
 ]
 
 const toolBtn: CSSProperties = {
@@ -106,7 +106,7 @@ export default function MembershipTransactionsPage() {
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <h4 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: '#1F2020' }}>
-              Membership Transactions
+              Transactions d&apos;adhésion
             </h4>
             <span style={{
               backgroundColor: ACCENT, color: '#fff',
@@ -115,9 +115,9 @@ export default function MembershipTransactionsPage() {
             }}>152</span>
           </div>
           <p style={{ margin: '4px 0 0', fontSize: 13, color: TEXT_MID }}>
-            <span style={{ cursor: 'pointer' }}>Home</span>
+            <span style={{ cursor: 'pointer' }}>Accueil</span>
             <span style={{ margin: '0 6px' }}>›</span>
-            <span style={{ color: '#1F2020', fontWeight: 500 }}>Membership Transactions</span>
+            <span style={{ color: '#1F2020', fontWeight: 500 }}>Transactions d&apos;adhésion</span>
           </p>
         </div>
 
@@ -151,7 +151,7 @@ export default function MembershipTransactionsPage() {
           <input
             value={search}
             onChange={e => { setSearch(e.target.value); setPage(1) }}
-            placeholder="Search"
+            placeholder="Rechercher"
             style={{ border: 'none', background: 'none', outline: 'none', fontSize: 13, color: '#1F2020', width: '100%', fontFamily: '"Golos Text", sans-serif' }}
           />
         </div>
@@ -162,7 +162,7 @@ export default function MembershipTransactionsPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <button style={toolBtn}>
             <ListFilter size={14} color={TEXT_MID} />
-            Filter
+            Filtrer
             <ChevronDown size={13} color={TEXT_MID} />
           </button>
           <button style={toolBtn}>
@@ -173,7 +173,7 @@ export default function MembershipTransactionsPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <button style={toolBtn}>
             <ArrowUpDown size={14} color={TEXT_MID} />
-            Sort By
+            Trier par
             <ChevronDown size={13} color={TEXT_MID} />
           </button>
           <button style={{
@@ -184,7 +184,7 @@ export default function MembershipTransactionsPage() {
             fontFamily: '"Golos Text", sans-serif',
           }}>
             <Columns2 size={14} color="rgb(53, 56, 205)" />
-            Manage Columns
+            Gérer les colonnes
           </button>
         </div>
       </div>
@@ -214,7 +214,7 @@ export default function MembershipTransactionsPage() {
               </th>
               <th style={thStyle}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                  Amount <ChevronsUpDown size={12} color={TEXT_MID} />
+                  Montant <ChevronsUpDown size={12} color={TEXT_MID} />
                 </div>
               </th>
               <th style={thStyle}>
@@ -224,12 +224,12 @@ export default function MembershipTransactionsPage() {
               </th>
               <th style={thStyle}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                  Payment Type <ChevronsUpDown size={12} color={TEXT_MID} />
+                  Mode de paiement <ChevronsUpDown size={12} color={TEXT_MID} />
                 </div>
               </th>
               <th style={thStyle}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                  Status <ChevronsUpDown size={12} color={TEXT_MID} />
+                  Statut <ChevronsUpDown size={12} color={TEXT_MID} />
                 </div>
               </th>
             </tr>
@@ -264,7 +264,7 @@ export default function MembershipTransactionsPage() {
                 <td style={tdStyle}>
                   <span style={{
                     display: 'inline-block',
-                    backgroundColor: row.status === 'Completed' ? 'rgb(26, 190, 23)' : 'rgb(239, 30, 30)',
+                    backgroundColor: (row.status === 'Completed' || row.status === 'Complété') ? 'rgb(26, 190, 23)' : 'rgb(239, 30, 30)',
                     color: '#fff',
                     fontSize: 12, fontWeight: 500,
                     borderRadius: 6, padding: '5px 6px',
@@ -284,12 +284,12 @@ export default function MembershipTransactionsPage() {
           padding: '12px 16px', borderTop: `0.67px solid ${BORDER}`,
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: TEXT_DARK }}>
-            <span>Show</span>
+            <span>Afficher</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: 4, border: `0.67px solid ${BORDER}`, borderRadius: 5, padding: '4px 8px', backgroundColor: '#fff' }}>
               <span>10</span>
               <ChevronDown size={12} color={TEXT_MID} />
             </div>
-            <span>entries</span>
+            <span>entrées</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
             <button

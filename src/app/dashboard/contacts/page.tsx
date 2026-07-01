@@ -95,7 +95,7 @@ export default function ContactsPage() {
           </div>
           <nav style={{ marginTop: 4 }}>
             <ol style={{ display: 'flex', alignItems: 'center', gap: 6, margin: 0, padding: 0, listStyle: 'none' }}>
-              <li><Link href="/dashboard" style={{ color: TEXT_MID, textDecoration: 'none', fontSize: 13 }}>Home</Link></li>
+              <li><Link href="/dashboard/leads-dashboard" style={{ color: TEXT_MID, textDecoration: 'none', fontSize: 13 }}>Accueil</Link></li>
               <li style={{ color: TEXT_MID, fontSize: 13 }}>›</li>
               <li style={{ color: TEXT_DARK, fontSize: 13 }}>Contacts</li>
             </ol>
@@ -119,7 +119,7 @@ export default function ContactsPage() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <button style={toolbarBtn}>
               <Filter size={14} color={TEXT_MID} />
-              Filter
+              Filtrer
               <ChevronDown size={13} color={TEXT_MID} />
             </button>
             <div style={{
@@ -131,7 +131,7 @@ export default function ContactsPage() {
               <input
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                placeholder="Search"
+                placeholder="Rechercher"
                 style={{ border: 'none', background: 'none', outline: 'none', fontSize: 14, color: TEXT_DARK, width: 180, fontFamily: '"Golos Text", sans-serif' }}
               />
             </div>
@@ -163,7 +163,7 @@ export default function ContactsPage() {
               fontFamily: '"Golos Text", sans-serif',
             }}>
               <Plus size={16} />
-              Add Contacts
+              Ajouter un contact
             </button>
           </div>
         </div>
@@ -195,7 +195,7 @@ export default function ContactsPage() {
             fontFamily: '"Golos Text", sans-serif',
           }}>
             <Sparkles size={15} />
-            Load More
+            Charger plus
           </button>
         </div>
       </div>
@@ -254,9 +254,9 @@ function ContactCard({
               minWidth: 120, overflow: 'hidden',
             }}>
               {[
-                { icon: Pencil, label: 'Edit' },
-                { icon: Trash2, label: 'Delete', danger: true },
-                { icon: Eye, label: 'Preview' },
+                { icon: Pencil, label: 'Modifier' },
+                { icon: Trash2, label: 'Supprimer', danger: true },
+                { icon: Eye, label: 'Aperçu' },
               ].map(item => (
                 <button
                   key={item.label}

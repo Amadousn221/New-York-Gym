@@ -27,17 +27,17 @@ interface Plan {
 
 const plans: Plan[] = [
   {
-    name: 'Basic',
+    name: 'Basique',
     monthlyPrice: 50,
     yearlyPrice: 42,
     features: [
       { text: '10 Contacts', included: true },
       { text: '10 Leads', included: true },
-      { text: '20 Companies', included: true },
-      { text: '50 Compaigns', included: true },
-      { text: '100 Projects', included: true },
-      { text: 'Deals', included: false },
-      { text: 'Tasks', included: false },
+      { text: '20 Entreprises', included: true },
+      { text: '50 Campagnes', included: true },
+      { text: '100 Projets', included: true },
+      { text: 'Affaires', included: false },
+      { text: 'Tâches', included: false },
       { text: 'Pipelines', included: false },
     ],
   },
@@ -48,26 +48,26 @@ const plans: Plan[] = [
     features: [
       { text: '20 Contacts', included: true },
       { text: '20 Leads', included: true },
-      { text: '50 Companies', included: true },
-      { text: 'Unlimited Compaigns', included: true },
-      { text: 'Unlimited Projects', included: true },
-      { text: 'Deals', included: false },
-      { text: 'Tasks', included: false },
+      { text: '50 Entreprises', included: true },
+      { text: 'Campagnes illimitées', included: true },
+      { text: 'Projets illimités', included: true },
+      { text: 'Affaires', included: false },
+      { text: 'Tâches', included: false },
       { text: 'Pipelines', included: false },
     ],
   },
   {
-    name: 'Enterprise',
+    name: 'Entreprise',
     monthlyPrice: 400,
     yearlyPrice: 333,
     features: [
-      { text: 'Unlimited Contacts', included: true },
-      { text: 'Unlimited Leads', included: true },
-      { text: 'Unlimited Companies', included: true },
-      { text: 'Unlimited Compaigns', included: true },
-      { text: 'Unlimited Projects', included: true },
-      { text: 'Deals', included: true },
-      { text: 'Tasks', included: true },
+      { text: 'Contacts illimités', included: true },
+      { text: 'Leads illimités', included: true },
+      { text: 'Entreprises illimitées', included: true },
+      { text: 'Campagnes illimitées', included: true },
+      { text: 'Projets illimités', included: true },
+      { text: 'Affaires', included: true },
+      { text: 'Tâches', included: true },
       { text: 'Pipelines', included: true },
     ],
   },
@@ -106,7 +106,7 @@ export default function MembershipPlansPage() {
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <h4 style={{ margin: 0, fontSize: 20, fontWeight: 700, color: TEXT_DARK }}>
-              Membership Plans
+              Plans d&apos;adhésion
             </h4>
             <span style={{
               backgroundColor: ACCENT, color: '#fff',
@@ -115,9 +115,9 @@ export default function MembershipPlansPage() {
             }}>152</span>
           </div>
           <p style={{ margin: '4px 0 0', fontSize: 13, color: TEXT_MID }}>
-            <span style={{ color: TEXT_MID, cursor: 'pointer' }}>Home</span>
+            <span style={{ color: TEXT_MID, cursor: 'pointer' }}>Accueil</span>
             <span style={{ margin: '0 6px', color: TEXT_MID }}>›</span>
-            <span style={{ color: TEXT_DARK, fontWeight: 500 }}>Membership Plans</span>
+            <span style={{ color: TEXT_DARK, fontWeight: 500 }}>Plans d&apos;adhésion</span>
           </p>
         </div>
 
@@ -130,7 +130,7 @@ export default function MembershipPlansPage() {
             boxShadow: 'rgba(219,219,219,0.25) 0px 4px 4px',
           }}>
             <Upload size={14} color={TEXT_MID} />
-            Export
+            Exporter
             <ChevronDown size={13} color={TEXT_MID} />
           </button>
           <button style={{
@@ -165,7 +165,7 @@ export default function MembershipPlansPage() {
           <input
             value={search}
             onChange={e => setSearch(e.target.value)}
-            placeholder="Search"
+            placeholder="Rechercher"
             style={{ border: 'none', background: 'none', outline: 'none', fontSize: 13, color: TEXT_DARK, width: '100%' }}
           />
         </div>
@@ -177,13 +177,13 @@ export default function MembershipPlansPage() {
           padding: '8px 14px', fontSize: 13, fontWeight: 500, cursor: 'pointer',
         }}>
           <Plus size={15} color="#fff" />
-          Add Membership
+          Ajouter un plan
         </button>
       </div>
 
       {/* Yearly / Monthly toggle */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, marginBottom: 24 }}>
-        <span style={{ fontSize: 14, fontWeight: 500, color: TEXT_DARK }}>Yearly</span>
+        <span style={{ fontSize: 14, fontWeight: 500, color: TEXT_DARK }}>Annuel</span>
         <button
           onClick={() => setIsYearly(!isYearly)}
           style={{
@@ -203,7 +203,7 @@ export default function MembershipPlansPage() {
             display: 'block',
           }} />
         </button>
-        <span style={{ fontSize: 14, fontWeight: 500, color: TEXT_DARK }}>Monthly</span>
+        <span style={{ fontSize: 14, fontWeight: 500, color: TEXT_DARK }}>Mensuel</span>
       </div>
 
       {/* Plan cards grid */}
@@ -234,7 +234,7 @@ function PlanCard({ plan, isYearly }: { plan: Plan; isYearly: boolean }) {
         <p style={{ margin: '0 0 8px', fontSize: 13, color: TEXT_MID }}>{plan.name}</p>
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'center', gap: 4 }}>
           <span style={{ fontSize: 30, fontWeight: 700, color: TEXT_DARK }}>${price}</span>
-          <span style={{ fontSize: 14, color: TEXT_MID }}>/ month</span>
+          <span style={{ fontSize: 14, color: TEXT_MID }}>/ mois</span>
         </div>
       </div>
 
@@ -269,7 +269,7 @@ function PlanCard({ plan, isYearly }: { plan: Plan; isYearly: boolean }) {
           border: 'none', borderRadius: 5,
           fontSize: 14, fontWeight: 500, cursor: 'pointer',
         }}>
-          Choose
+          Choisir
         </button>
       </div>
     </div>

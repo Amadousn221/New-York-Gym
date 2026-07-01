@@ -43,7 +43,7 @@ const payments: Payment[] = [
   { invoiceId: '#1254049', client: 'NovaWave LLC',       amount: '$5000', dueDate: '', paymentMethod: 'Cash',   transactionId: 'TXNID1A2B3C4D5E6', companyColor: '#1B2850', companyLetter: 'N' },
 ]
 
-const columns = ['Invoice ID', 'Client', 'Amount', 'Due Date', 'Payment Method', 'Transaction ID', 'Action']
+const columns = ['N° Facture', 'Client', 'Montant', 'Date échéance', 'Mode de paiement', 'ID Transaction', 'Action']
 
 const toolbarBtn: CSSProperties = {
   display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -112,7 +112,7 @@ export default function PaymentsPage() {
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <h1 style={{ fontSize: 20, fontWeight: 700, color: TEXT_DARK, margin: 0, lineHeight: '24px' }}>Payments</h1>
+            <h1 style={{ fontSize: 20, fontWeight: 700, color: TEXT_DARK, margin: 0, lineHeight: '24px' }}>Paiements</h1>
             <span style={{
               backgroundColor: ACCENT, color: '#fff',
               fontSize: 11, fontWeight: 600, padding: '2px 7px',
@@ -121,16 +121,16 @@ export default function PaymentsPage() {
           </div>
           <nav style={{ marginTop: 4 }}>
             <ol style={{ display: 'flex', alignItems: 'center', gap: 6, margin: 0, padding: 0, listStyle: 'none' }}>
-              <li><Link href="/dashboard" style={{ color: TEXT_MID, textDecoration: 'none', fontSize: 13 }}>Home</Link></li>
+              <li><Link href="/dashboard/leads-dashboard" style={{ color: TEXT_MID, textDecoration: 'none', fontSize: 13 }}>Accueil</Link></li>
               <li style={{ color: TEXT_MID, fontSize: 13 }}>›</li>
-              <li style={{ color: TEXT_DARK, fontSize: 13 }}>Payments</li>
+              <li style={{ color: TEXT_DARK, fontSize: 13 }}>Paiements</li>
             </ol>
           </nav>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <button style={toolbarBtn}>
             <Download size={14} color={TEXT_MID} />
-            Export
+            Exporter
             <ChevronDown size={13} color={TEXT_MID} />
           </button>
           <button style={iconOnlyBtn}><RefreshCw size={15} color={TEXT_MID} /></button>
@@ -156,7 +156,7 @@ export default function PaymentsPage() {
               <input
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                placeholder="Search"
+                placeholder="Rechercher"
                 style={{
                   border: 'none', background: 'none', outline: 'none',
                   fontSize: 14, color: TEXT_DARK, width: '100%',
@@ -174,7 +174,7 @@ export default function PaymentsPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <button style={toolbarBtn}>
                 <ArrowUpDown size={14} color={TEXT_MID} />
-                Sort By
+                Trier par
                 <ChevronDown size={13} color={TEXT_MID} />
               </button>
               <button style={toolbarBtn}>
@@ -186,7 +186,7 @@ export default function PaymentsPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <button style={toolbarBtn}>
                 <Filter size={14} color={TEXT_MID} />
-                Filter
+                Filtrer
                 <ChevronDown size={13} color={TEXT_MID} />
               </button>
               <button style={{
@@ -197,7 +197,7 @@ export default function PaymentsPage() {
                 fontFamily: '"Golos Text", sans-serif', fontWeight: 400,
               }}>
                 <LayoutGrid size={14} color={MANAGE_COL} />
-                Manage Columns
+                Gérer les colonnes
               </button>
             </div>
           </div>
@@ -224,7 +224,7 @@ export default function PaymentsPage() {
                       </div>
                     </th>
                   ))}
-                  <th style={{ ...thStyle }}>Action</th>
+                  <th style={{ ...thStyle }}>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -284,14 +284,14 @@ export default function PaymentsPage() {
                               onClick={() => setOpenMenu(null)}
                             >
                               <Eye size={14} />
-                              Preview
+                              Aperçu
                             </button>
                             <button
                               style={{ ...dropdownItem, color: ACCENT }}
                               onClick={() => setOpenMenu(null)}
                             >
                               <Trash2 size={14} />
-                              Delete
+                              Supprimer
                             </button>
                           </div>
                         )}
@@ -310,7 +310,7 @@ export default function PaymentsPage() {
             flexWrap: 'wrap', gap: 8,
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, color: TEXT_MID, fontSize: 14 }}>
-              <span>Show</span>
+              <span>Afficher</span>
               <button style={{
                 display: 'inline-flex', alignItems: 'center', gap: 4,
                 border: `0.67px solid ${BORDER}`, borderRadius: 5, padding: '4px 8px',
@@ -319,7 +319,7 @@ export default function PaymentsPage() {
               }}>
                 10 <ChevronDown size={12} color={TEXT_MID} />
               </button>
-              <span>entries</span>
+              <span>entrées</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
               <button style={pageBtn(false)}><ChevronLeft size={15} /></button>

@@ -51,7 +51,7 @@ interface NavSection {
 
 const navSections: NavSection[] = [
   {
-    sectionLabel: 'Main Menu',
+    sectionLabel: 'Menu principal',
     groups: [
       {
         label: 'Dashboard',
@@ -67,7 +67,7 @@ const navSections: NavSection[] = [
     sectionLabel: 'CRM',
     items: [
       { label: 'Contacts', icon: Users, href: '/dashboard/contacts' },
-      { label: 'Payments', icon: DollarSign, href: '/dashboard/payments' },
+      { label: 'Paiements', icon: DollarSign, href: '/dashboard/payments' },
     ],
   },
   {
@@ -256,7 +256,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           }}>
             <Search size={15} color={TEXT_MID} />
             <input
-              placeholder="Search Keyword"
+              placeholder="Rechercher..."
               style={{ border: 'none', background: 'none', outline: 'none', fontSize: 13, color: TEXT_DARK, width: 130 }}
             />
             <span style={{ fontSize: 11, color: TEXT_MID, border: `1px solid ${BORDER}`, borderRadius: 4, padding: '1px 5px' }}>⌘</span>
@@ -291,9 +291,9 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         <footer style={{ padding: '16px 24px', borderTop: `1px solid ${BORDER}`, backgroundColor: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: 13, color: TEXT_MID }}>
           <span>Copyright © 2026 <Link href="/dashboard/leads-dashboard" style={{ color: ACCENT, textDecoration: 'none', fontWeight: 500 }}>CRMS</Link></span>
           <div style={{ display: 'flex', gap: 16 }}>
-            <Link href="#" style={{ color: TEXT_MID, textDecoration: 'none' }}>About</Link>
-            <Link href="#" style={{ color: TEXT_MID, textDecoration: 'none' }}>Terms</Link>
-            <Link href="#" style={{ color: TEXT_MID, textDecoration: 'none' }}>Contact Us</Link>
+            <Link href="#" style={{ color: TEXT_MID, textDecoration: 'none' }}>À propos</Link>
+            <Link href="#" style={{ color: TEXT_MID, textDecoration: 'none' }}>Conditions</Link>
+            <Link href="#" style={{ color: TEXT_MID, textDecoration: 'none' }}>Contact</Link>
           </div>
         </footer>
       </div>

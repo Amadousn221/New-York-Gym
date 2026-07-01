@@ -26,11 +26,11 @@ type FieldKey = typeof fieldKeys[number]
 const fieldLabels: Record<FieldKey, string> = {
   contacts: 'Contacts',
   leads: 'Leads',
-  companies: 'Companies',
-  compaigns: 'Compaigns',
-  projects: 'Projects',
-  deals: 'Deals',
-  tasks: 'Tasks',
+  companies: 'Entreprises',
+  compaigns: 'Campagnes',
+  projects: 'Projets',
+  deals: 'Affaires',
+  tasks: 'Tâches',
   pipelines: 'Pipelines',
 }
 
@@ -89,7 +89,7 @@ export default function MembershipAddonsPage() {
             padding: '14px 20px', borderBottom: `0.667px solid ${BORDER}`,
           }}>
             <h6 style={{ margin: 0, fontSize: 18, fontWeight: 600, color: TEXT_DARK }}>
-              Membership Addons
+              Options d&apos;adhésion
             </h6>
             <Link
               href="/dashboard/membership-plans"
@@ -100,7 +100,7 @@ export default function MembershipAddonsPage() {
                 fontSize: 13, fontWeight: 500, textDecoration: 'none',
               }}
             >
-              Back
+              Retour
               <ChevronRight size={14} color="#fff" />
             </Link>
           </div>
@@ -153,7 +153,7 @@ export default function MembershipAddonsPage() {
                 fontFamily: '"Golos Text", sans-serif',
               }}
             >
-              Cancel
+              Annuler
             </button>
             <button
               style={{
@@ -162,7 +162,7 @@ export default function MembershipAddonsPage() {
                 fontFamily: '"Golos Text", sans-serif',
               }}
             >
-              Create New
+              Créer
             </button>
           </div>
         </div>
@@ -243,7 +243,7 @@ function FormField({ label, fieldKey, state, onValueChange, onSwitchChange, onUn
           }}
         />
         <label htmlFor={checkId} style={{ fontSize: 13, color: TEXT_MID, cursor: 'pointer' }}>
-          Unlimited
+          Illimité
         </label>
       </div>
     </div>
