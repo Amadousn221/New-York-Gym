@@ -35,76 +35,76 @@ interface GetStartedCard {
 const accordionItems: AccordionItem[] = [
   {
     id: "judgement-free",
-    label: "Judgement Free™",
+    label: "Sans jugement™",
     icon: "JudgementFree.svg",
     image: "/images/why-pf/accordion-judgement-free.webp",
-    alt: "Judgement Free™",
+    alt: "Sans jugement™",
     description:
-      "At Planet Fitness, you'll find an uplifting and motivating community where you can define progress on your own terms. No matter where you are on your journey, we've got you.",
+      "Chez New York Gym, tu trouves une communauté bienveillante et motivante où tu avances à ton propre rythme. Peu importe où tu en es dans ton parcours, on est là pour toi.",
   },
   {
     id: "equipment",
-    label: "Best-in-class equipment",
+    label: "Équipement haut de gamme",
     icon: "Equipment.svg",
     image: "/images/why-pf/accordion-equipment.webp",
-    alt: "Best-in-class equipment",
+    alt: "Équipement haut de gamme",
     description:
-      "We invest in top-of-the-line fitness equipment so you always have access to the best tools for your workout. From cardio to strength training, our clubs have everything you need to crush your goals.",
+      "Nous investissons dans des équipements fitness de premier ordre pour que tu aies toujours accès aux meilleurs outils. Du cardio à la musculation, nos clubs ont tout ce qu'il te faut pour atteindre tes objectifs.",
   },
   {
     id: "clean-clubs",
-    label: "Clean & spacious clubs",
+    label: "Clubs propres et spacieux",
     icon: "CleanClubs.svg",
     image: "/images/why-pf/accordion-clean.webp",
-    alt: "Clean & spacious clubs",
+    alt: "Clubs propres et spacieux",
     description:
-      "Our clubs are cleaned and maintained to the highest standards, so you can focus on your workout. Enjoy wide-open, welcoming spaces that make fitness comfortable for everyone.",
+      "Nos clubs sont nettoyés et entretenus selon les plus hauts standards, pour que tu puisses te concentrer sur ton entraînement. Des espaces ouverts et accueillants où le fitness est confortable pour tous.",
   },
   {
     id: "best-value",
-    label: "Best value on the planet",
+    label: "Le meilleur rapport qualité-prix",
     icon: "Money.svg",
     image: "/images/why-pf/accordion-value.webp",
-    alt: "Best value on the planet",
+    alt: "Le meilleur rapport qualité-prix",
     description:
-      "Starting at just $10 a month, Planet Fitness offers the best value in fitness. Get access to great amenities, equipment, and friendly staff at a price that works for everyone.",
+      "Nous croyons en une expérience fitness de qualité, accessible à tous. Accède à d'excellents équipements et à une équipe chaleureuse à un tarif pensé pour chaque budget.",
   },
 ];
 
 const articles: ArticleItem[] = [
   {
-    title: "Recover in the Black Card Spa®",
+    title: "Récupère au Spa Black Card®",
     description:
-      "One membership, a number of ways to get strong. With the PF Black Card®, you can bring a friend anytime, access any of our convenient locations worldwide, recover in the Black Card Spa®, and more!",
-    cta: "Learn More",
+      "Un seul abonnement, plusieurs façons de te renforcer. Avec le NY Gym Black Card®, tu peux amener un ami à tout moment, accéder à n'importe lequel de nos clubs partout, récupérer au Spa Black Card®, et bien plus encore !",
+    cta: "En savoir plus",
     href: "/gym-memberships/#blackCard",
     image: "/images/why-pf/recover-spa.webp",
-    alt: "Woman with her eyes closed and headphones on relaxing on a HydroMassage chair in a Planet Fitness club",
+    alt: "Membre New York Gym se détendant sur un fauteuil HydroMassage",
   },
   {
-    title: "Take Your Workout Anywhere",
+    title: "Emmène ton entraînement partout",
     description:
-      "With the free PF App, you can work out anywhere, any time. Browse hundreds of workout videos & guides, watch equipment tutorials, track your progress, and more.",
-    cta: "Download the PF App",
+      "Avec l'appli gratuite New York Gym, entraîne-toi où que tu sois, à tout moment. Parcours des centaines de vidéos et guides d'entraînement, regarde des tutoriels d'équipement, suis ta progression, et bien plus encore.",
+    cta: "Télécharger l'appli NY Gym",
     href: "/mobileapp",
     image: "/images/why-pf/pf-app.webp",
-    alt: "Image of phone screen open to the Workouts tab on the Planet Fitness app",
+    alt: "Écran de l'appli New York Gym ouvert sur l'onglet Entraînements",
   },
   {
-    title: "Exclusive Offers & Discounts",
+    title: "Offres et réductions exclusives",
     description:
-      "Your membership goes beyond just your fitness experience. Unlock members-only deals from top brands when you join and get the most out of your membership.",
-    cta: "Explore All PF Perks",
+      "Ton abonnement va au-delà de ton expérience fitness. Débloque des offres réservées aux membres auprès des plus grandes marques dès ton inscription, et profite au maximum de ton abonnement.",
+    cta: "Découvrir tous les avantages NY Gym",
     href: "/my-account/perks",
     image: "/images/why-pf/perks.webp",
-    alt: "Man in workout clothes looking at phone and smiling in a Planet Fitness club",
+    alt: "Membre New York Gym en tenue de sport regardant son téléphone en souriant",
   },
 ];
 
 const getStartedCards: GetStartedCard[] = [
-  { title: "Find a Club Near You", icon: "Search.svg", href: "/gyms" },
-  { title: "Explore Perks", icon: "WCPerks.svg", href: "/my-account/perks" },
-  { title: "Take a Virtual Tour", icon: "VirtualTour.svg", href: "/virtual-tour" },
+  { title: "Trouve un club près de toi", icon: "Search.svg", href: "/gyms" },
+  { title: "Découvre les avantages", icon: "WCPerks.svg", href: "/my-account/perks" },
+  { title: "Fais une visite virtuelle", icon: "VirtualTour.svg", href: "/virtual-tour" },
 ];
 
 /* ── Icon helper ─────────────────────────────────────────────────── */
@@ -140,7 +140,7 @@ export default function WhyPlanetFitnessPage() {
         {/* ── H1 above hero ──────────────────────────────────────── */}
         <div className="px-6 pb-8 pt-10 md:px-16 lg:px-36 lg:pb-12 lg:pt-16">
           <h1 className="text-[4.5rem] font-bold leading-[4.5rem] tracking-[-1.08px] text-common-black">
-            Welcome to the club
+            Bienvenue au club
           </h1>
         </div>
 
@@ -149,7 +149,7 @@ export default function WhyPlanetFitnessPage() {
           <div className="absolute inset-0">
             <Image
               src="/images/why-pf/hero.webp"
-              alt="Planet Fitness gym interior with members working out"
+              alt="Intérieur du club New York Gym avec des membres qui s'entraînent"
               fill
               className="object-cover object-center"
               priority
@@ -157,7 +157,7 @@ export default function WhyPlanetFitnessPage() {
           </div>
           <div className="relative z-10 pb-10 pl-6 md:pl-16 lg:pb-20 lg:pl-0">
             <h2 className="max-w-[35.25rem] text-[3rem] font-bold leading-[3.5rem] tracking-[-0.72px] text-white">
-              We&rsquo;re All Strong on this Planet™
+              On est tous forts chez New York Gym™
             </h2>
           </div>
         </section>
@@ -185,7 +185,7 @@ export default function WhyPlanetFitnessPage() {
               {/* Left: heading + accordion items + CTA */}
               <div className="flex shrink-0 flex-col items-center md:items-start lg:max-w-[28rem]">
                 <h3 className="self-start text-2xl font-bold tracking-[-0.36px] md:mb-6 lg:mb-8 lg:text-[2rem]/10 lg:tracking-[-0.48px]">
-                  Belong and Get Strong
+                  Appartenir et se renforcer
                 </h3>
 
                 <div className="flex w-full flex-col md:gap-6 lg:gap-8">
@@ -249,7 +249,7 @@ export default function WhyPlanetFitnessPage() {
                   href="/gym-memberships"
                   className="bg-primary-main text-common-white mx-auto mt-8 block w-full max-w-sm rounded-full px-8 py-4 text-center text-lg/6 font-semibold md:w-fit md:px-6 md:py-2 lg:mx-0 lg:mt-12 lg:px-8 lg:py-4"
                 >
-                  Join Now
+                  Devenir membre
                 </Link>
               </div>
 
@@ -301,13 +301,13 @@ export default function WhyPlanetFitnessPage() {
             </div>
             <div className="px-6 py-16 text-white lg:max-w-[36rem] lg:px-8 lg:py-24">
               <h2 className="text-[2.5rem]/[3rem] font-bold tracking-[-0.6px] lg:text-5xl/[3.5rem]">
-                Workout trends come and go. You can just come as you are.
+                Les tendances fitness vont et viennent. Toi, tu peux juste venir comme tu es.
               </h2>
               <Link
                 href="/gym-memberships"
                 className="bg-secondary-main text-common-black mt-8 inline-block rounded-full px-8 py-4 text-lg/6 font-semibold"
               >
-                Join Now
+                Devenir membre
               </Link>
             </div>
           </div>
@@ -353,7 +353,7 @@ export default function WhyPlanetFitnessPage() {
         {/* ── Get Started Today ───────────────────────────────────── */}
         <section className="bg-surface-gray px-6 py-16 lg:px-36 lg:py-20">
           <h2 className="mb-8 text-center text-[3rem]/[3.5rem] font-bold tracking-[-0.72px] lg:mb-12">
-            Get Started Today
+            Commence dès maintenant
           </h2>
           <div className="flex flex-col gap-4 md:flex-row md:gap-6">
             {getStartedCards.map((card) => (
@@ -376,12 +376,12 @@ export default function WhyPlanetFitnessPage() {
         {/* ── Find a Club CTA ─────────────────────────────────────── */}
         <section className="flex flex-col items-center px-6 py-16 lg:py-20">
           <h2 className="text-center text-[3rem]/[3.5rem] font-bold tracking-[-0.72px]">
-            Find a Club Near You
+            Trouve un club près de toi
           </h2>
           <div className="mt-8 flex w-full max-w-[38rem] overflow-hidden rounded-full border border-border-light bg-white shadow-sm">
             <input
               type="text"
-              placeholder="Search by address, city, or ZIP code"
+              placeholder="Adresse, ville ou code postal"
               className="flex-1 bg-transparent px-6 py-4 text-base text-common-black placeholder-gray-medium outline-none"
             />
             <Link
@@ -389,7 +389,7 @@ export default function WhyPlanetFitnessPage() {
               className="bg-primary-main text-common-white flex shrink-0 items-center gap-2 rounded-full px-6 py-4 text-base font-semibold"
             >
               <MaskIcon icon="Search.svg" className="size-5" color="bg-common-white" />
-              Find a Club
+              Trouver un club
             </Link>
           </div>
         </section>

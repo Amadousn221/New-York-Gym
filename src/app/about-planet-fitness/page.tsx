@@ -21,9 +21,9 @@ export default function AboutPlanetFitnessPage() {
                 color: "transparent",
               }}
             >
-              About
+              À propos
             </span>{" "}
-            Planet Fitness
+            de New York Gym
           </h1>
         </div>
 
@@ -31,14 +31,14 @@ export default function AboutPlanetFitnessPage() {
         <section className="relative flex h-[41.5rem] md:h-[29.3rem] lg:h-[50.625rem] lg:justify-center 2xl:h-[70rem]">
           <Image
             src="/images/about-pf/exercise-bike.webp"
-            alt="Affordability and quality for everyone"
+            alt="Accessibilité et qualité pour tous"
             fill
             className="object-cover object-center"
             priority
           />
           <div className="absolute bottom-0 w-full px-6 pb-20 md:px-24 lg:max-w-[71.5rem] lg:px-8 lg:pb-24 min-[1200px]:px-0">
             <h2 className="max-w-[35.25rem] text-[3rem]/[3.5rem] font-bold tracking-[-0.72px] text-white">
-              Affordability and quality for everyone
+              Accessibilité et qualité pour tous
             </h2>
           </div>
         </section>
@@ -48,51 +48,49 @@ export default function AboutPlanetFitnessPage() {
           <div className="group flex flex-col text-lg/6 md:max-lg:text-base lg:mx-auto lg:max-w-[71.5rem] lg:flex-row lg:gap-x-20">
             <div className="lg:w-1/2 lg:max-w-[35rem]">
               <h2 className="text-common-black mb-4 text-[2rem]/10 font-bold tracking-[-0.015em] md:max-w-[38rem] md:text-5xl/[3.5rem]">
-                Founded in 1992, in Dover, New Hampshire
+                Fondé en 2008, à Dakar
               </h2>
               <p className="mb-6">
-                Planet Fitness was founded in 1992, in Dover, NH. In the
-                beginning, it operated much like every other gym in its small
-                hometown and catered to the same small percentage of the
-                population in the U.S. who worked out and belonged to a health
-                club.{" "}
+                New York Gym a été fondé en 2008, à Dakar. Au départ, le club
+                fonctionnait comme n&apos;importe quelle autre salle de sport de
+                son quartier, et s&apos;adressait au même petit pourcentage de la
+                population qui pratiquait déjà une activité physique en club.
                 <br />
-                <br />{" "}
-                PF&rsquo;s owners quickly recognized that there was a greater
-                opportunity to serve a much larger segment of the population.
-                They asked themselves, &ldquo;Why does 80-85% of the population
-                not belong to a gym?&rdquo; The answer? First-time and casual
-                gym users didn&rsquo;t like the &ldquo;look at me&rdquo;
-                attitudes and behaviors found in typical gyms, and they
-                didn&rsquo;t want to have to pay a lot of money to give fitness
-                a try.
+                <br />
+                Les fondateurs ont vite compris qu&apos;il y avait une opportunité
+                de servir un public bien plus large. Ils se sont posé la
+                question : « Pourquoi une grande majorité de la population ne
+                fréquente-t-elle pas de salle de sport ? » La réponse était
+                simple : les personnes qui découvraient le fitness, ou qui
+                n&apos;en faisaient qu&apos;occasionnellement, n&apos;appréciaient
+                pas l&apos;ambiance intimidante des salles classiques, et ne
+                voulaient pas payer cher pour tester.
               </p>
             </div>
             <p className="max-h-0 opacity-0 transition-all duration-300 group-has-[input:checked]:visible group-has-[input:checked]:mb-6 group-has-[input:checked]:max-h-[41rem] group-has-[input:checked]:opacity-100 max-md:invisible md:mb-0 md:max-h-none md:opacity-100 lg:w-1/2 lg:max-w-[31.25rem]">
-              So they completely changed the gym environment, both in attitude
-              and format, creating the non-intimidating, low-cost model that has
-              revolutionized the gym industry. Planet Fitness became known as
-              the &ldquo;Judgement Free Zone&reg;&rdquo; &ndash; a welcoming
-              and friendly community where people could feel comfortable
-              regardless of their fitness level.{" "}
+              Alors, ils ont complètement transformé l&apos;environnement de la
+              salle, dans l&apos;attitude comme dans le format, en créant un modèle
+              accessible et sans jugement qui a changé la façon de concevoir le
+              fitness. New York Gym est devenu synonyme de cet esprit sans
+              jugement — une communauté accueillante et chaleureuse où chacun
+              peut se sentir à l&apos;aise, quel que soit son niveau.
               <br />
-              <br />{" "}
-              Today, Planet Fitness has become one of the largest and
-              fastest-growing franchisors and operators of fitness centers in
-              the United States by number of members and locations. With more
-              than 2,700 locations in 50 states, the District of Columbia,
-              Puerto Rico, Canada, Panama, Mexico and Australia, Planet Fitness
-              has continued to spread its unique mission of enhancing
-              people&rsquo;s lives by providing an affordable, high-quality
-              fitness experience in a welcoming, non-intimidating environment.
+              <br />
+              Aujourd&apos;hui, New York Gym est l&apos;un des réseaux de clubs
+              fitness qui connaît la croissance la plus rapide, en nombre de
+              membres comme de clubs. Avec des dizaines de clubs à travers
+              plusieurs villes et pays, New York Gym continue de porter sa
+              mission unique : améliorer la vie des gens en offrant une
+              expérience fitness accessible, de qualité, dans un environnement
+              accueillant et sans intimidation.
             </p>
             <input type="checkbox" className="hidden" />
             <label className="text-primary-main cursor-pointer md:hidden">
               <span className="flex group-has-[input:checked]:hidden">
-                Read more
+                Lire la suite
               </span>
               <span className="hidden group-has-[input:checked]:flex">
-                Read less
+                Réduire
               </span>
             </label>
           </div>
@@ -120,7 +118,7 @@ export default function AboutPlanetFitnessPage() {
                       'var(--font-barlow-condensed), "Barlow Condensed", sans-serif',
                   }}
                 >
-                  Planet Fitness{" "}
+                  New York Gym{" "}
                   <span
                     style={{
                       background:
@@ -135,14 +133,14 @@ export default function AboutPlanetFitnessPage() {
                   </span>
                 </h2>
                 <p className="mb-8 text-lg/6 text-gray-dark">
-                  Visit our Newsroom today and stay up to date on current events
-                  happening at Planet Fitness!
+                  Visite notre salle de presse dès aujourd&apos;hui et reste informé
+                  de l&apos;actualité de New York Gym !
                 </p>
                 <Link
                   href="/newsroom"
                   className="inline-flex items-center justify-center rounded-full bg-primary-main px-8 py-4 text-lg/6 font-semibold text-common-white"
                 >
-                  Visit Our Newsroom
+                  Visiter notre salle de presse
                 </Link>
               </div>
             </div>
@@ -163,20 +161,20 @@ export default function AboutPlanetFitnessPage() {
           <article className="flex w-full flex-col-reverse items-center justify-between md:mx-auto md:items-center lg:size-full lg:items-center lg:justify-between lg:gap-5 lg:flex-row-reverse">
             <div className="mt-6 md:mt-8 md:max-w-[638px] lg:mt-0 lg:max-w-md">
               <h2 className="text-[2rem]/10 font-bold tracking-[-0.24px] md:text-5xl/[3.5rem]">
-                A healthier world starts with healthier communities
+                Un monde plus sain commence par des communautés plus saines
               </h2>
               <p className="my-8 text-lg/6 text-gray-dark">
-                We believe we have a responsibility to enhance the health of the
-                communities where we live, work and work out. And drive societal
-                impact by increasing access to fitness, creating inclusive
-                clubs, cultures and communities, and prioritizing sustainable
-                business practices.
+                Nous croyons avoir la responsabilité d&apos;améliorer la santé des
+                communautés où nous vivons, travaillons et nous entraînons. Et
+                de générer un impact positif en augmentant l&apos;accès au fitness,
+                en créant des clubs, des cultures et des communautés inclusives,
+                et en priorisant des pratiques commerciales durables.
               </p>
               <Link
                 href="/pf-purpose"
                 className="bg-primary-main text-common-white mx-auto mt-6 block w-full max-w-sm rounded-full px-8 py-4 text-center text-lg/6 font-semibold md:w-fit md:px-6 md:py-2 lg:mx-0 lg:px-8 lg:py-4"
               >
-                Learn More
+                En savoir plus
               </Link>
             </div>
             <Image
@@ -200,17 +198,17 @@ export default function AboutPlanetFitnessPage() {
           >
             <div className="font-condensed flex size-full flex-col items-center justify-center text-center font-extrabold uppercase italic">
               <span className="text-2xl/6 text-common-white md:text-5xl">
-                Your fitness journey
+                Ton parcours fitness
               </span>
               <span className="text-[2rem]/none text-secondary-main md:text-[4rem] lg:text-[5rem]/[4.5rem]">
-                Starts here
+                Commence ici
               </span>
             </div>
             <Link
               href="/gym-memberships"
               className="w-full max-w-sm rounded-[1.75rem] bg-common-white px-6 py-2 text-center font-semibold text-primary-main md:w-auto lg:px-8 lg:py-4 lg:text-lg/6"
             >
-              Explore Our Memberships
+              Découvrir nos abonnements
             </Link>
           </div>
         </section>

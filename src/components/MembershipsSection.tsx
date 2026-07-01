@@ -32,7 +32,7 @@ export function MembershipsSection() {
             <div className="mb-4">
               <p className="text-white text-sm/4 sm:text-base">{m.startingAt}</p>
               <div className="flex items-baseline gap-1">
-                <span className="text-secondary-main text-[2rem]/10 font-bold">$24.99</span>
+                <span className="text-secondary-main text-[2rem]/10 font-bold">15 000 FCFA</span>
                 <span className="text-white text-lg/6">{m.perMonth}</span>
               </div>
               <p className="text-white text-sm/4 mb-4">{m.taxesFees}</p>
@@ -56,7 +56,7 @@ export function MembershipsSection() {
             <div className="mb-4">
               <p className="text-gray-medium text-sm/4 sm:text-base">{m.startingAt}</p>
               <div className="flex items-baseline gap-1">
-                <span className="text-primary-main text-[2rem]/10 font-bold">$15</span>
+                <span className="text-primary-main text-[2rem]/10 font-bold">9 000 FCFA</span>
                 <span className="text-common-black text-lg/6">{m.perMonth}</span>
               </div>
               <p className="text-gray-medium text-sm/4 mb-4">{m.taxesFees}</p>

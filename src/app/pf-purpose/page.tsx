@@ -5,85 +5,85 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 
 const TABS = [
-  { label: 'Our Strategy', id: 'strategy' },
-  { label: 'Engaging Our Communities', id: 'communities' },
-  { label: 'Inclusion & Belonging', id: 'inclusion' },
-  { label: 'Managing Our Environmental Impact', id: 'environment' },
+  { label: 'Notre stratégie', id: 'strategy' },
+  { label: 'Impliquer nos communautés', id: 'communities' },
+  { label: 'Inclusion & appartenance', id: 'inclusion' },
+  { label: 'Gérer notre impact environnemental', id: 'environment' },
 ]
 
 const PILLARS = [
   {
     image: 'https://images.ctfassets.net/473zoc40547p/yvQ8aX2Vs2K60QmmC9awd/32759a0cc17ff073c97ba517f9b0942e/32580db32dd4ffd404b2b8e91d648c7069811636__2_.jpg?fm=webp',
-    alt: 'Access | Planet Fitness',
-    title: 'Access',
-    description: 'We increase access to fitness for all through our affordable memberships, diverse locations, equipment variety and donations.',
+    alt: 'Accès | New York Gym',
+    title: 'Accès',
+    description: 'Nous augmentons l\'accès au fitness pour tous grâce à des abonnements abordables, des emplacements variés, un large choix d\'équipements et des dons.',
   },
   {
     image: 'https://images.ctfassets.net/473zoc40547p/5F6jPPGqKNuBvcNoctbS56/b9892b39f5382601e472f3fb026bd42c/7b2df3cbf41174a864af85db27943745e28ab175__2_.jpg?fm=webp',
-    alt: 'Inclusion | Planet Fitness',
+    alt: 'Inclusion | New York Gym',
     title: 'Inclusion',
-    description: 'We create, promote and reward inclusive clubs, cultures and communities.',
+    description: 'Nous créons, promouvons et valorisons des clubs, des cultures et des communautés inclusifs.',
   },
   {
     image: 'https://images.ctfassets.net/473zoc40547p/1CAFyHoMX0O9VuBXn1V4in/e543b790c920141d447e2cefffdc0886/0f6162c037edd4c0bf539601e70dc54c5bad5e35__2_.jpg?fm=webp',
-    alt: 'Sustainability | Planet Fitness',
-    title: 'Sustainability',
-    description: 'We strive to leave a positive impact on the world by actively contributing to a healthier planet.',
+    alt: 'Durabilité | New York Gym',
+    title: 'Durabilité',
+    description: 'Nous nous efforçons de laisser un impact positif dans le monde en contribuant activement à une planète plus saine.',
   },
 ]
 
 const STATS = [
-  { value: '$10.7M+', label: 'contributed to Boys & Girls Clubs of America (BGCA) since 2016' },
-  { value: '280', label: 'Judgement Free Generation® scholarships awarded since 2017' },
-  { value: '45+', label: 'mini Judgement Free Zones® built since 2017' },
-  { value: '800+', label: 'hours devoted to local volunteering in 2024' },
-  { value: '$300M+', label: 'invested to promote youth fitness and wellbeing through our High School Summer Pass™ program since inception' },
+  { value: '1,2 Md FCFA+', label: 'reversés à des associations de jeunesse locales depuis 2016' },
+  { value: '280', label: 'bourses Génération Sans Jugement® attribuées depuis 2017' },
+  { value: '45+', label: 'mini Zones Sans Jugement® installées depuis 2017' },
+  { value: '800+ heures', label: 'consacrées au bénévolat local en 2024' },
+  { value: '35 Md FCFA+', label: 'investis pour promouvoir le fitness et le bien-être des jeunes via notre programme Pass Été Lycéens™ depuis sa création' },
 ]
 
 const ENV_ICONS = [
-  { icon: 'Energy.svg', label: 'Energy' },
-  { icon: 'Globe.svg', label: 'Greenhouse Gas\n(GHG) Emissions' },
-  { icon: 'Water.svg', label: 'Water' },
-  { icon: 'Trash.svg', label: 'Waste' },
-  { icon: 'Change.svg', label: 'Sustainable Sourcing' },
+  { icon: 'Energy.svg', label: 'Énergie' },
+  { icon: 'Globe.svg', label: 'Émissions de gaz à effet\nde serre (GES)' },
+  { icon: 'Water.svg', label: 'Eau' },
+  { icon: 'Trash.svg', label: 'Déchets' },
+  { icon: 'Change.svg', label: 'Approvisionnement durable' },
 ]
 
 const ACCORDION_ITEMS = [
   {
     id: 'Globe',
     icon: 'Globe.svg',
-    title: 'Decreased Operational Emissions and Energy Use',
+    title: 'Réduction des émissions opérationnelles et de la consommation d\'énergie',
     image: 'https://images.ctfassets.net/473zoc40547p/6dCtWrMJoap9Wf1ov2BhrQ/67257d8034b461b9ff4d221c7178340a/ExpandedEmissionsAssessment.jpg?fm=webp',
-    alt: 'Decreased Operational Emissions and Energy Use',
+    alt: 'Réduction des émissions opérationnelles et de la consommation d\'énergie',
   },
   {
     id: 'Water',
     icon: 'Water.svg',
-    title: 'Decreased Operational Water Use',
+    title: 'Réduction de la consommation d\'eau opérationnelle',
     image: 'https://images.ctfassets.net/473zoc40547p/206SYq3twm5kRp3crc70jD/5c0cc825255a377c0ade4174b9248726/964e1a5a9f0995bfe750d3be6460c6d6b64e34f5.jpg?fm=webp',
-    alt: 'Decreased Operational Water Use',
+    alt: 'Réduction de la consommation d\'eau opérationnelle',
   },
   {
     id: 'Equipment',
     icon: 'Equipment.svg',
-    title: 'Sustainable Solutions for Used Equipment',
+    title: 'Solutions durables pour l\'équipement usagé',
     image: 'https://images.ctfassets.net/473zoc40547p/2duaRofSZG7XoO2EGw480t/109e25da9179a41a1b6901bf89441455/9fd683ffd4c2e7640250165fb2137d7d198b9810.jpg?fm=webp',
-    alt: 'Sustainable Solutions for Used Equipment',
+    alt: 'Solutions durables pour l\'équipement usagé',
   },
   {
     id: 'ChartProgressive',
     icon: 'ChartProgressive.svg',
-    title: 'Expanded Measurement',
+    title: 'Élargissement des mesures de suivi',
     image: 'https://images.ctfassets.net/473zoc40547p/2Vg7JqLemPbeVbDLmopknW/97fc0dead497b7893dd75a1139056d06/35523dcedbd17e325e15f2ac891916f3b8bd1830.jpg?fm=webp',
-    alt: 'Expanded Measurement',
+    alt: 'Élargissement des mesures de suivi',
   },
 ]
 
 const REPORTS = [
-  { label: '2025 Climate Resilience Report', href: 'https://assets.ctfassets.net/473zoc40547p/5NJNp7GA8RnEIZbje197NC/202bd2438b0695285d48e4c68cab9c91/Planet_Fitness_2025_Climate_Resilience_Report_FINAL1.20.26.pdf' },
-  { label: '2023 ESG Report', href: 'https://downloads.ctfassets.net/nhduxlsunsu5/0pK4R9Mc57y8nDGtRRS6c/733e2b858b66a58be5197426f014d9b4/PF-ESG_Report_full_draft-904b.pdf' },
-  { label: '2022 ESG Report', href: 'https://downloads.ctfassets.net/nhduxlsunsu5/Pkc9NqBd0GcmImTHuqzBy/773b3517f2fef9b5e8a860c2b8e965e8/PF-ESG_Report_2022-803_FINAL-15-.pdf' },
-  { label: '2021 ESG Report', href: 'https://downloads.ctfassets.net/nhduxlsunsu5/7ELlFj6U7YRBpRyVHAQIUk/60d7a6d8f0c196c826980532b954e2a8/PlanetFitness-ESG-versionB-805c.pdf' },
+  { label: 'Rapport de résilience climatique 2026', href: 'https://assets.ctfassets.net/473zoc40547p/5NJNp7GA8RnEIZbje197NC/202bd2438b0695285d48e4c68cab9c91/Planet_Fitness_2025_Climate_Resilience_Report_FINAL1.20.26.pdf' },
+  { label: 'Rapport ESG 2024', href: 'https://downloads.ctfassets.net/nhduxlsunsu5/0pK4R9Mc57y8nDGtRRS6c/733e2b858b66a58be5197426f014d9b4/PF-ESG_Report_full_draft-904b.pdf' },
+  { label: 'Rapport ESG 2023', href: 'https://downloads.ctfassets.net/nhduxlsunsu5/Pkc9NqBd0GcmImTHuqzBy/773b3517f2fef9b5e8a860c2b8e965e8/PF-ESG_Report_2022-803_FINAL-15-.pdf' },
+  { label: 'Rapport ESG 2022', href: 'https://downloads.ctfassets.net/nhduxlsunsu5/7ELlFj6U7YRBpRyVHAQIUk/60d7a6d8f0c196c826980532b954e2a8/PlanetFitness-ESG-versionB-805c.pdf' },
 ]
 
 function iconMaskStyle(icon: string) {
@@ -123,9 +123,9 @@ export default function PfPurposePage() {
       {/* Hero Title */}
       <div className="flex w-full flex-col px-6 pb-12 pt-16 md:p-16 lg:mx-auto lg:max-w-[90rem] lg:px-[9.25rem] lg:pt-20">
         <h1 className="text-7xl/[4.5rem] font-bold tracking-[-0.015em] md:text-[4rem]/[4.5rem] lg:text-7xl">
-          PF <span className="text-secondary-main">Purpose</span>
+          New York Gym <span className="text-secondary-main">Purpose</span>
         </h1>
-        <p className="text-common-black mt-4 text-2xl">Strengthening Communities</p>
+        <p className="text-common-black mt-4 text-2xl">Renforcer les communautés</p>
       </div>
 
       {/* Hero Banner Image */}
@@ -133,7 +133,7 @@ export default function PfPurposePage() {
         <div className="h-[12.5rem] w-screen overflow-hidden md:h-auto">
           <Image
             src="https://images.ctfassets.net/473zoc40547p/eR8buH7ixj0yy6LJ9HDxC/21157881f795bad054d86c7b2a52bdb0/PfPurposeHeroImage.png?fm=webp"
-            alt="PF Purpose | Planet Fitness"
+            alt="New York Gym Purpose"
             width={2560}
             height={597}
             className="h-full w-full object-cover object-left"
@@ -172,10 +172,10 @@ export default function PfPurposePage() {
         >
           <div className="mx-auto lg:max-w-[42.75rem]">
             <h2 className="text-center text-[2rem]/10 font-bold lg:text-5xl/[3.5rem]">
-              Our Purpose Strategy &amp; Pillars
+              Notre stratégie et nos piliers
             </h2>
             <p className="text-gray-dark mt-4 mb-8 text-center text-lg/[1.5rem] lg:mb-16">
-              To create a more connected and Judgement Free™ planet where fitness and wellbeing are within reach for all.
+              Créer un monde du fitness plus connecté et sans jugement, accessible à tous.
             </p>
           </div>
           <div className="flex w-full flex-col gap-8 md:flex-row md:gap-4 lg:max-w-[71.5rem] lg:gap-[4.625rem]">
@@ -201,10 +201,10 @@ export default function PfPurposePage() {
           <article className="flex w-full flex-col-reverse items-center justify-between md:mx-auto md:items-center lg:size-full lg:items-center lg:justify-between lg:gap-5 lg:flex-row">
             <div className="mt-6 md:mt-8 md:max-w-[638px] lg:mt-0 lg:max-w-md">
               <h2 className="text-[2rem]/10 font-bold tracking-[-0.015em] lg:text-5xl/[3.5rem]">
-                2024 Environmental, Social &amp; Governance (ESG) Report
+                Rapport Environnemental, Social &amp; de Gouvernance (ESG) 2025
               </h2>
               <p className="text-gray-dark mt-6 text-lg/[1.5rem] lg:my-8">
-                As one of the largest and fastest-growing franchisors and operators of fitness centers with more members than any other fitness brand, we have the responsibility to enhance the health of the communities where we live, work, and workout. We believe we are best positioned to make a societal impact by increasing access to fitness, creating inclusive clubs, cultures and communities and prioritizing sustainable business practices.
+                En tant que réseau de clubs fitness parmi les plus dynamiques, avec plus de membres que la plupart des autres marques de fitness, nous avons la responsabilité d&apos;améliorer la santé des communautés où nous vivons, travaillons et nous entraînons. Nous croyons être idéalement positionnés pour avoir un impact sociétal en augmentant l&apos;accès au fitness, en créant des clubs, des cultures et des communautés inclusifs, et en priorisant des pratiques commerciales durables.
               </p>
               <a
                 href="https://downloads.ctfassets.net/473zoc40547p/1JTpH67RjOtkA3k91KyGxr/415c46171f0f877446f14785f9c4b48e/PF_Full_ESG_Report_2024.pdf"
@@ -212,7 +212,7 @@ export default function PfPurposePage() {
                 rel="noopener noreferrer"
                 className="bg-primary-main text-common-white mx-auto mt-6 block w-full max-w-sm rounded-full px-8 py-4 text-center text-lg/6 font-semibold md:w-fit md:px-6 md:py-2 lg:mx-0 lg:px-8 lg:py-4"
               >
-                Read our&nbsp;2024 ESG Report
+                Lire notre rapport ESG 2025
               </a>
             </div>
             <div className="flex max-w-[35.25rem] justify-center">
@@ -235,7 +235,7 @@ export default function PfPurposePage() {
         >
           <div className="mx-auto max-w-[57rem] px-6 lg:px-0">
             <h2 className="text-common-white mb-12 text-center text-[2rem]/10 font-bold lg:mb-16 lg:text-5xl/[3.5rem]">
-              Community Engagement by the Numbers
+              L&apos;engagement communautaire en chiffres
             </h2>
             <div className="grid grid-cols-1 place-items-center gap-4">
               <div className="grid grid-cols-1 place-items-center gap-4 lg:grid-cols-3">
@@ -264,26 +264,26 @@ export default function PfPurposePage() {
 
         {/* Engaging Our Communities */}
         <section className="mx-auto flex w-full flex-col gap-12 px-6 py-16 md:max-w-[52.5rem] md:gap-16 lg:max-w-[74.5rem] lg:py-20">
-          <h2 className="text-center text-[2rem]/10 font-bold lg:text-5xl/[3.5rem]">Engaging Our Communities</h2>
+          <h2 className="text-center text-[2rem]/10 font-bold lg:text-5xl/[3.5rem]">Impliquer nos communautés</h2>
           <article className="flex w-full flex-col-reverse items-center justify-between md:mx-auto md:items-center lg:size-full lg:items-center lg:justify-between lg:gap-5 lg:flex-row-reverse">
             <div className="mt-6 md:mt-8 md:max-w-[638px] lg:mt-0 lg:max-w-md">
               <h2 className="text-[1.5rem]/8 font-bold tracking-[-0.015em] lg:text-[2rem]/10">
-                Judgement Free Generation®{' '}
+                Génération Sans Jugement®
               </h2>
               <p className="text-gray-dark mt-6 text-lg/[1.5rem] lg:my-8">
-                We remain committed to extending our philosophy of the Judgement Free Zone® beyond our clubs and into our communities. This includes our multi-year partnership with Boys &amp; Girls Clubs of America (BGCA) through our signature initiative – the Judgement Free Generation®. Supported by the Planet Fitness Club Support Center, franchisees, members, team members, and vendors, the initiative focuses on empowering youth through scholarships, community grants, supporting trauma-informed, emotional wellbeing training, and delivering programs that offer access to fitness, including our mini Judgement Free Zones®, fitness spaces installed in BGCs across the country.
+                Nous restons engagés à étendre notre philosophie Sans Jugement® au-delà de nos clubs, jusque dans nos communautés. Cela inclut notre partenariat pluriannuel avec des associations locales de jeunesse à travers l&apos;initiative signature Génération Sans Jugement®. Soutenue par le centre de support des clubs New York Gym, les franchisés, les membres, l&apos;équipe et les partenaires, cette initiative vise à responsabiliser les jeunes à travers des bourses, un accompagnement au bien-être émotionnel tenant compte des traumatismes, et des programmes offrant un accès gratuit au sport — y compris nos mini Zones Sans Jugement®, des espaces fitness installés dans des centres de jeunesse à travers le pays.
               </p>
               <Link
                 href="/jfg"
                 className="bg-primary-main text-common-white mx-auto mt-6 block w-full max-w-sm rounded-full px-8 py-4 text-center text-lg/6 font-semibold md:w-fit md:px-6 md:py-2 lg:mx-0 lg:px-8 lg:py-4"
               >
-                Learn More
+                En savoir plus
               </Link>
             </div>
             <div className="flex max-w-[35.25rem] justify-center">
               <Image
                 src="https://images.ctfassets.net/473zoc40547p/2VpeA6Zrn1JV48Ni3aIUIl/a41cb4ac9350413ca3f6c4989910d102/b3cf9c01bdd4e2300d9e13894da7f946636dc07d.jpg?fm=webp"
-                alt="Judgement Free Generation"
+                alt="Génération Sans Jugement"
                 width={564}
                 height={423}
                 className="h-[245px] w-[327px] rounded-3xl object-cover object-top md:h-[17.625rem] md:w-[377px] lg:h-[423px] lg:w-[35.25rem]"
@@ -299,18 +299,18 @@ export default function PfPurposePage() {
         >
           <div className="mx-auto lg:max-w-[46.5rem]">
             <h2 className="mb-6 text-center text-[2rem]/10 font-bold lg:mb-8 lg:text-5xl/[3.5rem]">
-              Advancing Our Commitment to Inclusion &amp; Belonging
+              Faire avancer notre engagement en faveur de l&apos;inclusion et de l&apos;appartenance
             </h2>
             <div className="text-common-black mx-auto mt-4 flex flex-col text-center text-lg/[1.5rem] lg:max-w-[46.5rem]">
               <p className="px-3">
-                At Planet Fitness, we are more than your neighborhood fitness center – we are the Judgement Free Zone®.
+                Chez New York Gym, nous sommes bien plus qu&apos;un club de fitness de quartier — nous sommes la Zone Sans Jugement®.
               </p>
-              <h3 className="py-4 text-2xl font-bold">Our Vision</h3>
+              <h3 className="py-4 text-2xl font-bold">Notre vision</h3>
               <p className="mb-8">
-                Increasing access to fitness and wellbeing. Providing an environment where everyone feels like they belong. Our Judgement Free Zone® embodies our commitment to Inclusion &amp; Belonging and fuels our actions not only within our clubs, but also for our employees, franchisees and the communities we serve.
+                Augmenter l&apos;accès au fitness et au bien-être. Offrir un environnement où chacun se sent à sa place. Notre Zone Sans Jugement® incarne notre engagement envers l&apos;inclusion et l&apos;appartenance, et guide nos actions — pas seulement dans nos clubs, mais aussi envers notre équipe, nos franchisés et les communautés que nous servons.
               </p>
               <p>
-                As an organization built on the promise of Judgement Free™ values, we are committed to fostering an internal culture and environment where everyone can thrive.
+                En tant qu&apos;organisation construite sur la promesse de nos valeurs Sans Jugement™, nous sommes engagés à cultiver une culture et un environnement internes où chacun peut s&apos;épanouir.
               </p>
             </div>
           </div>
@@ -322,11 +322,11 @@ export default function PfPurposePage() {
           className="w-full px-6 py-16 md:px-[9.25rem] lg:px-8 lg:py-20"
         >
           <h2 className="mx-auto mb-12 text-center text-[2rem]/10 font-bold md:mb-8 lg:max-w-[42.5rem] lg:text-5xl/[3.5rem]">
-            Reducing Our Environmental Footprint
+            Réduire notre empreinte environnementale
           </h2>
           <div className="text-common-black mx-auto mb-12 mt-4 flex flex-col gap-6 text-center text-lg/[1.5rem] lg:mb-16 lg:max-w-[42.5rem]">
             <p>
-              Our commitment to environmental stewardship is founded on the belief that mitigating the impacts of our business on the planet is crucial for sustaining both our long-term growth and the resilience and wellbeing of our members, team members, franchisees, and communities. Our environmental management approach is focused on sustainable practices that enhance operational efficiency, reduce our footprint and drive progress across our value chain.
+              Notre engagement envers la gestion environnementale repose sur la conviction qu&apos;atténuer l&apos;impact de notre activité sur la planète est essentiel pour soutenir la croissance à long terme et la résilience de nos clubs, de notre équipe, de nos franchisés et de nos communautés. Notre approche de gestion environnementale se concentre sur des pratiques durables qui améliorent l&apos;efficacité opérationnelle, réduisent notre empreinte et font progresser l&apos;ensemble de notre chaîne de valeur.
             </p>
           </div>
 
@@ -350,7 +350,7 @@ export default function PfPurposePage() {
           <div className="relative flex flex-col lg:m-auto lg:max-w-[71.5rem] lg:min-h-[42.5rem] lg:flex-row lg:justify-between lg:gap-10">
             <div className="flex shrink-0 flex-col items-center md:items-start lg:max-w-[28rem]">
               <h3 className="self-start text-2xl font-bold tracking-[-0.36px] md:mb-6 lg:mb-8 lg:text-[2rem]/10 lg:tracking-[-0.48px]">
-                2024 Highlights
+                Faits marquants 2025
               </h3>
               <fieldset className="flex flex-col md:gap-6 lg:gap-8">
                 {ACCORDION_ITEMS.map((item, i) => (
@@ -402,7 +402,7 @@ export default function PfPurposePage() {
                 rel="noopener noreferrer"
                 className="bg-primary-main text-common-white mx-auto mt-8 block w-full max-w-sm rounded-full px-8 py-4 text-center text-lg/6 font-semibold md:w-fit md:px-6 md:py-2 lg:mx-0 lg:mt-12 lg:px-8 lg:py-4"
               >
-                Read our 2024 ESG Report
+                Lire notre rapport ESG 2025
               </a>
             </div>
           </div>
@@ -413,7 +413,7 @@ export default function PfPurposePage() {
       <section className="bg-surface-gray">
         <div className="flex w-full flex-col px-6 py-16 lg:mx-auto lg:max-w-[90rem] lg:p-20 lg:px-[9.25rem] lg:pt-20">
           <h2 className="mb-6 text-center text-[2rem]/10 font-bold md:mb-8 lg:text-5xl/[3.5rem]">
-            Additional Reporting
+            Rapports complémentaires
           </h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {REPORTS.map(report => (
@@ -431,14 +431,13 @@ export default function PfPurposePage() {
             ))}
           </div>
           <div className="text-center">
-            <button className="text-primary-main mt-6 font-semibold underline lg:mt-8">Show More</button>
+            <button className="text-primary-main mt-6 font-semibold underline lg:mt-8">Afficher plus</button>
           </div>
           <p className="text-gray-dark mt-12 text-left text-sm/[1.125rem] lg:mt-16">
-            Please email{' '}
-            <a href="mailto:ESG@planetcsc.com" className="text-primary-main font-semibold underline">
-              ESG@planetcsc.com
-            </a>{' '}
-            with any questions or feedback.
+            Pour toute question ou retour, écris-nous à :{' '}
+            <a href="mailto:contact-esg@newyorkgym.com" className="text-primary-main font-semibold underline">
+              contact-esg@newyorkgym.com
+            </a>
           </p>
         </div>
       </section>

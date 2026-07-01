@@ -57,6 +57,8 @@ export function Footer() {
         { label: f.investorRelations, href: "http://investor.planetfitness.com/investors", external: true },
         { label: f.pfPurpose, href: "/pf-purpose" },
         { label: f.pfMediaNetwork, href: "/pf-media-network" },
+        { label: lang === "fr" ? "Pourquoi NY Gym" : "Why NY Gym", href: "/about-planet-fitness/why-planet-fitness" },
+        { label: lang === "fr" ? "Notre histoire" : "About NY Gym", href: "/about-planet-fitness" },
       ],
     },
     {

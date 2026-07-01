@@ -4,63 +4,21 @@ import { useState } from "react";
 import Link from "next/link";
 import { useLang, type Lang } from "@/lib/i18n";
 
+const trainingLinks = [
+  { label: "Coaching individuel", href: "/training-programs/personal" },
+  { label: "Entraînement en équipe", href: "/training-programs/team-training" },
+  { label: "REGYMEN", href: "/training-programs/regymen" },
+  { label: "HYROX Training Club", href: "/training-programs/hyrox" },
+  { label: "Craft Boxing", href: "/training-programs/craft-boxing" },
+  { label: "Fit-Fix", href: "/training-programs/fit-fix" },
+];
+
 export function Header() {
   const { t, lang, setLang } = useLang();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [trainingOpen, setTrainingOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const [accountOpen, setAccountOpen] = useState(false);
-  const [accountMobileOpen, setAccountMobileOpen] = useState(false);
-
-  const accountLinks = [
-    { label: "Tableau de bord — Offres", href: "/dashboard/deals-dashboard" },
-    { label: "Tableau de bord — Leads", href: "/dashboard/leads-dashboard" },
-    { label: "Paiements", href: "/dashboard/payments" },
-    { label: "Contacts", href: "/dashboard/contacts" },
-    { label: "Plans d'adhésion", href: "/dashboard/membership-plans" },
-    { label: "Options d'adhésion", href: "/dashboard/membership-addons" },
-    { label: "Transactions", href: "/dashboard/membership-transactions" },
-  ];
-
-  const navItems = [
-    { label: "Adhésions", href: "/gym-memberships" },
-    { label: "Clubs", href: "/our-clubs" },
-    { label: "Cours collectifs", href: "/cours-collectifs" },
-    {
-      label: "Entraînement",
-      dropdown: [
-        { label: "Programmes d'entraînement", href: "/training-programs" },
-        { label: "À la demande", href: "/training-programs/a-la-demande" },
-        { label: "Performance", href: "/training-programs/performance" },
-        { label: "Application NY Gym", href: "/mobileapp" },
-      ],
-    },
-    {
-      label: "À propos",
-      dropdown: [
-        { label: "Pourquoi NY Gym", href: "/about-planet-fitness/why-planet-fitness" },
-        { label: "Notre histoire", href: "/about-planet-fitness" },
-        { label: "Notre mission", href: "/pf-purpose" },
-      ],
-    },
-    { label: "Blog", href: "/blog" },
-    { label: "Boutique", href: "https://shop.planetfitness.com/", external: true },
-  ];
-
-  const mobileLinks = [
-    { label: "Adhésions", href: "/gym-memberships" },
-    { label: "Clubs", href: "/our-clubs" },
-    { label: "Cours collectifs", href: "/cours-collectifs" },
-    { label: "Programmes d'entraînement", href: "/training-programs" },
-    { label: "À la demande", href: "/training-programs/a-la-demande" },
-    { label: "Performance", href: "/training-programs/performance" },
-    { label: "Application NY Gym", href: "/mobileapp" },
-    { label: "Pourquoi NY Gym", href: "/about-planet-fitness/why-planet-fitness" },
-    { label: "Notre histoire", href: "/about-planet-fitness" },
-    { label: "Notre mission", href: "/pf-purpose" },
-    { label: "Blog", href: "/blog" },
-    { label: "Boutique", href: "https://shop.planetfitness.com/", external: true },
-  ];
+  const [mobileTrainingOpen, setMobileTrainingOpen] = useState(false);
 
   const langOptions: { value: Lang; flag: string; label: string }[] = [
     { value: "fr", flag: "/images/flags/ca.svg", label: "Français" },
@@ -87,77 +45,79 @@ export function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden header-lg:flex items-center gap-0">
-            {navItems.map((item) => {
-              if ("dropdown" in item && item.dropdown) {
-                const isOpen = openDropdown === item.label;
-                return (
-                  <div
-                    key={item.label}
-                    className="relative"
-                    onMouseEnter={() => setOpenDropdown(item.label)}
-                    onMouseLeave={() => setOpenDropdown(null)}
-                  >
-                    <button
-                      className={`flex items-center gap-1.5 h-14 px-4 text-base font-medium transition-colors ${
-                        isOpen
-                          ? "text-primary-main bg-surface-gray"
-                          : "text-common-black hover:bg-surface-gray hover:text-primary-main"
-                      }`}
-                    >
-                      {item.label}
-                      <ChevronIcon open={isOpen} />
-                    </button>
-                    {isOpen && (
-                      <div
-                        className="absolute top-full left-0 min-w-[220px] bg-white border border-border shadow-md z-50"
-                        style={{ borderRadius: "0 0 8px 8px" }}
-                      >
-                        {item.dropdown.map((sub) => (
-                          <Link
-                            key={sub.href}
-                            href={sub.href}
-                            className="block px-6 py-4 text-base text-common-black hover:text-primary-main transition-colors border-b border-border last:border-0"
-                            onClick={() => setOpenDropdown(null)}
-                          >
-                            {sub.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              }
+            <Link href="/gym-memberships" className="flex items-center h-14 px-4 text-base font-medium text-common-black hover:bg-surface-gray hover:text-primary-main transition-colors">
+              Adhésions
+            </Link>
+            <Link href="/our-clubs" className="flex items-center h-14 px-4 text-base font-medium text-common-black hover:bg-surface-gray hover:text-primary-main transition-colors">
+              Clubs
+            </Link>
+            <Link href="/cours-collectifs" className="flex items-center h-14 px-4 text-base font-medium text-common-black hover:bg-surface-gray hover:text-primary-main transition-colors">
+              Cours collectifs
+            </Link>
 
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href!}
-                  className="flex items-center gap-1 h-14 px-4 text-base font-medium text-common-black hover:bg-surface-gray hover:text-primary-main transition-colors"
-                  {...("external" in item && item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            {/* Entraînement dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setTrainingOpen(true)}
+              onMouseLeave={() => setTrainingOpen(false)}
+            >
+              <button
+                className={`flex items-center gap-1.5 h-14 px-4 text-base font-medium transition-colors ${
+                  trainingOpen
+                    ? "text-primary-main bg-surface-gray"
+                    : "text-common-black hover:bg-surface-gray hover:text-primary-main"
+                }`}
+              >
+                Entraînement
+                <ChevronIcon open={trainingOpen} />
+              </button>
+              {trainingOpen && (
+                <div
+                  className="absolute top-full left-0 min-w-[220px] bg-white border border-border shadow-md z-50"
+                  style={{ borderRadius: "0 0 8px 8px" }}
                 >
-                  {item.label}
-                  {"external" in item && item.external && (
-                    <img src="/images/icons/ExternalLink.svg" alt="" className="w-4 h-4" />
-                  )}
-                </Link>
-              );
-            })}
+                  {trainingLinks.map((sub) => (
+                    <Link
+                      key={sub.href}
+                      href={sub.href}
+                      className="block px-6 py-4 text-base text-common-black hover:text-primary-main transition-colors border-b border-border last:border-0"
+                      onClick={() => setTrainingOpen(false)}
+                    >
+                      {sub.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link href="/blog" className="flex items-center h-14 px-4 text-base font-medium text-common-black hover:bg-surface-gray hover:text-primary-main transition-colors">
+              Blog
+            </Link>
           </nav>
 
-          {/* Right actions */}
+          {/* Right zone */}
           <div className="flex items-center gap-1">
-            {/* Language switcher */}
+
+            {/* Boutique */}
+            <a
+              href="https://shop.planetfitness.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden header-lg:flex items-center gap-1 h-14 px-4 text-base font-medium text-common-black hover:bg-surface-gray hover:text-primary-main transition-colors"
+            >
+              Boutique
+              <img src="/images/icons/ExternalLink.svg" alt="" className="w-4 h-4" />
+            </a>
+
+            {/* Language — flag only */}
             <div
               className="relative hidden header-lg:block"
               onMouseEnter={() => setLangOpen(true)}
               onMouseLeave={() => setLangOpen(false)}
             >
-              <button className="flex items-center gap-1.5 px-4 h-14 text-base text-common-black hover:bg-surface-gray transition-colors">
+              <button className="flex items-center justify-center w-12 h-14 hover:bg-surface-gray transition-colors">
                 <img src={currentLang.flag} alt={currentLang.label} className="w-5 h-5" />
-                <span>{currentLang.label}</span>
-                <ChevronIcon open={langOpen} />
               </button>
-
               {langOpen && (
                 <div
                   className="absolute top-full right-0 min-w-[160px] bg-white border border-border shadow-md z-50"
@@ -181,43 +141,16 @@ export function Header() {
               )}
             </div>
 
-            {/* My Account */}
-            <div
-              className="relative hidden header-lg:block"
-              onMouseEnter={() => setAccountOpen(true)}
-              onMouseLeave={() => setAccountOpen(false)}
+            {/* Mon compte — icon only */}
+            <Link
+              href="/dashboard/leads-dashboard"
+              className="hidden header-lg:flex items-center justify-center w-12 h-14 hover:bg-surface-gray transition-colors"
+              aria-label="Mon compte"
             >
-              <button
-                className={`flex items-center gap-2 px-4 h-14 text-base transition-colors ${
-                  accountOpen
-                    ? "text-primary-main bg-surface-gray"
-                    : "text-common-black hover:bg-surface-gray hover:text-primary-main"
-                }`}
-              >
-                <img src="/images/icons/SignIn.svg" alt="" className="w-6 h-6" />
-                <span>{t.nav.myAccount}</span>
-                <ChevronIcon open={accountOpen} />
-              </button>
-              {accountOpen && (
-                <div
-                  className="absolute top-full right-0 min-w-[240px] bg-white border border-border shadow-md z-50"
-                  style={{ borderRadius: "0 0 8px 8px" }}
-                >
-                  {accountLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="block px-6 py-3.5 text-sm text-common-black hover:text-primary-main hover:bg-surface-gray transition-colors border-b border-border last:border-0"
-                      onClick={() => setAccountOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+              <img src="/images/icons/SignIn.svg" alt="" className="w-6 h-6" />
+            </Link>
 
-            {/* Join Now */}
+            {/* CTA */}
             <Link
               href="/gyms"
               className="bg-primary-main text-white rounded-full px-6 h-12 header-lg:h-14 flex items-center font-bold text-lg ml-2"
@@ -250,39 +183,33 @@ export function Header() {
           </div>
 
           <nav className="flex flex-col px-6 py-2">
-            {mobileLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-lg text-common-black py-4 border-b border-border flex items-center gap-2"
-                onClick={() => setMenuOpen(false)}
-                {...("external" in link && link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              >
-                {link.label}
-                {"external" in link && link.external && (
-                  <img src="/images/icons/ExternalLink.svg" alt="" className="w-4 h-4" />
-                )}
-              </Link>
-            ))}
+            <Link href="/gym-memberships" className="text-lg text-common-black py-4 border-b border-border" onClick={() => setMenuOpen(false)}>
+              Adhésions
+            </Link>
+            <Link href="/our-clubs" className="text-lg text-common-black py-4 border-b border-border" onClick={() => setMenuOpen(false)}>
+              Clubs
+            </Link>
+            <Link href="/cours-collectifs" className="text-lg text-common-black py-4 border-b border-border" onClick={() => setMenuOpen(false)}>
+              Cours collectifs
+            </Link>
+
+            {/* Entraînement accordion */}
             <div className="border-b border-border">
               <button
-                className="w-full text-lg text-common-black py-4 flex items-center gap-2"
-                onClick={() => setAccountMobileOpen((v) => !v)}
+                className="w-full text-lg text-common-black py-4 flex items-center justify-between"
+                onClick={() => setMobileTrainingOpen((v) => !v)}
               >
-                <img src="/images/icons/SignIn.svg" alt="" className="w-5 h-5" />
-                {t.nav.myAccount}
-                <span className="ml-auto">
-                  <ChevronIcon open={accountMobileOpen} />
-                </span>
+                Entraînement
+                <ChevronIcon open={mobileTrainingOpen} />
               </button>
-              {accountMobileOpen && (
-                <div className="pl-7 pb-2 flex flex-col gap-1">
-                  {accountLinks.map((link) => (
+              {mobileTrainingOpen && (
+                <div className="pl-4 pb-2 flex flex-col">
+                  {trainingLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
                       className="text-base text-gray-medium hover:text-primary-main py-2 border-b border-border last:border-0 block"
-                      onClick={() => { setMenuOpen(false); setAccountMobileOpen(false); }}
+                      onClick={() => { setMenuOpen(false); setMobileTrainingOpen(false); }}
                     >
                       {link.label}
                     </Link>
@@ -290,6 +217,21 @@ export function Header() {
                 </div>
               )}
             </div>
+
+            <Link href="/blog" className="text-lg text-common-black py-4 border-b border-border" onClick={() => setMenuOpen(false)}>
+              Blog
+            </Link>
+
+            <a
+              href="https://shop.planetfitness.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lg text-common-black py-4 border-b border-border flex items-center gap-2"
+              onClick={() => setMenuOpen(false)}
+            >
+              Boutique
+              <img src="/images/icons/ExternalLink.svg" alt="" className="w-4 h-4" />
+            </a>
 
             {/* Mobile language switcher */}
             <div className="flex gap-3 py-4 border-b border-border">
@@ -306,6 +248,15 @@ export function Header() {
                 </button>
               ))}
             </div>
+
+            <Link
+              href="/dashboard/leads-dashboard"
+              className="text-lg text-common-black py-4 border-b border-border flex items-center gap-2"
+              onClick={() => setMenuOpen(false)}
+            >
+              <img src="/images/icons/SignIn.svg" alt="" className="w-5 h-5" />
+              Mon compte
+            </Link>
           </nav>
 
           <div className="px-6 mt-4 pb-8">

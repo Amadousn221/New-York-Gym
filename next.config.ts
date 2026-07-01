@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "downloads.ctfassets.net" },
       { protocol: "https", hostname: "assets.ctfassets.net" },
       { protocol: "https", hostname: "www.planetfitness.com" },
+      { protocol: "https", hostname: "www.goodlifefitness.com" },
     ],
   },
 };

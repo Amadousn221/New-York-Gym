@@ -50,7 +50,7 @@ export function HeroSection() {
         <div className="hidden lg:block w-[280px] xl:w-[320px] self-stretch flex-shrink-0">
           <img
             src="/images/hero-promo-bg.webp"
-            alt="Join Planet Fitness!"
+            alt="Rejoins le club dès aujourd'hui !"
             className="w-full h-full object-cover"
           />
         </div>

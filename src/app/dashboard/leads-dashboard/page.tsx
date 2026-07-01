@@ -22,13 +22,7 @@ interface Lead {
   status: 'Clôturé' | 'Contacté'
 }
 
-const leads: Lead[] = [
-  { name: 'Collins', company: 'NovaWave LLC', companyIcon: '/images/crm/company-icon-01.svg', phone: '+1 875455453', status: 'Clôturé' },
-  { name: 'Konopelski', company: 'BlueSky Industries', companyIcon: '/images/crm/company-icon-02.svg', phone: '+1 989757485', status: 'Clôturé' },
-  { name: 'Adams', company: 'Silver Hawk', companyIcon: '/images/crm/company-icon-03.svg', phone: '+1 546555455', status: 'Clôturé' },
-  { name: 'Schumm', company: 'Summit Peak', companyIcon: '/images/crm/company-icon-04.svg', phone: '+1 454478787', status: 'Contacté' },
-  { name: 'Wisozk', company: 'RiverStone Ltd', companyIcon: '/images/crm/company-icon-05.svg', phone: '+1 1245427875', status: 'Clôturé' },
-]
+const leads: Lead[] = []
 
 const pieSegments = [
   { color: BLUE, label: 'En pipeline', pct: 30 },
@@ -319,7 +313,13 @@ export default function LeadsDashboardPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {leads.map((lead, idx) => (
+                  {leads.length === 0 ? (
+                    <tr>
+                      <td colSpan={4} style={{ padding: '32px 16px', textAlign: 'center', color: TEXT_MID, fontSize: 14 }}>
+                        Aucun lead pour le moment.
+                      </td>
+                    </tr>
+                  ) : leads.map((lead, idx) => (
                     <tr key={idx} style={{ borderBottom: idx < leads.length - 1 ? `1px solid ${BORDER}` : 'none' }}>
                       <td style={{ padding: '10px 8px 10px 16px', fontSize: 14, color: TEXT_DARK, fontWeight: 500 }}>{lead.name}</td>
                       <td style={{ padding: '10px 8px', fontSize: 14, color: TEXT_MID }}>

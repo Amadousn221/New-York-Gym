@@ -2,17 +2,15 @@
 
 import { useState, useRef, useEffect, type CSSProperties } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import {
-  Filter, Search, List, LayoutGrid, Plus,
+  Filter, Search, LayoutGrid, List, Plus,
   Mail, Phone, Globe, MessageCircle, Paperclip,
   MoreVertical, Pencil, Trash2, Eye,
-  RefreshCw, Download, ChevronDown, Sparkles,
+  RefreshCw, Download, ChevronDown, X, Users,
 } from 'lucide-react'
 
 const ACCENT = '#E41F07'
 const SUCCESS = '#1ABE17'
-const WARNING = '#F9B801'
 const BORDER = 'rgb(226, 232, 240)'
 const BORDER_LIGHT = 'rgb(232, 232, 232)'
 const BG = '#F7F8F9'
@@ -20,31 +18,26 @@ const TEXT_DARK = 'rgb(31, 32, 32)'
 const TEXT_MID = 'rgb(112, 112, 112)'
 const SHADOW = 'rgba(219, 219, 219, 0.25) 0px 4px 4px 0px'
 
+const AVATAR_COLORS = [
+  { bg: '#1B2850', text: '#F59E0B' },
+  { bg: '#FF6B35', text: '#fff' },
+  { bg: '#2D9B6A', text: '#fff' },
+  { bg: '#4472CA', text: '#fff' },
+  { bg: '#6C3AFF', text: '#fff' },
+  { bg: '#E41F07', text: '#fff' },
+  { bg: '#F9B801', text: '#fff' },
+]
+
 interface Contact {
+  id: number
   name: string
   role: string
   email: string
   phone: string
   location: string
-  tags: Array<{ text: string; bg: string; color: string }>
-  avatar: string
-  secondAvatar: string
+  colorIdx: number
+  tags: string[]
 }
-
-const contacts: Contact[] = [
-  { name: 'Darlee Robertson', role: 'Facility Manager',   email: 'robertson@example.com', phone: '1234567890',    location: 'Germany',   tags: [{ text: 'Collab', bg: 'rgb(232,249,232)', color: 'rgb(26,190,23)' }, { text: 'VIP',   bg: 'rgb(254,248,230)', color: 'rgb(249,184,1)' }], avatar: '/images/crm/profiles/avatar-19.jpg', secondAvatar: '/images/crm/profiles/avatar-12.jpg' },
-  { name: 'Sharon Roy',       role: 'Installer',           email: 'sharon@example.com',    phone: '+1 989757485', location: '+1 989757485', tags: [{ text: 'Collab', bg: 'rgb(232,249,232)', color: 'rgb(26,190,23)' }, { text: 'Rated', bg: 'rgb(254,248,230)', color: 'rgb(249,184,1)' }], avatar: '/images/crm/profiles/avatar-20.jpg', secondAvatar: '/images/crm/profiles/avatar-08.jpg' },
-  { name: 'Vaughan Lewis',    role: 'Senior Manager',      email: 'vaughan12@example.com', phone: '+1 546555455', location: 'India',     tags: [{ text: 'Collab', bg: 'rgb(232,249,232)', color: 'rgb(26,190,23)' }, { text: 'Rated', bg: 'rgb(254,248,230)', color: 'rgb(249,184,1)' }], avatar: '/images/crm/profiles/avatar-21.jpg', secondAvatar: '/images/crm/profiles/avatar-09.jpg' },
-  { name: 'Jessica Louise',   role: 'Test Engineer',       email: 'jessica13@example.com', phone: '+1 454478787', location: 'India',     tags: [{ text: 'Collab', bg: 'rgb(232,249,232)', color: 'rgb(26,190,23)' }, { text: 'Rated', bg: 'rgb(254,248,230)', color: 'rgb(249,184,1)' }], avatar: '/images/crm/profiles/avatar-23.jpg', secondAvatar: '/images/crm/profiles/avatar-10.jpg' },
-  { name: 'Carol Thomas',     role: 'UI /UX Designer',     email: 'caroltho3@example.com', phone: '+1 124547845', location: 'China',     tags: [{ text: 'Collab', bg: 'rgb(232,249,232)', color: 'rgb(26,190,23)' }, { text: 'Rated', bg: 'rgb(254,248,230)', color: 'rgb(249,184,1)' }], avatar: '/images/crm/profiles/avatar-16.jpg', secondAvatar: '/images/crm/profiles/avatar-01.jpg' },
-  { name: 'Dawn Mercha',      role: 'Technician',          email: 'dawnmercha@example.com', phone: '+1 478845447', location: 'Martin Lewis', tags: [{ text: 'Collab', bg: 'rgb(232,249,232)', color: 'rgb(26,190,23)' }, { text: 'Rated', bg: 'rgb(254,248,230)', color: 'rgb(249,184,1)' }], avatar: '/images/crm/profiles/avatar-22.jpg', secondAvatar: '/images/crm/profiles/avatar-02.jpg' },
-  { name: 'Rachel Hampton',   role: 'Software Developer',  email: 'rachel@example.com',    phone: '+1 215544845', location: 'Indonesia', tags: [{ text: 'Collab', bg: 'rgb(232,249,232)', color: 'rgb(26,190,23)' }, { text: 'Rated', bg: 'rgb(254,248,230)', color: 'rgb(249,184,1)' }], avatar: '/images/crm/profiles/avatar-24.jpg', secondAvatar: '/images/crm/profiles/avatar-03.jpg' },
-  { name: 'Jonelle Curtiss',  role: 'Supervisor',          email: 'jonelle@example.com',   phone: '+1 121145471', location: 'Cuba',      tags: [{ text: 'Collab', bg: 'rgb(232,249,232)', color: 'rgb(26,190,23)' }, { text: 'Rated', bg: 'rgb(254,248,230)', color: 'rgb(249,184,1)' }], avatar: '/images/crm/profiles/avatar-25.jpg', secondAvatar: '/images/crm/profiles/avatar-04.jpg' },
-  { name: 'Jonathan Smith',   role: 'Team Lead Dev',       email: 'jonathan@example.com',  phone: '+1 321454789', location: 'Isreal',    tags: [{ text: 'Collab', bg: 'rgb(232,249,232)', color: 'rgb(26,190,23)' }, { text: 'Rated', bg: 'rgb(254,248,230)', color: 'rgb(249,184,1)' }], avatar: '/images/crm/profiles/avatar-26.jpg', secondAvatar: '/images/crm/profiles/avatar-05.jpg' },
-  { name: 'Brook Carter',     role: 'Team Lead Dev',       email: 'brook@example.com',     phone: '+1 278907145', location: 'Colombia',  tags: [{ text: 'Collab', bg: 'rgb(232,249,232)', color: 'rgb(26,190,23)' }, { text: 'Rated', bg: 'rgb(254,248,230)', color: 'rgb(249,184,1)' }], avatar: '/images/crm/profiles/avatar-01.jpg', secondAvatar: '/images/crm/profiles/avatar-06.jpg' },
-  { name: 'Eric Adams',       role: 'HR Manager',          email: 'ericadams@example.com', phone: '+1 19023-78104', location: 'France', tags: [{ text: 'Collab', bg: 'rgb(232,249,232)', color: 'rgb(26,190,23)' }, { text: 'Rated', bg: 'rgb(254,248,230)', color: 'rgb(249,184,1)' }], avatar: '/images/crm/profiles/avatar-06.jpg', secondAvatar: '/images/crm/profiles/avatar-06.jpg' },
-  { name: 'Richard Cooper',   role: 'Devops Engineer',     email: 'richard@example.com',   phone: '+1 18902-63904', location: 'Belgium', tags: [{ text: 'Collab', bg: 'rgb(232,249,232)', color: 'rgb(26,190,23)' }, { text: 'Rated', bg: 'rgb(254,248,230)', color: 'rgb(249,184,1)' }], avatar: '/images/crm/profiles/avatar-05.jpg', secondAvatar: '/images/crm/profiles/avatar-07.jpg' },
-]
 
 const toolbarBtn: CSSProperties = {
   display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -54,11 +47,27 @@ const toolbarBtn: CSSProperties = {
   boxShadow: SHADOW, fontFamily: '"Golos Text", sans-serif',
 }
 
+const inputStyle: CSSProperties = {
+  width: '100%', padding: '8px 12px', fontSize: 14,
+  border: `0.67px solid ${BORDER}`, borderRadius: 5,
+  color: TEXT_DARK, backgroundColor: '#fff',
+  outline: 'none', fontFamily: '"Golos Text", sans-serif',
+}
+
+const labelStyle: CSSProperties = {
+  display: 'block', fontSize: 13, color: TEXT_MID, marginBottom: 4, fontWeight: 500,
+}
+
 export default function ContactsPage() {
+  const [contacts, setContacts] = useState<Contact[]>([])
   const [search, setSearch] = useState('')
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
+  const [showModal, setShowModal] = useState(false)
+  const [editing, setEditing] = useState<Contact | null>(null)
+  const [form, setForm] = useState({ name: '', role: '', email: '', phone: '', location: '', tags: '' })
   const [openMenu, setOpenMenu] = useState<number | null>(null)
   const menuRef = useRef<HTMLDivElement>(null)
+  const nextId = useRef(1)
 
   useEffect(() => {
     function handler(e: MouseEvent) {
@@ -67,6 +76,44 @@ export default function ContactsPage() {
     document.addEventListener('mousedown', handler)
     return () => document.removeEventListener('mousedown', handler)
   }, [])
+
+  function openAdd() {
+    setEditing(null)
+    setForm({ name: '', role: '', email: '', phone: '', location: '', tags: '' })
+    setShowModal(true)
+  }
+
+  function openEdit(contact: Contact) {
+    setEditing(contact)
+    setForm({ name: contact.name, role: contact.role, email: contact.email, phone: contact.phone, location: contact.location, tags: contact.tags.join(', ') })
+    setOpenMenu(null)
+    setShowModal(true)
+  }
+
+  function save() {
+    if (!form.name.trim()) return
+    const tags = form.tags.split(',').map(t => t.trim()).filter(Boolean)
+    if (editing) {
+      setContacts(prev => prev.map(c => c.id === editing.id ? { ...c, ...form, tags } : c))
+    } else {
+      setContacts(prev => [...prev, {
+        id: nextId.current++,
+        name: form.name,
+        role: form.role,
+        email: form.email,
+        phone: form.phone,
+        location: form.location,
+        colorIdx: prev.length % AVATAR_COLORS.length,
+        tags,
+      }])
+    }
+    setShowModal(false)
+  }
+
+  function deleteContact(id: number) {
+    setContacts(prev => prev.filter(c => c.id !== id))
+    setOpenMenu(null)
+  }
 
   const filtered = contacts.filter(c =>
     search === '' ||
@@ -79,19 +126,13 @@ export default function ContactsPage() {
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
 
       {/* Page header */}
-      <div style={{
-        backgroundColor: '#fff', borderBottom: `1px solid ${BORDER}`,
-        padding: '14px 24px', display: 'flex', alignItems: 'center',
-        justifyContent: 'space-between', flexWrap: 'wrap', gap: 8,
-      }}>
+      <div style={{ backgroundColor: '#fff', borderBottom: `1px solid ${BORDER}`, padding: '14px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <h1 style={{ fontSize: 20, fontWeight: 700, color: TEXT_DARK, margin: 0, lineHeight: '24px' }}>Contacts</h1>
-            <span style={{
-              backgroundColor: 'rgb(252, 233, 230)', color: ACCENT,
-              fontSize: 12, fontWeight: 600, padding: '5px 6px',
-              borderRadius: 6,
-            }}>125</span>
+            <h1 style={{ fontSize: 20, fontWeight: 700, color: TEXT_DARK, margin: 0 }}>Contacts</h1>
+            <span style={{ backgroundColor: 'rgb(252, 233, 230)', color: ACCENT, fontSize: 12, fontWeight: 600, padding: '3px 8px', borderRadius: 6 }}>
+              {contacts.length}
+            </span>
           </div>
           <nav style={{ marginTop: 4 }}>
             <ol style={{ display: 'flex', alignItems: 'center', gap: 6, margin: 0, padding: 0, listStyle: 'none' }}>
@@ -122,11 +163,7 @@ export default function ContactsPage() {
               Filtrer
               <ChevronDown size={13} color={TEXT_MID} />
             </button>
-            <div style={{
-              display: 'flex', alignItems: 'center', gap: 8,
-              border: `0.67px solid ${BORDER_LIGHT}`, borderRadius: 5,
-              padding: '7px 12px', backgroundColor: '#fff', boxShadow: SHADOW,
-            }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, border: `0.67px solid ${BORDER_LIGHT}`, borderRadius: 5, padding: '7px 12px', backgroundColor: '#fff', boxShadow: SHADOW }}>
               <Search size={14} color={TEXT_MID} />
               <input
                 value={search}
@@ -138,204 +175,163 @@ export default function ContactsPage() {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            {/* View toggle */}
             <div style={{ display: 'flex', border: `0.67px solid ${BORDER}`, borderRadius: 5, overflow: 'hidden' }}>
-              <button
-                onClick={() => setViewMode('list')}
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, border: 'none', cursor: 'pointer', backgroundColor: viewMode === 'list' ? 'rgb(232,249,232)' : '#fff', color: viewMode === 'list' ? SUCCESS : TEXT_MID, transition: 'background 0.15s' }}
-              >
+              <button onClick={() => setViewMode('list')} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, border: 'none', cursor: 'pointer', backgroundColor: viewMode === 'list' ? 'rgb(232,249,232)' : '#fff', color: viewMode === 'list' ? SUCCESS : TEXT_MID }}>
                 <List size={16} />
               </button>
-              <button
-                onClick={() => setViewMode('grid')}
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, border: 'none', cursor: 'pointer', backgroundColor: viewMode === 'grid' ? ACCENT : '#fff', color: viewMode === 'grid' ? '#fff' : TEXT_MID, transition: 'background 0.15s' }}
-              >
+              <button onClick={() => setViewMode('grid')} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, border: 'none', cursor: 'pointer', backgroundColor: viewMode === 'grid' ? ACCENT : '#fff', color: viewMode === 'grid' ? '#fff' : TEXT_MID }}>
                 <LayoutGrid size={16} />
               </button>
             </div>
-
-            {/* Add Contacts */}
-            <button style={{
-              display: 'inline-flex', alignItems: 'center', gap: 6,
-              backgroundColor: ACCENT, color: '#fff', border: 'none',
-              borderRadius: 5, padding: '8px 14px', fontSize: 14,
-              cursor: 'pointer', fontWeight: 500, whiteSpace: 'nowrap',
-              fontFamily: '"Golos Text", sans-serif',
-            }}>
+            <button onClick={openAdd} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, backgroundColor: ACCENT, color: '#fff', border: 'none', borderRadius: 5, padding: '8px 14px', fontSize: 14, cursor: 'pointer', fontWeight: 500, fontFamily: '"Golos Text", sans-serif' }}>
               <Plus size={16} />
               Ajouter un contact
             </button>
           </div>
         </div>
 
-        {/* Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: 20,
-        }}>
-          {filtered.map((contact, idx) => (
-            <ContactCard
-              key={idx}
-              contact={contact}
-              menuOpen={openMenu === idx}
-              onMenuToggle={() => setOpenMenu(openMenu === idx ? null : idx)}
-              menuRef={openMenu === idx ? menuRef : undefined}
-            />
-          ))}
-        </div>
+        {/* Empty state */}
+        {filtered.length === 0 && (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '80px 24px', color: TEXT_MID }}>
+            <Users size={48} color={BORDER} />
+            <p style={{ marginTop: 16, fontSize: 16, fontWeight: 600, color: TEXT_DARK }}>Aucun contact</p>
+            <p style={{ margin: '4px 0 20px', fontSize: 14 }}>
+              {search ? 'Aucun résultat pour cette recherche.' : 'Ajoutez votre premier contact pour commencer.'}
+            </p>
+            {!search && (
+              <button onClick={openAdd} style={{ display: 'inline-flex', alignItems: 'center', gap: 6, backgroundColor: ACCENT, color: '#fff', border: 'none', borderRadius: 5, padding: '10px 20px', fontSize: 14, cursor: 'pointer', fontWeight: 500 }}>
+                <Plus size={16} />
+                Ajouter un contact
+              </button>
+            )}
+          </div>
+        )}
 
-        {/* Load More */}
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 32 }}>
-          <button style={{
-            display: 'inline-flex', alignItems: 'center', gap: 8,
-            backgroundColor: ACCENT, color: '#fff', border: 'none',
-            borderRadius: 5, padding: '10px 24px', fontSize: 14,
-            cursor: 'pointer', fontWeight: 500,
-            fontFamily: '"Golos Text", sans-serif',
-          }}>
-            <Sparkles size={15} />
-            Charger plus
-          </button>
-        </div>
+        {/* Grid */}
+        {filtered.length > 0 && (
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 20 }}>
+            {filtered.map((contact, idx) => {
+              const ac = AVATAR_COLORS[contact.colorIdx]
+              const isMenuOpen = openMenu === contact.id
+              return (
+                <div key={contact.id} style={{ backgroundColor: '#fff', border: `0.67px solid ${BORDER}`, borderRadius: 5, display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ padding: '15px 15px 12px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 10 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
+                      <div style={{ width: 40, height: 40, borderRadius: '50%', flexShrink: 0, backgroundColor: ac.bg, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, fontWeight: 700, color: ac.text }}>
+                        {contact.name.charAt(0).toUpperCase()}
+                      </div>
+                      <div style={{ minWidth: 0 }}>
+                        <div style={{ fontSize: 14, fontWeight: 600, color: TEXT_DARK, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{contact.name}</div>
+                        <div style={{ fontSize: 12, color: TEXT_MID, marginTop: 2 }}>{contact.role || '—'}</div>
+                      </div>
+                    </div>
+                    <div style={{ position: 'relative', flexShrink: 0 }} ref={isMenuOpen ? menuRef : undefined}>
+                      <button onClick={() => setOpenMenu(isMenuOpen ? null : contact.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, display: 'flex', color: TEXT_MID, borderRadius: 4 }}>
+                        <MoreVertical size={16} />
+                      </button>
+                      {isMenuOpen && (
+                        <div style={{ position: 'absolute', right: 0, top: '100%', zIndex: 30, backgroundColor: '#fff', border: `1px solid ${BORDER}`, borderRadius: 6, boxShadow: '0 4px 12px rgba(0,0,0,0.1)', minWidth: 130, overflow: 'hidden' }}>
+                          <button onClick={() => openEdit(contact)} style={menuItem(false)}>
+                            <Pencil size={13} /> Modifier
+                          </button>
+                          <button onClick={() => deleteContact(contact.id)} style={menuItem(true)}>
+                            <Trash2 size={13} /> Supprimer
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <div style={{ height: 1, backgroundColor: BORDER, margin: '0 15px' }} />
+
+                  <div style={{ padding: '12px 15px' }}>
+                    {[
+                      { icon: Mail, text: contact.email || '—' },
+                      { icon: Phone, text: contact.phone || '—' },
+                      { icon: Globe, text: contact.location || '—' },
+                    ].map((row, i) => (
+                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+                        <row.icon size={13} color={TEXT_MID} />
+                        <span style={{ fontSize: 13, color: TEXT_MID, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{row.text}</span>
+                      </div>
+                    ))}
+                    {contact.tags.length > 0 && (
+                      <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 4 }}>
+                        {contact.tags.map(tag => (
+                          <span key={tag} style={{ fontSize: 12, fontWeight: 500, backgroundColor: 'rgb(232,249,232)', color: SUCCESS, padding: '4px 8px', borderRadius: 6 }}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div style={{ height: 1, backgroundColor: BORDER, margin: '0 15px' }} />
+
+                  <div style={{ padding: '10px 15px', display: 'flex', alignItems: 'center', gap: 12 }}>
+                    {[Mail, Phone, MessageCircle, Paperclip].map((Icon, i) => (
+                      <button key={i} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', color: TEXT_MID }}>
+                        <Icon size={15} />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )}
       </div>
+
+      {/* Modal Add/Edit */}
+      {showModal && (
+        <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.4)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}>
+          <div style={{ backgroundColor: '#fff', borderRadius: 8, width: '100%', maxWidth: 480, boxShadow: '0 8px 32px rgba(0,0,0,0.18)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '16px 20px', borderBottom: `1px solid ${BORDER}` }}>
+              <span style={{ fontSize: 16, fontWeight: 600, color: TEXT_DARK }}>{editing ? 'Modifier le contact' : 'Nouveau contact'}</span>
+              <button onClick={() => setShowModal(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: TEXT_MID, display: 'flex' }}>
+                <X size={20} />
+              </button>
+            </div>
+            <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: 14 }}>
+              {([
+                { key: 'name', label: 'Nom *', placeholder: 'Jean Dupont' },
+                { key: 'role', label: 'Rôle', placeholder: 'Responsable commercial' },
+                { key: 'email', label: 'Email', placeholder: 'jean@exemple.com' },
+                { key: 'phone', label: 'Téléphone', placeholder: '+33 6 00 00 00 00' },
+                { key: 'location', label: 'Localisation', placeholder: 'Paris, France' },
+                { key: 'tags', label: 'Tags (séparés par virgule)', placeholder: 'VIP, Prioritaire' },
+              ] as { key: keyof typeof form; label: string; placeholder: string }[]).map(field => (
+                <div key={field.key}>
+                  <label style={labelStyle}>{field.label}</label>
+                  <input
+                    value={form[field.key]}
+                    onChange={e => setForm(prev => ({ ...prev, [field.key]: e.target.value }))}
+                    placeholder={field.placeholder}
+                    style={inputStyle}
+                  />
+                </div>
+              ))}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8, padding: '12px 20px', borderTop: `1px solid ${BORDER}` }}>
+              <button onClick={() => setShowModal(false)} style={{ padding: '8px 16px', borderRadius: 5, fontSize: 13, cursor: 'pointer', backgroundColor: BG, color: TEXT_DARK, border: `1px solid ${BORDER}`, fontFamily: '"Golos Text", sans-serif' }}>
+                Annuler
+              </button>
+              <button onClick={save} style={{ padding: '8px 16px', borderRadius: 5, fontSize: 13, cursor: 'pointer', backgroundColor: ACCENT, color: '#fff', border: 'none', fontWeight: 500, fontFamily: '"Golos Text", sans-serif' }}>
+                {editing ? 'Enregistrer' : 'Créer'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
 
-function ContactCard({
-  contact, menuOpen, onMenuToggle, menuRef,
-}: {
-  contact: Contact
-  menuOpen: boolean
-  onMenuToggle: () => void
-  menuRef?: React.RefObject<HTMLDivElement | null>
-}) {
-  return (
-    <div style={{
-      backgroundColor: '#fff', border: `0.67px solid ${BORDER}`,
-      borderRadius: 5, overflow: 'visible', display: 'flex', flexDirection: 'column',
-    }}>
-      {/* Card header */}
-      <div style={{ padding: '15px 15px 12px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 10 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, minWidth: 0 }}>
-          <div style={{ width: 40, height: 40, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, backgroundColor: '#E8E8E8' }}>
-            <Image
-              src={contact.avatar}
-              alt={contact.name}
-              width={40}
-              height={40}
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-          </div>
-          <div style={{ minWidth: 0 }}>
-            <div style={{ fontSize: 14, fontWeight: 600, color: TEXT_DARK, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              {contact.name}
-            </div>
-            <div style={{ fontSize: 12, color: TEXT_MID, marginTop: 2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              {contact.role}
-            </div>
-          </div>
-        </div>
-
-        {/* Three-dot menu */}
-        <div style={{ position: 'relative', flexShrink: 0 }} ref={menuRef}>
-          <button
-            onClick={onMenuToggle}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, display: 'flex', color: TEXT_MID, borderRadius: 4 }}
-          >
-            <MoreVertical size={16} />
-          </button>
-          {menuOpen && (
-            <div style={{
-              position: 'absolute', right: 0, top: '100%', zIndex: 30,
-              backgroundColor: '#fff', border: `1px solid ${BORDER}`,
-              borderRadius: 6, boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-              minWidth: 120, overflow: 'hidden',
-            }}>
-              {[
-                { icon: Pencil, label: 'Modifier' },
-                { icon: Trash2, label: 'Supprimer', danger: true },
-                { icon: Eye, label: 'Aperçu' },
-              ].map(item => (
-                <button
-                  key={item.label}
-                  style={{
-                    display: 'flex', alignItems: 'center', gap: 8,
-                    width: '100%', padding: '8px 14px', background: 'none', border: 'none',
-                    fontSize: 13, color: item.danger ? ACCENT : TEXT_DARK,
-                    cursor: 'pointer', textAlign: 'left', fontFamily: '"Golos Text", sans-serif',
-                  }}
-                >
-                  <item.icon size={13} />
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Divider */}
-      <div style={{ height: 1, backgroundColor: BORDER, margin: '0 15px' }} />
-
-      {/* Info */}
-      <div style={{ padding: '12px 15px' }}>
-        {[
-          { icon: Mail, text: contact.email },
-          { icon: Phone, text: contact.phone },
-          { icon: Globe, text: contact.location },
-        ].map(row => (
-          <div key={row.text} style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-            <row.icon size={13} color={TEXT_MID} style={{ flexShrink: 0 }} />
-            <span style={{ fontSize: 13, color: TEXT_MID, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-              {row.text}
-            </span>
-          </div>
-        ))}
-
-        {/* Tags */}
-        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 4 }}>
-          {contact.tags.map(tag => (
-            <span
-              key={tag.text}
-              style={{
-                fontSize: 12, fontWeight: 500,
-                backgroundColor: tag.bg, color: tag.color,
-                padding: '5px 6px', borderRadius: 6,
-              }}
-            >
-              {tag.text}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Divider */}
-      <div style={{ height: 1, backgroundColor: BORDER, margin: '0 15px' }} />
-
-      {/* Action footer */}
-      <div style={{ padding: '10px 15px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          {[Mail, Phone, MessageCircle, Paperclip].map((Icon, i) => (
-            <button
-              key={i}
-              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', color: TEXT_MID, transition: 'color 0.15s' }}
-            >
-              <Icon size={15} />
-            </button>
-          ))}
-        </div>
-        <div style={{ width: 30, height: 30, borderRadius: '50%', overflow: 'hidden', backgroundColor: '#E8E8E8', flexShrink: 0 }}>
-          <Image
-            src={contact.secondAvatar}
-            alt="associated"
-            width={30}
-            height={30}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          />
-        </div>
-      </div>
-    </div>
-  )
+function menuItem(danger: boolean): CSSProperties {
+  return {
+    display: 'flex', alignItems: 'center', gap: 8,
+    width: '100%', padding: '8px 14px', background: 'none', border: 'none',
+    fontSize: 13, color: danger ? ACCENT : TEXT_DARK,
+    cursor: 'pointer', textAlign: 'left', fontFamily: '"Golos Text", sans-serif',
+  }
 }

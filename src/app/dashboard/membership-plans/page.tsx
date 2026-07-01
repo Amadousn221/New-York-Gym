@@ -112,7 +112,7 @@ export default function MembershipPlansPage() {
               backgroundColor: ACCENT, color: '#fff',
               fontSize: 11, fontWeight: 600, borderRadius: 4,
               padding: '1px 8px', lineHeight: '18px',
-            }}>152</span>
+            }}>{filtered.length}</span>
           </div>
           <p style={{ margin: '4px 0 0', fontSize: 13, color: TEXT_MID }}>
             <span style={{ color: TEXT_MID, cursor: 'pointer' }}>Accueil</span>

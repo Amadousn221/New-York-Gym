@@ -19,7 +19,7 @@ interface PromoCarouselProps {
   autoPlayInterval?: number;
 }
 
-const SLIDE_VW = 80;
+const SLIDE_VW = 86;
 const DRAG_THRESHOLD = 50;
 
 export function PromoCarousel({ slides, initialIndex = 0, autoPlayInterval = 5000 }: PromoCarouselProps) {
@@ -94,35 +94,37 @@ export function PromoCarousel({ slides, initialIndex = 0, autoPlayInterval = 500
           <div
             key={index}
             style={{ width: `${SLIDE_VW}vw`, flexShrink: 0 }}
-            className="flex flex-col md:flex-row items-center gap-6 md:gap-10 px-4 md:pl-36 md:pr-8 py-[62px] md:py-[70px]"
+            className="flex flex-col md:flex-row items-center gap-4 md:gap-10 px-3 md:pl-36 md:pr-8 pt-6 pb-4 md:py-[70px]"
           >
-            {/* Square image — LEFT */}
+            {/* Image card — matches PF style: large, thick purple ring, big rounded corners */}
             <div
-              className="flex-shrink-0 aspect-square rounded-3xl shadow-[0_0_0_5px_rgb(86,20,150)] w-[85%] md:w-[48%]"
+              className={cn(
+                "flex-shrink-0 aspect-square rounded-[28px] md:w-[48%]",
+                index === slides.length - 1 ? "w-full" : "w-[99%]"
+              )}
+              style={{ boxShadow: "0 0 0 5px rgb(86,20,150)", overflow: "hidden" }}
             >
-              <div className="w-full h-full rounded-3xl overflow-hidden">
-                <img
-                  src={slide.image}
-                  alt={slide.imageAlt}
-                  className="w-full h-full object-cover"
-                  draggable={false}
-                />
-              </div>
+              <img
+                src={slide.image}
+                alt={slide.imageAlt}
+                className="w-full h-full object-cover rounded-[24px]"
+                draggable={false}
+              />
             </div>
 
-            {/* Text content — RIGHT */}
-            <div className="flex flex-col flex-1 max-w-full md:max-w-[52%]">
+            {/* Text content */}
+            <div className="flex flex-col flex-1 max-w-full md:max-w-[52%] px-1 md:px-0">
               <h2
                 className={cn(
-                  "font-condensed text-[2rem]/none lg:text-5xl font-bold uppercase text-common-black mb-4"
+                  "font-condensed text-[2.1rem]/none md:text-4xl lg:text-5xl font-bold uppercase text-common-black mb-3"
                 )}
               >
                 {slide.title}
               </h2>
-              <p className="text-gray-dark text-lg/6 grow mb-0">{slide.description}</p>
+              <p className="text-gray-dark text-base/6 md:text-lg/6 grow mb-0">{slide.description}</p>
               <Link
                 href={slide.ctaHref}
-                className="bg-primary-main text-white mt-4 w-full rounded-full px-8 py-4 text-center font-semibold text-lg/6 md:w-auto md:self-start"
+                className="bg-primary-main text-white mt-4 w-full rounded-full px-8 py-4 text-center font-semibold text-base/6 md:text-lg/6 md:w-auto md:self-start"
                 draggable={false}
                 onClick={(e) => { if (hasDragged.current) e.preventDefault(); }}
               >
@@ -134,7 +136,7 @@ export function PromoCarousel({ slides, initialIndex = 0, autoPlayInterval = 500
       </div>
 
       {/* Controls */}
-      <div className="flex items-center justify-end pl-12 md:pl-36 pr-6 md:pr-8 mt-4">
+      <div className="flex items-center justify-end pl-4 md:pl-36 pr-4 md:pr-8 mt-2 md:mt-4">
         <button
           onClick={() => { prev(); resetAutoPlay(); }}
           className="size-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"

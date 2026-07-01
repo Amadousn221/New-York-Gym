@@ -30,16 +30,7 @@ interface Deal {
   status: string
 }
 
-const deals: Deal[] = [
-  { name: 'Abonnement Premium',  contact: 'Darlee Robertson', value: '$2,189', closeDate: '25 Sep 2025', owner: 'Jackson Inno',    status: 'Gagné'      },
-  { name: 'Licence Entreprise',  contact: 'Sharon Roy',        value: '$5,432', closeDate: '27 Sep 2025', owner: 'Guillory Hunt',   status: 'En cours'   },
-  { name: 'Contrat Annuel',      contact: 'Vaughan Lewis',     value: '$1,874', closeDate: '29 Sep 2025', owner: 'Abigail Clarke',  status: 'En attente' },
-  { name: 'Pack Marketing',      contact: 'Jessica Burns',     value: '$3,109', closeDate: '01 Oct 2025', owner: 'Carla Jenkins',   status: 'Perdu'      },
-  { name: 'Solution Cloud',      contact: 'Caroline Lacroix',  value: '$7,672', closeDate: '05 Oct 2025', owner: 'Jackson Inno',    status: 'Gagné'      },
-  { name: 'Formation équipe',    contact: 'Marcus Webb',       value: '$921',   closeDate: '10 Oct 2025', owner: 'Guillory Hunt',   status: 'En cours'   },
-  { name: 'Consulting 6 mois',   contact: 'Angela Foster',     value: '$4,589', closeDate: '15 Oct 2025', owner: 'Abigail Clarke',  status: 'Gagné'      },
-  { name: 'Support Premium',     contact: 'Derek Mills',       value: '$1,210', closeDate: '20 Oct 2025', owner: 'Carla Jenkins',   status: 'En attente' },
-]
+const deals: Deal[] = []
 
 const activities = [
   { initials: 'DR', color: PRIMARY,  bg: PRIMARY_LIGHTER, text: 'Darlee Robertson a créé le deal Abonnement Premium',     time: 'Il y a 1h' },
@@ -112,7 +103,7 @@ export default function DealsDashboardPage() {
           </div>
           <nav style={{ marginTop: 4 }}>
             <ol style={{ display: 'flex', alignItems: 'center', gap: 6, margin: 0, padding: 0, listStyle: 'none' }}>
-              <li><Link href="/crm" style={{ color: TEXT_MID, textDecoration: 'none', fontSize: 13 }}>Accueil</Link></li>
+              <li><Link href="/dashboard/leads-dashboard" style={{ color: TEXT_MID, textDecoration: 'none', fontSize: 13 }}>Accueil</Link></li>
               <li style={{ color: TEXT_MID, fontSize: 13 }}>›</li>
               <li style={{ color: TEXT_DARK, fontSize: 13 }}>Tableau de bord</li>
             </ol>
@@ -262,59 +253,66 @@ export default function DealsDashboardPage() {
             <span style={{ fontSize: 16, fontWeight: 600, color: TEXT_DARK }}>Deals récents</span>
             <button style={{ ...outlineBtn, color: PRIMARY, borderColor: PRIMARY }}>Voir tous les deals</button>
           </div>
-          <div style={{ overflowX: 'auto' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-              <thead>
-                <tr style={{ backgroundColor: BG }}>
-                  {['Nom du deal', 'Contact', 'Valeur', 'Date clôture', 'Propriétaire', 'Statut', 'Action'].map((col, i) => (
-                    <th key={col} style={thStyle}>
-                      {i < 6
-                        ? <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>{col}<ArrowUpDown size={13} color="#9ca3af" /></div>
-                        : col
-                      }
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {deals.map((row, idx) => (
-                  <tr key={idx} style={{ borderBottom: idx < deals.length - 1 ? `1px solid ${BORDER}` : 'none', backgroundColor: '#fff' }}>
-                    <td style={tdStyle}><span style={{ color: PRIMARY, fontWeight: 500 }}>{row.name}</span></td>
-                    <td style={tdStyle}>{row.contact}</td>
-                    <td style={tdStyle}><strong>{row.value}</strong></td>
-                    <td style={tdStyle}>{row.closeDate}</td>
-                    <td style={tdStyle}>{row.owner}</td>
-                    <td style={tdStyle}>
-                      <span style={{ ...statusStyle(row.status), fontSize: 12, fontWeight: 500, padding: '4px 8px', borderRadius: 6, display: 'inline-block' }}>
-                        {row.status}
-                      </span>
-                    </td>
-                    <td style={tdStyle}>
-                      <div style={{ position: 'relative' }} ref={openMenu === idx ? menuRef : undefined}>
-                        <button
-                          onClick={() => setOpenMenu(openMenu === idx ? null : idx)}
-                          style={{ background: 'none', border: 'none', cursor: 'pointer', color: TEXT_MID, padding: 4, display: 'flex' }}
-                        >
-                          <MoreVertical size={18} />
-                        </button>
-                        {openMenu === idx && (
-                          <div style={{
-                            position: 'absolute', right: 0, top: '100%', zIndex: 20,
-                            backgroundColor: '#fff', border: `1px solid ${BORDER}`,
-                            borderRadius: 6, boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-                            minWidth: 120, overflow: 'hidden',
-                          }}>
-                            <button style={dropdownItem} onClick={() => setOpenMenu(null)}><Pencil size={14} />Modifier</button>
-                            <button style={{ ...dropdownItem, color: DANGER }} onClick={() => setOpenMenu(null)}><Trash2 size={14} />Supprimer</button>
-                          </div>
-                        )}
-                      </div>
-                    </td>
+          {deals.length === 0 ? (
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '40px 24px', color: TEXT_MID }}>
+              <p style={{ fontSize: 15, fontWeight: 600, color: TEXT_DARK, margin: '0 0 4px' }}>Aucun deal</p>
+              <p style={{ fontSize: 14, margin: 0 }}>Les deals créés apparaîtront ici.</p>
+            </div>
+          ) : (
+            <div style={{ overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead>
+                  <tr style={{ backgroundColor: BG }}>
+                    {['Nom du deal', 'Contact', 'Valeur', 'Date clôture', 'Propriétaire', 'Statut', 'Action'].map((col, i) => (
+                      <th key={col} style={thStyle}>
+                        {i < 6
+                          ? <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>{col}<ArrowUpDown size={13} color="#9ca3af" /></div>
+                          : col
+                        }
+                      </th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {deals.map((row, idx) => (
+                    <tr key={idx} style={{ borderBottom: idx < deals.length - 1 ? `1px solid ${BORDER}` : 'none', backgroundColor: '#fff' }}>
+                      <td style={tdStyle}><span style={{ color: PRIMARY, fontWeight: 500 }}>{row.name}</span></td>
+                      <td style={tdStyle}>{row.contact}</td>
+                      <td style={tdStyle}><strong>{row.value}</strong></td>
+                      <td style={tdStyle}>{row.closeDate}</td>
+                      <td style={tdStyle}>{row.owner}</td>
+                      <td style={tdStyle}>
+                        <span style={{ ...statusStyle(row.status), fontSize: 12, fontWeight: 500, padding: '4px 8px', borderRadius: 6, display: 'inline-block' }}>
+                          {row.status}
+                        </span>
+                      </td>
+                      <td style={tdStyle}>
+                        <div style={{ position: 'relative' }} ref={openMenu === idx ? menuRef : undefined}>
+                          <button
+                            onClick={() => setOpenMenu(openMenu === idx ? null : idx)}
+                            style={{ background: 'none', border: 'none', cursor: 'pointer', color: TEXT_MID, padding: 4, display: 'flex' }}
+                          >
+                            <MoreVertical size={18} />
+                          </button>
+                          {openMenu === idx && (
+                            <div style={{
+                              position: 'absolute', right: 0, top: '100%', zIndex: 20,
+                              backgroundColor: '#fff', border: `1px solid ${BORDER}`,
+                              borderRadius: 6, boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                              minWidth: 120, overflow: 'hidden',
+                            }}>
+                              <button style={dropdownItem} onClick={() => setOpenMenu(null)}><Pencil size={14} />Modifier</button>
+                              <button style={{ ...dropdownItem, color: DANGER }} onClick={() => setOpenMenu(null)}><Trash2 size={14} />Supprimer</button>
+                            </div>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
 
           {/* Pagination */}
           <div style={{
